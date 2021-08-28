@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Nikita Gusarov</title>
+    <link>https://nikitagusarov.github.io/tags/web/</link>
+    <description>Recent content in Web on Nikita Gusarov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a website (part 1)</title>
+      <link>https://nikitagusarov.github.io/post/2021-08-28-website/</link>
+      <pubDate>Sat, 28 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2021-08-28-website/</guid>
+      <description>The idea to write this post (or rather a sequence of posts) appeared when I was attempting to deploy this website, mostly because of the difficulties I’ve encountered. So, today’s question is: how to deploy a simple static website with R?
+First of all, we should start with distinguishing two main steps in website production:
+Building website Deploying the results on the web  These two topics may be rather long to explain, that’s why I’d rather prefer to separate this post into several parts.</description>
+    </item>
+    
+  </channel>
+</rss>
