@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on My blog</title>
+    <title>Tags on Nikita Gusarov</title>
     <link>https://nikitagusarov.github.io/tags/</link>
-    <description>Recent content in Tags on My blog</description>
+    <description>Recent content in Tags on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://nikitagusarov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>scene</title>
-      <link>https://nikitagusarov.github.io/tags/scene/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Grenoble</title>
+      <link>https://nikitagusarov.github.io/tags/grenoble/</link>
+      <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nikitagusarov.github.io/tags/scene/</guid>
+      <guid>https://nikitagusarov.github.io/tags/grenoble/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Habits</title>
+      <link>https://nikitagusarov.github.io/tags/habits/</link>
+      <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/habits/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Information</title>
+      <link>https://nikitagusarov.github.io/tags/information/</link>
+      <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/information/</guid>
       <description></description>
     </item>
     

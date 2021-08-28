@@ -1,29 +1,59 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My blog</title>
+    <title>Welcome! on Nikita Gusarov</title>
     <link>https://nikitagusarov.github.io/</link>
-    <description>Recent content on My blog</description>
+    <description>Recent content in Welcome! on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><atom:link href="https://nikitagusarov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction</title>
+      <link>https://nikitagusarov.github.io/post/2021-08-26-introduction/</link>
+      <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2021-08-26-introduction/</guid>
+      <description>My name is Nikita Gusarov and I&amp;rsquo;m currently doing my Doctoral studies at the University Grenoble Alpes located in France.
+ My work is primarily focused on exploration of the performances of Discrete Choice Models (DCM) in modelling individual behaviour. This is a rather breathtaking topic, because of its interdisciplinary nature. I have to deal at the same time with different techniques from quite distant fields, among which:
+ Statistics Econometrics Machine Learning Combinatorics and Optimisation  As well as various behavioural theories, specific for several domains:</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://nikitagusarov.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/about/</guid>
+      <description>Centres of interest  Behavioural Theories Discrete Choice Modelling (DCM) Preference Studies Econometrics Machine Learning (ML) Numerical Optimisation System Administration Workflow Management   Research Projects Discrete Choice Modelling and Behavioural Sciences
+ &amp;ldquo;Comparison of discrete choice model performances in presence of heterogeneous preferences in population&amp;rdquo;, M2, Thesis &amp;ldquo;Study of the factors associated with the frequency of public transport use in Grenoble&amp;rdquo;, M2, Advanced econometrics &amp;ldquo;Identification of the network effects in the Discrete Choice Models&amp;rdquo;, M1, Thesis 2  Microeconomics</description>
+    </item>
+    
+    <item>
+      <title>Background</title>
+      <link>https://nikitagusarov.github.io/background/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/background/</guid>
+      <description> table th:first-of-type { width: 25%; } table th:nth-of-type(2) { width: 75%; }   Professional experience  2020 - now Grenoble Applied Economics Lab (GAEL), G-SCOP Laboratory, University Grenoble Alpes (UGA), Grenoble INP Exploration of Discrete choice Models performance metrics 2020 GAEL, Grenoble Informatics Laboratory (LIG), Multidisciplinary Institute in Artificial Intelligence (MIAI), UGA Consumer Choice and Preference Modelling with Discrete Choice Models 2019 GAEL, RESMOB IDEX, UGA Identification of network effects with Discrete Choice Models for individual decision making 2018 Analytics Centre of Russian Federation Government   Studies  2020 - now PhD in Economics at UGA, EDSE, CDD provided by UGA 2018 - 2020 Master in Economics at UGA, FEG, IDEX scholarship 2016 - 2018 Licence in Economics at UGA, FEG, IDEX scholarship 2014 - 2018 Bachelor in Economics at Russian Foreign Trade Academy (RFTA), Russian Federation state scholarship before - 2014 School 179 of Moscow Institute of Open Education, Natural Science profile   Languages  Russian Native speaker French (C1) DALF C1 (2018), DELF B2 (2018) English (C1) CAE C1 (2015), LCCI C1 (2016) Italian (B2) Universita per Stragnieri di Perugia certificate C1 (2017) Spanish (B1) No official grading certificate Latin (A2) No official grading certificate   Informatics  Data Science and Everyday Use R, Python, Julia Econometrics and Data Analysis SAS, Stata, Gretl, Analyzer Data Management SQL Web HTML, CSS Other Sphinx, LaTeX  </description>
+    </item>
+    
     <item>
       <title>Contact</title>
       <link>https://nikitagusarov.github.io/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/contact/</guid>
-      <description>This is an example of a custom shortcode that you can put right into your content. You will need to add a form action to the the shortcode to make it work. Check out Formspree for a simple, free form service.
- Your Name Email Address An email address is required.  Message   &amp;ndash;&amp;gt;</description>
+      <description>To contact me you may find me in Matrix and VKontakte. Or you may just use the contact form below:
+Your Name Email Address An email address is required.  Message   </description>
     </item>
     
     <item>
-      <title>Hi everyone</title>
-      <link>https://nikitagusarov.github.io/post/post_1/</link>
+      <title>Publications</title>
+      <link>https://nikitagusarov.github.io/publications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nikitagusarov.github.io/post/post_1/</guid>
-      <description>A rather unimpressing way to say &amp;ldquo;Hello world!&amp;rdquo;</description>
+      <guid>https://nikitagusarov.github.io/publications/</guid>
+      <description> Working papers and Conference proceedings  2020 Nikita Gusarov &amp;amp; Amirreza Talebijamalabad &amp;amp; Iragaël Joly, 2020. &amp;ldquo;Exploration of model performances in the presence of heterogeneous preferences and random effects utilities awareness,&amp;rdquo; Working Papers hal-03019739, HAL.   Thesis &amp;amp; Memoires  2020 Nikita Gusarov, &amp;ldquo;Performance comparison of the discrete choice models of consumer choice&amp;rdquo;, M2 Thesis, FEG, UGA 2019 Nikita Gusarov, &amp;ldquo;Analyse de la participation au marché du travail et des déterminants du salaire : Application d’un modèle de sélection endogène et essais d’utilisation des techniques en grande dimension&amp;rdquo;, M1 Memoire (in french), FEG, UGA 2018 Nikita Gusarov, &amp;ldquo;Построение модели прогнозирования валютных курсов с целью оценки их влияния на внешнюю торговлю России со странами ЕС&amp;rdquo;, Bachelor Y4 Thesis (in russian), Faculty of International Trade, RFTA   Other works  2020 Nikita Gusarov, Tom Viellescazes, &amp;ldquo;Etude des facteurs associés à l’usage fréquent des transports en commun urbain&amp;rdquo; 2019 Arnaud Blanc, Nikita Gusarov and Sasha Picon &amp;ldquo;Etude des effets des pesticides sur le marché des vins de table&amp;rdquo;  </description>
     </item>
     
   </channel>
