@@ -6,7 +6,18 @@
     <description>Recent content in R on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a website (part 2)</title>
+      <link>https://nikitagusarov.github.io/post/2021-08-29-website-p2/</link>
+      <pubDate>Sun, 29 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2021-08-29-website-p2/</guid>
+      <description>So, this post continues the sequence about building a website with R software. Today I&amp;rsquo;ll make focus on the building procedure with the help of previously chosen solution: blogdown.
+Site generation with blogdown The procedure of building website with blogdown may be divided into several steps:
+ Dependencies installation Theme choice and file-structure generation Building website  Installation As it was stated before, the blogdown package uses Hugo backend to build websites.</description>
+    </item>
+    
     <item>
       <title>Building a website (part 1)</title>
       <link>https://nikitagusarov.github.io/post/2021-08-28-website/</link>
