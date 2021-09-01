@@ -4,11 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Building a website (part 1) | Nikita Gusarov</title>
+    <title>Building a website (part 3) | Nikita Gusarov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="The idea to write this post (or rather a sequence of posts) appeared when I was attempting to deploy this website, mostly because of the difficulties I&rsquo;ve encountered. So, today&rsquo;s question is: how to deploy a simple static website with R?
-First of all, we should start with distinguishing two main steps in website production:
- Building website Deploying the results on the web  These two topics may be rather long to explain, that&rsquo;s why I&rsquo;d rather prefer to separate this post into several parts.">
+    <meta name="description" content="In this part, we are finally approaching one of the most important and interesting topics, when creating a website: the deployment process. I do not believe that this will be the end of the sequence about the websites, because there are some more interesting topics. Among them:
+ RSS (Really Simple Syndication) configuration Templates Custom layouts Java Script (JS) embedding Synchronisation Migration And many more  But let&rsquo;s leave these topics for later and focus our attention on the deployment procedure.">
     <meta name="generator" content="Hugo 0.87.0" />
     
     
@@ -28,26 +27,23 @@ First of all, we should start with distinguishing two main steps in website prod
 
     
     
-    <meta property="og:title" content="Building a website (part 1)" />
-<meta property="og:description" content="The idea to write this post (or rather a sequence of posts) appeared when I was attempting to deploy this website, mostly because of the difficulties I&rsquo;ve encountered. So, today&rsquo;s question is: how to deploy a simple static website with R?
-First of all, we should start with distinguishing two main steps in website production:
- Building website Deploying the results on the web  These two topics may be rather long to explain, that&rsquo;s why I&rsquo;d rather prefer to separate this post into several parts." />
+    <meta property="og:title" content="Building a website (part 3)" />
+<meta property="og:description" content="In this part, we are finally approaching one of the most important and interesting topics, when creating a website: the deployment process. I do not believe that this will be the end of the sequence about the websites, because there are some more interesting topics. Among them:
+ RSS (Really Simple Syndication) configuration Templates Custom layouts Java Script (JS) embedding Synchronisation Migration And many more  But let&rsquo;s leave these topics for later and focus our attention on the deployment procedure." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://nikitagusarov.github.io/post/2021-08-28-website/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-28T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
+<meta property="og:url" content="https://nikitagusarov.github.io/post/2021-08-31-website-p3/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-31T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
 
-<meta itemprop="name" content="Building a website (part 1)">
-<meta itemprop="description" content="The idea to write this post (or rather a sequence of posts) appeared when I was attempting to deploy this website, mostly because of the difficulties I&rsquo;ve encountered. So, today&rsquo;s question is: how to deploy a simple static website with R?
-First of all, we should start with distinguishing two main steps in website production:
- Building website Deploying the results on the web  These two topics may be rather long to explain, that&rsquo;s why I&rsquo;d rather prefer to separate this post into several parts."><meta itemprop="datePublished" content="2021-08-28T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-08-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="830">
+<meta itemprop="name" content="Building a website (part 3)">
+<meta itemprop="description" content="In this part, we are finally approaching one of the most important and interesting topics, when creating a website: the deployment process. I do not believe that this will be the end of the sequence about the websites, because there are some more interesting topics. Among them:
+ RSS (Really Simple Syndication) configuration Templates Custom layouts Java Script (JS) embedding Synchronisation Migration And many more  But let&rsquo;s leave these topics for later and focus our attention on the deployment procedure."><meta itemprop="datePublished" content="2021-08-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-08-31T00:00:00+00:00" />
+<meta itemprop="wordCount" content="873">
 <meta itemprop="keywords" content="Web,Blogdown,R,Rmarkdown," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Building a website (part 1)"/>
-<meta name="twitter:description" content="The idea to write this post (or rather a sequence of posts) appeared when I was attempting to deploy this website, mostly because of the difficulties I&rsquo;ve encountered. So, today&rsquo;s question is: how to deploy a simple static website with R?
-First of all, we should start with distinguishing two main steps in website production:
- Building website Deploying the results on the web  These two topics may be rather long to explain, that&rsquo;s why I&rsquo;d rather prefer to separate this post into several parts."/>
+<meta name="twitter:title" content="Building a website (part 3)"/>
+<meta name="twitter:description" content="In this part, we are finally approaching one of the most important and interesting topics, when creating a website: the deployment process. I do not believe that this will be the end of the sequence about the websites, because there are some more interesting topics. Among them:
+ RSS (Really Simple Syndication) configuration Templates Custom layouts Java Script (JS) embedding Synchronisation Migration And many more  But let&rsquo;s leave these topics for later and focus our attention on the deployment procedure."/>
 
 	
   </head>
@@ -60,7 +56,7 @@ First of all, we should start with distinguishing two main steps in website prod
 
   
   
-  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/building_website.png');">
+  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/website_page.png');">
     <div class="pb3-m pb6-l bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
@@ -157,7 +153,7 @@ First of all, we should start with distinguishing two main steps in website prod
 
       <div class="tc-l pv6 ph3 ph4-ns">
         
-          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Building a website (part 1)</h1>
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Building a website (part 3)</h1>
           
         
       </div>
@@ -183,20 +179,20 @@ First of all, we should start with distinguishing two main steps in website prod
   <div id="sharing" class="mt3">
 
     
-    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2021-08-28-website/" class="facebook no-underline" aria-label="share on Facebook">
+    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2021-08-31-website-p3/" class="facebook no-underline" aria-label="share on Facebook">
       <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
 
     </a>
 
     
     
-    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2021-08-28-website/&amp;text=Building%20a%20website%20%28part%201%29" class="twitter no-underline" aria-label="share on Twitter">
+    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2021-08-31-website-p3/&amp;text=Building%20a%20website%20%28part%203%29" class="twitter no-underline" aria-label="share on Twitter">
       <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
 
     </a>
 
     
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2021-08-28-website/&amp;title=Building%20a%20website%20%28part%201%29" class="linkedin no-underline" aria-label="share on LinkedIn">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2021-08-31-website-p3/&amp;title=Building%20a%20website%20%28part%203%29" class="linkedin no-underline" aria-label="share on LinkedIn">
       <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
 </svg>
@@ -205,7 +201,7 @@ First of all, we should start with distinguishing two main steps in website prod
   </div>
 
 
-      <h1 class="f1 athelas mt3 mb1">Building a website (part 1)</h1>
+      <h1 class="f1 athelas mt3 mb1">Building a website (part 3)</h1>
       
       <p class="tracked">
           By <strong>
@@ -216,121 +212,119 @@ First of all, we should start with distinguishing two main steps in website prod
       </p>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2021-08-28T00:00:00Z">August 28, 2021</time>
+      <time class="f6 mv4 dib tracked" datetime="2021-08-31T00:00:00Z">August 31, 2021</time>
 
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>The idea to write this post (or rather a sequence of posts) appeared when I was attempting to deploy this website, mostly because of the difficulties I&rsquo;ve encountered.
-So, today&rsquo;s question is: how to deploy a simple static website with <code>R</code>?</p>
-<p>First of all, we should start with distinguishing two main steps in website production:</p>
-<ol>
-<li>Building website</li>
-<li>Deploying the results on the web</li>
-</ol>
-<p>These two topics may be rather long to explain, that&rsquo;s why I&rsquo;d rather prefer to separate this post into several parts.</p>
-<h2 id="build-strategies">Build strategies</h2>
-<p>In <code>R</code> there are many ways to create a website without any need to work with <code>html</code> or <code>css</code>.
-All you need is to know how <code>R</code> functions, as well as some basics of <code>markdown</code> or <code>Rmarkdown</code> syntax.
-This way we avoid the need to write entire pages in plain <code>html</code> and our software does everything in our place.</p>
-<p>The main options that I&rsquo;ve considering during the web-page construction were:</p>
+    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>In this part, we are finally approaching one of the most important and interesting topics, when creating a website: the deployment process.
+I do not believe that this will be the end of the sequence about the websites, because there are some more interesting topics.
+Among them:</p>
 <ul>
-<li>Personalized script compiling <code>.Rmd</code> files into a website</li>
-<li>Simple <code>rmarkdown</code> <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">site generator</a> proposed as part of basic <code>rmarkdown</code> package</li>
-<li>Advanced <code>blogdown</code> <a href="https://bookdown.org/yihui/blogdown/">package</a>, which uses <a href="https://gohugo.io/">Hugo</a> to build web-pages</li>
-<li>The <code>bookdown</code> <a href="https://bookdown.org/yihui/bookdown/">package&rsquo;s</a> functionality to build web-books^[For more you may look here: https://bookdown.org/yihui/bookdown/rstudio-ide.html]</li>
+<li>RSS (Really Simple Syndication) configuration</li>
+<li>Templates</li>
+<li>Custom layouts</li>
+<li>Java Script (JS) embedding</li>
+<li>Synchronisation</li>
+<li>Migration</li>
+<li><em>And many more</em></li>
 </ul>
-<p>But how to choose among all these options?
-Here are some of my thoughts about all of them, considering I&rsquo;ve personally tried every option.</p>
-<h3 id="manual-compilation">Manual compilation</h3>
-<p>The first option seems rather simple: just make a bunch of <code>.Rmd</code> files and compile them.
-However, nothing ever is as simple as it seems.
-Even using relative path definition, it becomes nearly impossible to manage all the dependencies and internal references within the website.
-Last year, we have attempted to implement this approach while building a website for a course of <em>Statistics</em> at Grenoble-INP, but by the middle of spring semester it became too difficult to maintain and update the site.</p>
-<p>Some quick example of an automatic compilation script:</p>
-<pre><code># Libraries
-library(foreach)
+<p>But let&rsquo;s leave these topics for later and focus our attention on the deployment procedure.</p>
+<h2 id="website-deployment">Website deployment</h2>
+<p>After the website is generated following our wishes, we should somehow make it accessible for other people.
+Otherwise, what is the point in creation of a website if no one can view and read it?
+In the <code>blogdown</code>&rsquo;s <a href="https://bookdown.org/yihui/blogdown/">documentation</a> we will find many different strategies for <a href="https://bookdown.org/yihui/blogdown/deployment.html">deployment</a>:</p>
+<ul>
+<li><a href="https://www.netlify.com/">Netlify</a></li>
+<li><a href="https://pages.github.com/">GitHub Pages</a></li>
+<li><a href="https://docs.gitlab.com/ee/user/project/pages/">GitLab Pages</a></li>
+<li><a href="https://app.travis-ci.com/">Travis</a> + GitHub/GitLab</li>
+</ul>
+<p>As always, there are always both drawbacks and advantages in all of the listed strategies.
+Luckily, a short presentation of all the methods may be found on the <code>blogdown</code>&rsquo;s web-page.
+In this post we will focus our attention on the solution adopted for this website construction: <em>Travis</em> + <em>GitHub</em>
+Even if it is possible to publish compiled locally website to <em>GitHub</em> pages, we prefer to automate the process with <em>Travis</em>.</p>
+<h3 id="github-setup">GitHub setup</h3>
+<p>Previously, in the first part of this sequence, we have added two folders to our <code>.gitignore</code> folder: <code>public</code> and <code>resources</code>.
+This was done in order not to keep track of and not to synchronise those with <em>GitHub</em> later, allowing us to publish only the source files.</p>
+<p>Now, we can associate our project repository with a distant source (if this stage was not done when setting up the project).
+In my case it was the <a href="https://github.com/nikitagusarov/website_source">website_source</a> project.
+But it is not the only action to perform on GitHub.
+We need to create a new project for <em>GitHub Pages</em>: <code>username.github.io</code>, where username is the <code>username</code> for <em>GitHub</em> account.
+Note, that the procedure described here is the simplest way to deploy our website on <em>GitHub Pages</em>, but it&rsquo;s also possible to setup the website in a subdomain of the given above sample address.</p>
+<h3 id="travis-and-build-automation">Travis and build automation</h3>
+<dl>
+<dt><em>Travis</em> platform is a stand-alone tool for <em>Continuous Integration</em> (CI) and development, which is designed to work with <em>GitHub</em>, <em>gitLab</em> or <em>BitBucket</em>.</dt>
+<dt>CI is</dt>
+<dd>&ldquo;<em>the process of automating the build and testing of code every time a team member commits changes to version control</em>&rdquo;
+To read more about it you may visit the website of <a href="https://docs.microsoft.com/en-us/devops/develop/what-is-continuous-integration">Microsoft</a> or any other source available on the Internet.</dd>
+</dl>
+<p>In order to use <em>Travis</em> we first of all should <a href="https://app.travis-ci.com/">sign in</a> using the <em>GitHub</em> account or any other method and then bind our <em>GitHub</em> profile with the account.</p>
+<p><img src="/images/travis_signin.png" alt=""></p>
+<p>After binding the accounts it rests to configure the pipeline for our CI procedure.
+In order to do so, we should place a configuration file in our project folder, the file should be named <code>.travis.yml</code>.
+This configuration file should first of all specify the <em>Virtual Machine</em> (VM) configuration to be ran by <em>Travis</em>:</p>
+<pre><code>os: linux
+language: r
+dist: xenial
+latex: false
+</code></pre><p>Here we use a Linux machine running <em>Xenial</em> Ubuntu version as in guidelines in the <code>blogdown</code>&rsquo;s [guidelines].
+Then we precise when exactly the CI pipeline should be triggered.
+Among the best choices will be to trigger actions only on changes in <code>main</code> branch (here we use <em>GitHub</em>&rsquo;s default branch naming convention, in other services this may be <code>master</code> branch).</p>
+<pre><code>branches:
+  only:
+    - main
+</code></pre><p>We want as well to cache the packages we install into VM, to save the time on later builds, by setting:</p>
+<pre><code>cache:
+  packages: yes
+  directories:
+    - $HOME/bin
+</code></pre><p>Then we need to add two scripts: (1) an installation script to configure our <code>R</code> build environment and (2) the website build script itself.</p>
+<pre><code>install:
+  - Rscript -e 'source(&quot;R/install.R&quot;)'
+script:
+  - Rscript -e 'source(&quot;R/script.R&quot;)'
+</code></pre><p>The minimal installation script may look as follows (this solution may have some problems in compiling <code>.pdf</code> images):</p>
+<pre><code># Install packages
+## Blogdown
+install.packages(&quot;blogdown&quot;)
 
-# Get list of files
-lfiles = list.files(
-    path = &quot;.&quot;,
-    pattern = &quot;*.Rmd&quot;,
-    full.names = TRUE
+# Install Hugo
+blogdown::install_hugo(
+    version = &quot;0.87.0&quot;
+)
+</code></pre><p>The build script is identical to what was previously described with one exception.
+Before publishing the website on <em>GitHub Pages</em> we want to make sure <em>GitHub</em> will not use <em>Jekyll</em> to rebuild the contents.</p>
+<pre><code># Build site
+blogdown::build_site(
+    local = FALSE
 )
 
-# Compile files
-foreach(ff = lfiles) %do% {
-    rmarkdown::render(ff, encoding = &quot;UTF-8&quot;)
-}
-</code></pre><p>This script will generate the documents on the same path the originals are.
-This leads to a situation where an entire folder with source files ill be used for deployment, which may be undesired behaviour.</p>
-<p><em>Conclusion: It&rsquo;s the best solution for one-page website, but may be unnecessary complex for something more.</em></p>
-<h3 id="site-generator-of-rmarkdown">Site generator of <code>rmarkdown</code></h3>
-<p>This static website generator is a rather unsophisticated wrapper, which allows to render all the <code>.Rmd</code> document found in a given folder and save the output for later deployment.
-Although it&rsquo;s much simple to automate the binding of several pages into a complete website, there are some disadvantages.</p>
-<p>The main disadvantage is that <code>rmarkdown::render_site()</code> command is a simple wrapper to render several documents.
-The solution is agnostic of the file-structure inside the folder and renders only the files it encounters at root position, which makes it impossible to produce something like personal blog (the more there will be activity, the more incomprehensible the root directory will become).
-As you can see, the result is nearly identical to the manual compilation, except probably for the possibility to automatically have identical site-wide options in the YML file.</p>
-<p>For some reference command one may name:</p>
-<!--
-```
-# YML file
-## Connection
-connect = file("_site.yml")
-## Write content
-writeLines(
-    c(
-        "name: 'website'",
-        "navbar:",
-        "title: 'Website'",
-        "left:",
-        "    - text: 'Home'",
-        "    href: index.html"
-    ), 
-    connect
+# Add .nojekyll
+file.create(
+    &quot;public/.nojekyll&quot;,
+    overwrite = TRUE
 )
-## Close connection
-close(connect)
-
-# Rmd index file
-## Connection
-connect = file("index.Rmd")
-## Write content
-writeLines(
-    c(
-        "---",
-        "title: 'Website'",
-        "---",
-        "Hello World!"
-    ), 
-    connect
-)
-## Close connection
-close(connect)
-```
--->
-<pre><code># Render site
-rmarkdown::render_site() 
-</code></pre><p>This command requires existence of at least two files: (1) <code>_site.yml</code> and (2) <code>index.Rmd</code>.
-For a more complete example one may look <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">here</a>.</p>
-<p><em>Conclusion: This option may be the best for some simple websites with several pages, but which do not require any complex structure.</em></p>
-<h3 id="site-generation-with-blogdown">Site generation with <code>blogdown</code></h3>
-<p>The <code>blogdown</code> was initially created to replace the <code>rmarkdown</code> inbuilt website producing functionality.
-Having <a href="https://gohugo.io/">Hugo</a> as back-end, this package does miracles when building rather complex static websites.
-What&rsquo;s more, it makes available all the themes there exist <a href="https://themes.gohugo.io/">over Internet</a>.</p>
-<p>Nevertheless, there are some drawbacks as usual.
-The main complications start when you realise that <code>Hugo</code>, <code>Hugo-themes</code> and <code>blogdown</code> are under active development.
-Consequently, there is always the possibility that something will change among releases, which will render your web-page non-operational.
-Luckily, this danger can be mitigated by a careful setup and deployment procedure configuration, but about this I&rsquo;ll talk later.</p>
-<p><em>Conclusion: After many tries and fails I&rsquo;ve decided this solution suited the best for my personal blog.</em>
-<em>It might be somewhat complex and even unstable, but it offers good degree of flexibility.</em>
-<em>Because, this is the chosen solution, I will skip the examples here and provide them in the second part of this sequence.</em></p>
-<h3 id="web-books-and-bookdown">Web-books and <code>bookdown</code></h3>
-<p>The final known to me option is represented by the <code>bookdown</code> package.
-This package was created to address one simple need: authoring books.
-It allows to manage many independent chapters, maintaining a simple and comprehensive file-structure at the same time.
-Nevertheless, the web-book format is definitely not suitable for all purposes and might be limiting for someone.</p>
-<p><em>Conclusion: Even though it&rsquo;s the best solution for the given task, it is absolutely not fit for authoring blogs.</em></p>
+</code></pre><p>Finally, we define the deployment procedure.
+We wish to use <em>GitHub Pages</em>, committing the changes in <code>public</code> directory to specified repository: <code>nikitagusarov/nikitagusarov.github.io</code> on <code>main</code> branch.
+To avoid the situation when <em>Travis</em> deletes the <code>public</code> folder before making commit, we add <code>cleanup = false</code> line to <code>.yml</code> file.</p>
+<pre><code>deploy:
+  provider: pages
+  strategy: git
+  skip_cleanup: true
+  keep_history: true
+  token: $GITHUB_TOKEN
+  on:
+    branch: main
+  local_dir: public
+  repo: username/username.github.io
+  target_branch: main
+</code></pre><p>In order to ensure that <em>Travis</em> will be able to connect to <em>GitHub</em>, we use the secret variable: <code>$GITHUB_TOKEN</code>.
+First of all, we generate the a new <em>GitHub</em> access token in our <em>GitHub</em> account with <code>repo</code> scope (<code>Settings &gt; Developper settings &gt; Personal access tokens</code>).
+Then we securely store it inside <em>Travis</em> application (<code>Project &gt; More Options &gt; Settings</code>):</p>
+<p><img src="/images/travis_token.png" alt=""></p>
+<p>After completing all the procedures, our next commit into <code>main</code> branch of the source repository will trigger the <em>Travis CI</em> pipeline.
+It will build the website using <em>Hugo</em> and publish it to <em>GitHub Pages</em>.</p>
 <ul class="pa0">
   
    <li class="list">
@@ -360,6 +354,21 @@ Nevertheless, the web-book format is definitely not suitable for all purposes an
 
 
 
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/2021-08-29-website-p2/">Building a website (part 2)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-28-website/">Building a website (part 1)</a>
+        </li>
+	    
+    </ul>
+</div>
 
 </aside>
 
