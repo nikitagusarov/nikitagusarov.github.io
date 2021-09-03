@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Guide des outils | Nikita Gusarov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Cette publication est orienté vers les étudiants qui vont suivre des cours ou faire de Projets / mener des TER avec moi cette année. Elle vise à proposer un aperçu des outils essentiels pour faciliter et simplifier le travail. Particulièrement :
+ Git GitHub/GitLab/BitBucket (ici nous parlerons du GitLab hebergé par GRICAD) LaTeX Markdown RMarkdown  Ce sont des outils principaux pour bien organiser son travail de la recherche et pouvoir l&rsquo;accompagner par des supports numeriques.">
+    <meta name="generator" content="Hugo 0.87.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Guide des outils" />
+<meta property="og:description" content="Cette publication est orienté vers les étudiants qui vont suivre des cours ou faire de Projets / mener des TER avec moi cette année. Elle vise à proposer un aperçu des outils essentiels pour faciliter et simplifier le travail. Particulièrement :
+ Git GitHub/GitLab/BitBucket (ici nous parlerons du GitLab hebergé par GRICAD) LaTeX Markdown RMarkdown  Ce sont des outils principaux pour bien organiser son travail de la recherche et pouvoir l&rsquo;accompagner par des supports numeriques." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikitagusarov.github.io/post/2021-09-03-git-fr/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-03T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
+
+<meta itemprop="name" content="Guide des outils">
+<meta itemprop="description" content="Cette publication est orienté vers les étudiants qui vont suivre des cours ou faire de Projets / mener des TER avec moi cette année. Elle vise à proposer un aperçu des outils essentiels pour faciliter et simplifier le travail. Particulièrement :
+ Git GitHub/GitLab/BitBucket (ici nous parlerons du GitLab hebergé par GRICAD) LaTeX Markdown RMarkdown  Ce sont des outils principaux pour bien organiser son travail de la recherche et pouvoir l&rsquo;accompagner par des supports numeriques."><meta itemprop="datePublished" content="2021-09-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-09-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="811">
+<meta itemprop="keywords" content="Git,LaTeX,Markdown,Rmarkdown,French," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Guide des outils"/>
+<meta name="twitter:description" content="Cette publication est orienté vers les étudiants qui vont suivre des cours ou faire de Projets / mener des TER avec moi cette année. Elle vise à proposer un aperçu des outils essentiels pour faciliter et simplifier le travail. Particulièrement :
+ Git GitHub/GitLab/BitBucket (ici nous parlerons du GitLab hebergé par GRICAD) LaTeX Markdown RMarkdown  Ce sont des outils principaux pour bien organiser son travail de la recherche et pouvoir l&rsquo;accompagner par des supports numeriques."/>
+
+	
+  </head>
+
+  <body class="ma0 courrier bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/gricad_gitlab.png');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Nikita Gusarov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/background/" title="Background page">
+              Background
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/publications/" title="Publications page">
+              Publications
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Guide des outils</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2021-09-03-git-fr/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2021-09-03-git-fr/&amp;text=Guide%20des%20outils" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2021-09-03-git-fr/&amp;title=Guide%20des%20outils" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Guide des outils</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Nikita Gusarov
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-09-03T00:00:00Z">September 3, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Cette publication est orienté vers les étudiants qui vont suivre des cours ou faire de <em>Projets</em> / mener des <em>TER</em> avec moi cette année.
+Elle vise à proposer un aperçu des outils essentiels pour faciliter et simplifier le travail.
+Particulièrement :</p>
+<ul>
+<li>Git</li>
+<li>GitHub/GitLab/BitBucket (ici nous parlerons du GitLab hebergé par <a href="ttps://gricad.univ-grenoble-alpes.fr">GRICAD</a>)</li>
+<li>LaTeX</li>
+<li>Markdown</li>
+<li>RMarkdown</li>
+</ul>
+<p>Ce sont des outils principaux pour bien organiser son travail de la recherche et pouvoir l&rsquo;accompagner par des supports numeriques.</p>
+<h2 id="git">Git</h2>
+<p><a href="https://git-scm.com/"><strong>Git</strong></a> est un des outils de contrôle des versions (<a href="https://subversion.apache.org/">SVN</a>, <a href="https://www.mercurial-scm.org/">Mercurial-SCM</a>), lequel permet de facilement contrôler les changements et modifications dans des documents textes.
+Il faut noter, que cet outil n&rsquo;est pas pratique que pour le travail avec les documents texte simples: il reste absolument impratique pour le travail avec les documents office (Word, Excel, etc).
+Plusieurs éditeurs de texte pour les développeurs (<a href="https://rstudio.com/">RStudio</a>, <a href="https://code.visualstudio.com/">VSCode</a>, <a href="https://atom.io/">Atom</a>, etc.) offrent des possibilités pour intégrer <em>git</em> directement dans l&rsquo;éditeur.
+Cela permet d&rsquo;interagir avec <em>git</em> avec beaucoup plus d&rsquo;aise que à travers la ligne de commande ou un client <em>git</em> à part.</p>
+<p>Après installation il est obligatoire à créer son identifiant (sa signature pour les <em>commits</em>).
+Cette signature comprend l&rsquo;identifiant d&rsquo;utilisateur (<em>user.name</em>) et son email (il vaut mieux qu&rsquo;ils correspondent au identifiants utilisés sur <em>GitHub</em>).
+Les commandes sont suivantes :</p>
+<pre><code>git config --global user.name &quot;Name&quot;
+git config --global user.email &quot;mail@mail.com&quot;
+</code></pre><p>Sans cela il sera impossible d&rsquo;utiliser la fonctionnalité du <em>git</em>.</p>
+<p>Pour initier <em>git</em> dans un dossier de travail il suffit d&rsquo;utiliser la ligne de commande (quand même il existent des méthodes plus simples avec les fonctionnalités de <em>GitHub</em> et les outils intégrés des éditeurs) :</p>
+<pre><code>cd &quot;PATH_to_project&quot;
+git init
+</code></pre><h2 id="gitlab-gricad-gitlab">GitLab (Gricad-GitLab)</h2>
+<p><a href="https://gitlab.com/"><strong>GitLab</strong></a> à son tour est une plateforme coopérative proposée comme une alternative à plateforme <a href="https://github.com/"><strong>GitHub</strong></a> développée par <a href="https://news.microsoft.com/announcement/microsoft-acquires-github/"><strong>Microsoft</strong></a> facilitant le travail avec le service de contrôle des versions <em>git</em>.</p>
+<p>Nous allons utiliser sa version offerte par le centre de calcul universitaire <a href="https://gricad.univ-grenoble-alpes.fr">GRICAD</a> - <a href="https://gricad-gitlab.univ-grenoble-alpes.fr"><strong>Gricad-GitLab</strong></a>
+Cette plateforme offre à la fois :</p>
+<ul>
+<li>Un espace cloud pour héberger les dossiers de travail et publier les résultats</li>
+<li>Un interface web (et desktop, si besoin) pour interagir avec <em>git</em></li>
+<li>Une plateforme facilitant la collaboration avec les autres utilisateurs</li>
+<li>Une système de gestion des projets intégrée</li>
+</ul>
+<p>En ce qui concerne les alternatives de <em>git</em> il existent également des plateformes similaires (<a href="https://code.google.com/">Google Code</a> pour <em>SVN</em>).</p>
+<p>Pour utiliser <em>Gricad-GitLab</em> il faut <a href="https://gricad-gitlab.univ-grenoble-alpes.fr">se connecter à la plateforme en utilisant ses identifiants AGALAN</a>.
+On peut ensuite lier les <em>repos</em> distantes à des projets locales.
+La façon la plus simple à le faire est de créer (ou trouver un <em>repo</em> existant) et le <em>cloner</em> ensuite sur une machine locale avec <em>git clone</em> (il suffit de connaitre l&rsquo;adresse <em>url</em> du <em>repo</em>).
+Dans le cas d&rsquo;utilisation du <em>git</em> à partir de la ligne de commande :</p>
+<pre><code>git clone [url]
+git clone https://gricad-gitlab.univ-grenoble-alpes.fr/name/repo.git
+</code></pre><p>Autres actions étant au cœur du <em>git</em> sont :</p>
+<ol>
+<li><em>Pull</em> permet de synchroniser le dossier de travail avec le <em>repo</em> distant :</li>
+</ol>
+<pre><code>git pull [url]
+</code></pre><ol start="2">
+<li><em>Commit</em> qui sert d&rsquo;enregistrer les différences entre l&rsquo;état actuel du dossier de travail et le dernier état sauvegardé (commande exécuté dans le dossier de travail avec <em>.git</em>) :</li>
+</ol>
+<pre><code>git commit -m &quot;[Commentaire]&quot;
+</code></pre><ol start="3">
+<li><em>Push</em> permet d&rsquo;envoyer les changements dans le dossier de travail vers le <em>repo</em> distant :</li>
+</ol>
+<pre><code>git push [source] [branche]
+git push origin master
+</code></pre><p>Toutes ces commandes d&rsquo;habitude sont intégré dans l&rsquo;éditeur, ce qui évite l&rsquo;interaction avec la ligne des commandes.
+Pour plus d&rsquo;information sur la fonctionnalité du <em>git</em> on peut voir <a href="https://git-scm.com/docs/gittutorial">ici</a> et <a href="https://guides.github.com/">ici</a> pour <em>GitHub</em> ou <a href="https://docs.gricad-pages.univ-grenoble-alpes.fr/help/">ici</a> pour <em>Gricad-GitLab</em>.</p>
+<p>En ce qui concerne l&rsquo;intégration du <em>git</em> dans les GUI des différents éditeurs voici les guides :</p>
+<ul>
+<li><a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">RStudio</a></li>
+<li><a href="https://code.visualstudio.com/docs/editor/versioncontrol">VSCode</a></li>
+<li><a href="https://flight-manual.atom.io/using-atom/sections/version-control-in-atom/">Atom</a></li>
+</ul>
+<h2 id="latex">LaTeX</h2>
+<p><a href="https://www.latex-project.org/"><strong>LaTeX</strong></a> est un langage de markup complet.
+Il existe plusieurs distributions de LaTeX, une des versions vérifiées à bien s&rsquo;intégrer avec <a href="https://cran.r-project.org/">R</a> est <a href="https://miktex.org/">MikTeX</a>.
+Pour profiter de la fonctionnalité complète de <em>LaTeX</em> il faut également installer une distribution de <a href="https://www.perl.org/get.html">Perl</a> (<em>Strawberry Perl</em> est la plus compacte pour <em>Windows</em>).</p>
+<h2 id="markdown">Markdown</h2>
+<p><a href="https://www.markdownguide.org/"><strong>Markdown</strong></a> est un langage de markup simplifié, permettant de transformer des documents avec un syntaxe simple vers des documents PDF, HTML et Word à laide du convertisseur <a href="https://pandoc.org/">pandoc</a>.
+Il faudra donc installer <em>pandoc</em> séparément (sauf si on n&rsquo;utilise le <em>RStudio</em>).</p>
+<p>Les essentiels du syntaxe de <em>Markdown</em> se trouvent <a href="https://www.markdownguide.org/basic-syntax/">ici</a> ou <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">ici</a>.</p>
+<h2 id="rmarkdown">RMarkdown</h2>
+<p><a href="https://rmarkdown.rstudio.com/"><strong>RMarkdown</strong></a> est une extension pour <em>Markdown</em>, laquelle y intègre la langue <em>R</em>.
+Il existent des outils similaires pour des autres langues: <a href="https://python-markdown.github.io/">PMarkdown</a> pour <a href="https://www.python.org/">Python</a> ou <a href="https://docs.julialang.org/en/v1/stdlib/Markdown/">JMarkdonw</a> pour <a href="https://docs.julialang.org/en/v1/">Julia</a>.</p>
+<p>Afin de pouvoir compiler les rapports il existent des dépendances :</p>
+<ul>
+<li>HTML exige <em>pandoc</em> (lequel vient préinstallé avec <em>RStudio</em>)</li>
+<li>PDF exige <em>pandoc</em> et <em>LaTeX</em> (le plus simple à intégrer est le <em>MikTeX</em>)</li>
+<li>Word exige <em>pandoc</em> et <em>LaTeX</em> (<em>à vérifier</em>)</li>
+</ul>
+<p>De plus, en fonction du format de sortie on peut utiliser les éléments spécifiques.
+Par exemple, si on génère un document PDF, on peut utiliser les commandes <em>LaTeX</em> (également, pour créer un document HTML on peut intégrer les éléments <em>html</em> dans le texte).</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/git" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Git</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/latex" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">LaTeX</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/markdown" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Markdown</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/rmarkdown" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Rmarkdown</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/french" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">French</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/2021-08-31-website-p3/">Building a website (part 3)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-29-website-p2/">Building a website (part 2)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-28-website/">Building a website (part 1)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-27-latex/">LaTeX, publications and `tikz`</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://nikitagusarov.github.io/" >
+    &copy;  Nikita Gusarov 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
