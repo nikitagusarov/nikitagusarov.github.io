@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hobby on Nikita Gusarov</title>
+    <link>https://nikitagusarov.github.io/tags/hobby/</link>
+    <description>Recent content in Hobby on Nikita Gusarov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/hobby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bikes in Grenoble</title>
+      <link>https://nikitagusarov.github.io/post/2021-09-18-bikes-in-grenoble/</link>
+      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2021-09-18-bikes-in-grenoble/</guid>
+      <description>Lately, I&amp;rsquo;ve taken a break from the technical publications about R and informatics in general. This is mostly because I was distracted by a more immediate problems: the choice of a bike for this academic year. My contract with the Metrovelo, the most popular bike-rental company in Grenoble, has expired around 10-th september, pushing me to reconsider my travel choices.
+In Grenoble, as in many other european towns, the transportation choices are more versatile than in Moscow, or any northern cities in general.</description>
+    </item>
+    
+  </channel>
+</rss>
