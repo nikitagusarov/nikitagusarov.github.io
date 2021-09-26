@@ -6,7 +6,16 @@
     <description>Recent content in Welcome! on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shortcuts in Vim style</title>
+      <link>https://nikitagusarov.github.io/post/2021-09-26-shortcuts/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2021-09-26-shortcuts/</guid>
+      <description>Some whhile ago I had an interesting discussion concerning the different approaches to workflow organisation and learning. It happened around at the same time, that I&amp;rsquo;ve discovered the Vimium browser extension. This coinsidence lead me to write this blogpost about the workflow organisation and usage of shortcuts in everyday life. To keep the content simple, I&amp;rsquo;ll start with some general ideas on using shortcuts and then present some advantages of using their Vim-style version.</description>
+    </item>
+    
     <item>
       <title>Bikes in Grenoble</title>
       <link>https://nikitagusarov.github.io/post/2021-09-18-bikes-in-grenoble/</link>
