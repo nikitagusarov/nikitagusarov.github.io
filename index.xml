@@ -6,14 +6,32 @@
     <description>Recent content in Welcome! on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog revival</title>
+      <link>https://nikitagusarov.github.io/post/2021-12-27-blog-revival/</link>
+      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2021-12-27-blog-revival/</guid>
+      <description>After some difficult time without much ideas about how to write, and what to write about, I&amp;rsquo;ve decided to review this blog. Many things have happened since I&amp;rsquo;ve last time update this page: new Machine Learning courses, participation in the AIMS2 program preparation, first time teaching of the M2 Econometrics course and many more. In this post I&amp;rsquo;ll attempt to describe some of my new ideas concerning this blog&amp;rsquo;s past and future.</description>
+    </item>
+    
+    <item>
+      <title>RStudio or VS Code</title>
+      <link>https://nikitagusarov.github.io/post/2021-12-27-rstudio-or-vs-code/</link>
+      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2021-12-27-rstudio-or-vs-code/</guid>
+      <description>It&amp;rsquo;s highly probable, that the days to come will be marked with a lot of acivity on this blog. Some of the last discussions pushed me fordward to start publishng on several topics I&amp;rsquo;ve considered as not worth of it. Among the most interesting points comes the discussion of the R related ecosystem. This topic regroups both the discussion about the FOS Software, as well as the R language itself.</description>
+    </item>
+    
     <item>
       <title>Shortcuts in Vim style</title>
       <link>https://nikitagusarov.github.io/post/2021-09-26-shortcuts/</link>
       <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/post/2021-09-26-shortcuts/</guid>
-      <description>Some whhile ago I had an interesting discussion concerning the different approaches to workflow organisation and learning. It happened around at the same time, that I&amp;rsquo;ve discovered the Vimium browser extension. This coinsidence lead me to write this blogpost about the workflow organisation and usage of shortcuts in everyday life. To keep the content simple, I&amp;rsquo;ll start with some general ideas on using shortcuts and then present some advantages of using their Vim-style version.</description>
+      <description>Some while ago I had an interesting discussion concerning the different approaches to workflow organisation and learning. It happened around at the same time, that I&amp;rsquo;ve discovered the Vimium browser extension. This coincidence lead me to write this blog-post about the workflow organisation and usage of shortcuts in everyday life. To keep the content simple, I&amp;rsquo;ll start with some general ideas on using shortcuts and then present some advantages of using their Vim-style version.</description>
     </item>
     
     <item>

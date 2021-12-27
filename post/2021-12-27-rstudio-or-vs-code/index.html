@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>RStudio or VS Code | Nikita Gusarov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="It&rsquo;s highly probable, that the days to come will be marked with a lot of acivity on this blog. Some of the last discussions pushed me fordward to start publishng on several topics I&rsquo;ve considered as not worth of it. Among the most interesting points comes the discussion of the R related ecosystem. This topic regroups both the discussion about the FOS Software, as well as the R language itself.">
+    <meta name="generator" content="Hugo 0.87.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="RStudio or VS Code" />
+<meta property="og:description" content="It&rsquo;s highly probable, that the days to come will be marked with a lot of acivity on this blog. Some of the last discussions pushed me fordward to start publishng on several topics I&rsquo;ve considered as not worth of it. Among the most interesting points comes the discussion of the R related ecosystem. This topic regroups both the discussion about the FOS Software, as well as the R language itself." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikitagusarov.github.io/post/2021-12-27-rstudio-or-vs-code/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-27T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
+
+<meta itemprop="name" content="RStudio or VS Code">
+<meta itemprop="description" content="It&rsquo;s highly probable, that the days to come will be marked with a lot of acivity on this blog. Some of the last discussions pushed me fordward to start publishng on several topics I&rsquo;ve considered as not worth of it. Among the most interesting points comes the discussion of the R related ecosystem. This topic regroups both the discussion about the FOS Software, as well as the R language itself."><meta itemprop="datePublished" content="2021-12-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-12-27T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1964">
+<meta itemprop="keywords" content="Programming,IDE,RStudio,VS Code,R," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RStudio or VS Code"/>
+<meta name="twitter:description" content="It&rsquo;s highly probable, that the days to come will be marked with a lot of acivity on this blog. Some of the last discussions pushed me fordward to start publishng on several topics I&rsquo;ve considered as not worth of it. Among the most interesting points comes the discussion of the R related ecosystem. This topic regroups both the discussion about the FOS Software, as well as the R language itself."/>
+
+	
+  </head>
+
+  <body class="ma0 courrier bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Nikita Gusarov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/background/" title="Background page">
+              Background
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/publications/" title="Publications page">
+              Publications
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2021-12-27-rstudio-or-vs-code/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2021-12-27-rstudio-or-vs-code/&amp;text=RStudio%20or%20VS%20Code" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2021-12-27-rstudio-or-vs-code/&amp;title=RStudio%20or%20VS%20Code" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">RStudio or VS Code</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Nikita Gusarov
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-12-27T00:00:00Z">December 27, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>It&rsquo;s highly probable, that the days to come will be marked with a lot of acivity on this blog.
+Some of the last discussions pushed me fordward to start publishng on several topics I&rsquo;ve considered as not worth of it.
+Among the most interesting points comes the discussion of the R related ecosystem.
+This topic regroups both the discussion about the FOS Software, as well as the R language itself.</p>
+<h2 id="r-ecosystem">R ecosystem</h2>
+<p>The typical R ecosystem is rather specific.
+If we take a look at what is usually done at universities (personnally, I may speak from my experience at UGA nad Grenoble-INP), the most common choice for the workflow with R is based around RStudio.
+This choice is quite well justified in the learning context.
+Imagine an audience of 10 to 150 students taking a course of Econometrics or Statistics.
+Typicaly, their curriculum is already rather tight and there is absolutely no chances to insert an entire course of R software into it.
+This means, that the teacher should somehow familiarise the students with the R, alongside the main course (ex: Statistics), without possibility to resolve individual problems with workspace configuration.
+As you can see, there is a particular need for the unified, easy to install and configure working environment for R.
+The RStudio is nearly the perfect choice in this case, although it does not come bundled with R and requires a standalone R installation.
+This results in several broken installs and some minor problems among a small part of students.
+Later, those students become accoustomed to the RStudio environment and sometimes do not even suspect about the existance of other ways to work with R.</p>
+<p>RStudio has some other advantages, many functions and utilities are bundled into the IDE itself, making it simpler to interact with R for casual user.
+You want to knit a <em>pdf</em> document using <em>Rmarkdown</em>?
+Just clik through a little interactive dialog, it&rsquo;s all you need.
+A lot of &ldquo;&quot;<em>essential</em>&rdquo; packages come preinstalled with RStudio as well: <em>tidyr</em>, <em>ggplot2</em>, <em>rmarkdown</em> and many more, one cannot imagine using RStudio functionnality without them.
+The intuitive, visually oriented layout simplifies the interactions with R backend and makes it somewhat easier to perform statistical analysis (one usually uses R for statistics, isn&rsquo;t it true?).
+However, in many cases it leads to incorrect understanding of R functionnality and capabilities.
+The distance it places among the user and backend is tremendous and can not be simply neglected.
+In the last two years I&rsquo;ve encountered quite a lot of people, wh did not understand that it is possible to work with R outside of RStudio or that there are ways to optimise the worflow.
+For many of them it meant switching over to Python, SAS or other languages, which offered some features not evident in R.</p>
+<p>As one can see, the RStudio offers great advantages, but constrains the understanding of the R language in itself.
+And if for some of people, working with R, the choice of RStudio as IDE is a deliberate and weighted action, for many others it is an imposed crippling decision.</p>
+<h2 id="what-are-the-alternatives">What are the alternatives?</h2>
+<p>For someone with the slightest background in informatics and some minor understanding of the R language, it is evident, that it&rsquo;s totally possible to interact with R in any way one desires.
+R is a rather simple high-level interpreted programing language, which makes it extremely easy to work with: there is no need for compilation (or precompilation as in the case of Julia) for it to function.
+A single instance of open terminal with R running is sufficient for interaction, but it is rarely sufficient to do actual work.
+Till now, I&rsquo;ve never seen anyone working directly with RScripts or R-terminal alone.
+These are usefull additions, but typically the scripts require quiate a lot of testing prior to be ready for production.</p>
+<p>This leads us to situation, where for work with R one needs:</p>
+<ul>
+<li>A terminal instance to execute the code and observe the output</li>
+<li>A text editor, which will allow to write and alter the code if needed</li>
+<li>Some graphics support, to output graphics and plots (keep in mind, that there exist solutions to output graphics in the command line)</li>
+<li>File manager to access the file tree and allow to work with several files at the same time, or at least to switch between them</li>
+</ul>
+<p>Optionnaly, we can imagine some more bonus functionnalities, which can typically be accessed through a command line:</p>
+<ul>
+<li>Git (or other version control system) integration</li>
+<li>SSH, Docker and remote execution</li>
+<li>Some shortcuts support for often used R function (ex: <em>rmarkdown::render()</em> is one of the most used ones by me)</li>
+<li>No unnescessary functionnality (for hose who find the RStudio interface cluttered and who does not want to have any other language specific functionnalities on their workspace)</li>
+</ul>
+<p>Evidently, nearly any good enough IDE (meaning, not some language specific IDE) has all the features listed above.
+Among them we can name:</p>
+<ul>
+<li>VS Code</li>
+<li>VS Codium</li>
+<li>Atom</li>
+<li>Emacs</li>
+<li>(N)vi(m)^[The eternal joke about the <em>vi</em> text editor, which can potentially be transformed into fully functional IDE.]</li>
+<li><em>and many more &hellip;</em></li>
+</ul>
+<p>For this time we are going to focus onthe first and the simplest one of them.
+Probably latter I&rsquo;ll write about my workflow organisation with vim and CLI, but it wil be latter.</p>
+<h2 id="vs-code-vs-codium-as-and-ide-for-r">VS Code (VS Codium) as and IDE for R</h2>
+<p>Personnally, I&rsquo;ve spent quite a lot of time working in VS Code during my Master years and some time during my PhD.
+Later, I&rsquo;ve decided to switch for some more interesting tools, but it does not mean that VS Code is something bad.
+Frankly speaking, I believe that VS Code is a better tool for working with R, than RStudio itself.
+During my first year of Master in Applied Informatics and Statistics for Social Sciences (MIASHS) we have bee introduced to several software soltions for statistical analysis, among which were R, SAS, STATA, Julia and Python.
+For R, as I&rsquo;ve described in the beginning of this post, the choice have fallen on the RStudio IDE and I&rsquo;ve spent some time struggling to make it function as I wanted.
+However, knowing that we are going to work with oter languages, I&rsquo;ve made a deliberate decision to deviate towards a more flexible IDE, suitable for several languages at the same time.
+Hense, the choice of VS Code was rather self explanatory, because the uptake of the Microsoft based platform and te abundance of community support for different languages made it nearly ideal solution in terms of flexibility.</p>
+<p>Before proceeding with a more detailed discussio of various features of the VS Code, tere is a pint to make.
+One should clearly distinguish the Microsoft curated VS Code IDE and the <em>debloated</em> community made fork, which is VS Codium.
+The first one can be installed from the Microsoft website (it is accessible through te package manager on most of the GNU/Linux distributions).
+The second one is available from the project&rsquo;s website or through the package managers on some GNU/Linux distributions, although it requires some tweaks to access the VS Code oriented extensions.
+Once correctly configured the two are nearly undistiguishable, while VS Codium has the advantage of being stripped of Microsoft&rsquo;s telementry services and proprietary binaries.</p>
+<h3 id="main-setup">Main setup</h3>
+<p>Now comes the times to switch over to discussion of the IDE configuration for R based workflow.
+Here I&rsquo;ll describe te steps I&rsquo;ve gone throguh as well as the extensions I&rsquo;ve installed wen configuring it for my needs.
+Evidently, this setup may not suite everyne and one should be carefull when copying it &ldquo;<em>as-is</em>&rdquo;.</p>
+<ol>
+<li>
+<p>First of all, to work with R one needs to have a functionnal installation of R, as well as any other packages or supplementary bundles (ex: R-Tools).
+I&rsquo;ll not linger on this step, because it is compeltely identical to tipycall R installation, identical to the one described in RStudio documentation.</p>
+</li>
+<li>
+<p>Even though the VS Code basic setup allows us to have an editor alogside a terminal instance, it would be preferable to install specific packages to simplify the interaction with R.
+In VS Code those additional functionnalities may be added by means of <em>extensions</em> installation.
+Depending on what functionnality we seek we may find several packages, which support R language, but it&rsquo;s always better to stick with the most popular and advanced one: `` of &hellip;</p>
+</li>
+</ol>
+<p><em>Insert information about extensions + screenshots?</em></p>
+<ol start="3">
+<li>
+<p>Afterwards it remains to configure the extension by pointing it to the correct R executable, which may be especially usefull in case one has several installation of R.
+As well as to specify any specific executables, such as <code>radian</code> if one wants to use them.</p>
+</li>
+<li>
+<p>The last point is optionnal, and will serve only to those who use some sort of version control system in their projects.
+VS Code comes with integrated support for version control, which is far more rich, than the one offered with RStudio.
+It is equally possible to extend the Git/SVN integration with some more extensions to simplify the version control overview.</p>
+</li>
+</ol>
+<h3 id="tips-and-tricks">Tips and tricks</h3>
+<p>As one can see, the configuration is rather straightforward and simple, although I&rsquo;ll still prefere to give some usefull tips on how to make out the most of such setup.
+One of the main advantages of using simple text editor and terminal instead of RStudio is the reduced ressources usage.
+I still remember how one of my coworkers complained about the impossibility to open RStudio, while working on large datasets, which by default are visualised in the integrated preview window.
+However, one may want to have such visualisation functionnality at hand, instead of using separate R rendered panes or terminal preview of the datasets.
+The same applies to the plots visualisation, which is typically done in separate R rendered windows.
+Although still experimental, this functionnality is already present in the VS Code R extension and can be activated in the extension&rsquo;s configuration.</p>
+<p><em>Insert screenshot with extension&rsquo;s settings</em></p>
+<p>This allows to preview R objects and visualise output inside VS Code panes, instead of separate R generated windows.</p>
+<p>Another usefull feature is the atucompletion and intellisence.
+Even though I prefer to learn by memory the key functions I tipically use, it may be usefull for other to have such functionnality activated in their setup.
+This may be achieved through a R LSP client, connecting to R-language server running on the background and fetching the possible combinations to autocomplete.
+Except of the functionnality activation in extension&rsquo;s settings it is equally important to install the required R libraries: ``.</p>
+<p><em>Insert screenshots + complete library names</em></p>
+<p>Finally, one can be interested with the code styling, and block editing, which are not available with the default R CLI.
+For this purpose it&rsquo;s possible to activate the <code>radian</code> support in settings, which will involve a separate installation and configuration of Python environment with <code>radian</code> and <code>pygments</code> (the last one serves for more elaborate syntax highlighting within terminal).
+It&rsquo;s equally possible to add <em>in-terminal</em> autocompletion with <code>jedy</code> Python library.</p>
+<h3 id="and-more-">And more &hellip;</h3>
+<p>Finally we arrive to the point, where the main advantage of the VS Code starts playing its' role: the <strong>flexibility</strong>.
+Contrary to RStudio, which previously had solid support only for the R language, VS Code is much more functionnal.
+There is possibility to bundle R with LaTeX, Python, C, C++, HTML, CSS, Java and any other languages you wish.
+It suffices only to add the required extensions via VS Code marketpace and it&rsquo;s done!
+Here are example of some of the packages I used on nigh daily basis:</p>
+<ol>
+<li>
+<p><code>LaTeX</code> support with &hellip;</p>
+</li>
+<li>
+<p>Spelling correction &hellip;</p>
+</li>
+<li>
+<p>Markdown syntax highlighting &hellip;</p>
+</li>
+<li>
+<p>Within VS Code <em>pdf</em> preview &hellip;</p>
+</li>
+<li>
+<p>Version Control help and additional functionnality &hellip;</p>
+</li>
+</ol>
+<p>I believe that for now it&rsquo;s more than sufficient as a description of one of the alternatives to RStudio, which will probably help you to love R as language.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/programming" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/ide" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">IDE</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/rstudio" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">RStudio</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/vs-code" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">VS Code</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/r" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">R</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/2021-08-31-website-p3/">Building a website (part 3)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-29-website-p2/">Building a website (part 2)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-28-website/">Building a website (part 1)</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://nikitagusarov.github.io/" >
+    &copy;  Nikita Gusarov 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
