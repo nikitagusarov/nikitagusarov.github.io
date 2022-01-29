@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming on Nikita Gusarov</title>
-    <link>https://nikitagusarov.github.io/tags/programming/</link>
-    <description>Recent content in Programming on Nikita Gusarov</description>
+    <title>OnlyKey on Nikita Gusarov</title>
+    <link>https://nikitagusarov.github.io/tags/onlykey/</link>
+    <description>Recent content in OnlyKey on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/onlykey/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OnlyKey for Linux login</title>
       <link>https://nikitagusarov.github.io/post/2022-01-29-onlykey-for-linux/</link>
@@ -15,15 +15,6 @@
       <guid>https://nikitagusarov.github.io/post/2022-01-29-onlykey-for-linux/</guid>
       <description>After receiving a hardware authentication token for the New Year, I&amp;rsquo;ve spent quite a lot of time on the configuration. Even though I&amp;rsquo;d already modified my security model by the end of 2021, I needed to reconsider it once again. Now my password management framework comprises three elements:
  Hardware security token (OnlyKey) for most sensitive credentials and 2FA (two facto authentication like OTP, FIDO2 / U2F) Self-hosted cloud storage (Vaultwarden) for less sensitive credential Encrypted password database (Pass-Tomb) on a USB  Each of these elements requires a separate post, but for now I&amp;rsquo;ll focus only on the first part.</description>
-    </item>
-    
-    <item>
-      <title>RStudio or VS Code</title>
-      <link>https://nikitagusarov.github.io/post/2021-12-27-rstudio-or-vs-code/</link>
-      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nikitagusarov.github.io/post/2021-12-27-rstudio-or-vs-code/</guid>
-      <description>It&amp;rsquo;s highly probable, that the days to come will be marked with a lot of activity on this blog. Some of the last discussions pushed me forward to start publishing on several topics I&amp;rsquo;ve considered as not worth of it. Among the most interesting points comes the discussion of the R related ecosystem. This topic regroups both the discussion about the FOS Software, as well as the R language itself.</description>
     </item>
     
   </channel>

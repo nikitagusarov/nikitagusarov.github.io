@@ -2,12 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nikitagusarov.github.io/post/2021-12-27-blog-revival/</loc>
-    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
+    <loc>https://nikitagusarov.github.io/categories/</loc>
+    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://nikitagusarov.github.io/categories/</loc>
+    <loc>https://nikitagusarov.github.io/tags/linux/</loc>
+    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/login/</loc>
+    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/onlykey/</loc>
+    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/post/2022-01-29-onlykey-for-linux/</loc>
+    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/post/</loc>
+    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/programming/</loc>
+    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/categories/programming/</loc>
+    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/</loc>
+    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/</loc>
+    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/post/2021-12-27-blog-revival/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -27,21 +72,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://nikitagusarov.github.io/post/</loc>
-    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/tags/programming/</loc>
-    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/categories/programming/</loc>
-    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://nikitagusarov.github.io/tags/r/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -57,22 +87,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://nikitagusarov.github.io/tags/</loc>
-    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://nikitagusarov.github.io/tags/updates/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://nikitagusarov.github.io/tags/vs-code/</loc>
-    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
