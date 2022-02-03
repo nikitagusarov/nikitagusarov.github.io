@@ -6,7 +6,16 @@
     <description>Recent content in Programming on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>`Pass` for password management</title>
+      <link>https://nikitagusarov.github.io/post/2022-02-03-pass/</link>
+      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2022-02-03-pass/</guid>
+      <description>Some days ago I&amp;rsquo;ve descried my new password management model, where I&amp;rsquo;ve mentioned a tool named pass. By the end of the year 2021 I&amp;rsquo;ve been using this tool for some time for my passwords management, while in 2022 it became more of a fallback measure for my backups and secure password storage. Today I&amp;rsquo;ll discuss some of the features of this tool, as well as my personal setup and use-case.</description>
+    </item>
+    
     <item>
       <title>Self-hosting</title>
       <link>https://nikitagusarov.github.io/post/2022-02-01-self-hosting/</link>
