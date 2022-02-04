@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bibliometrix on Nikita Gusarov</title>
+    <link>https://nikitagusarov.github.io/tags/bibliometrix/</link>
+    <description>Recent content in Bibliometrix on Nikita Gusarov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/bibliometrix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bibliometrix</title>
+      <link>https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/</link>
+      <pubDate>Fri, 04 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/</guid>
+      <description>Since the start of my Doctoral studies I’ve always performed the literature exploration “the hard way”. Meaning, that I’ve performed most of my literature searches by hand, attempting to manually locate the key articles in the domain. While I’ve got an in-depth comprehension of the field, it remains possible that I’ve overlooked some of interesting literature clusters. However, there always existed a possibility to avoid such mistakes: by performing a thorough bibliometrics study instead of the simple literature overview.</description>
+    </item>
+    
+  </channel>
+</rss>

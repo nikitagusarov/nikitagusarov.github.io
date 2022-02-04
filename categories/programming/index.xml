@@ -6,7 +6,16 @@
     <description>Recent content in Programming on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bibliometrix</title>
+      <link>https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/</link>
+      <pubDate>Fri, 04 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/</guid>
+      <description>Since the start of my Doctoral studies I’ve always performed the literature exploration “the hard way”. Meaning, that I’ve performed most of my literature searches by hand, attempting to manually locate the key articles in the domain. While I’ve got an in-depth comprehension of the field, it remains possible that I’ve overlooked some of interesting literature clusters. However, there always existed a possibility to avoid such mistakes: by performing a thorough bibliometrics study instead of the simple literature overview.</description>
+    </item>
+    
     <item>
       <title>`Pass` for password management</title>
       <link>https://nikitagusarov.github.io/post/2022-02-03-pass/</link>

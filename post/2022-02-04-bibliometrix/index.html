@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Bibliometrix | Nikita Gusarov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Since the start of my Doctoral studies I’ve always performed the literature exploration “the hard way”. Meaning, that I’ve performed most of my literature searches by hand, attempting to manually locate the key articles in the domain. While I’ve got an in-depth comprehension of the field, it remains possible that I’ve overlooked some of interesting literature clusters. However, there always existed a possibility to avoid such mistakes: by performing a thorough bibliometrics study instead of the simple literature overview.">
+    <meta name="generator" content="Hugo 0.87.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Bibliometrix" />
+<meta property="og:description" content="Since the start of my Doctoral studies I’ve always performed the literature exploration “the hard way”. Meaning, that I’ve performed most of my literature searches by hand, attempting to manually locate the key articles in the domain. While I’ve got an in-depth comprehension of the field, it remains possible that I’ve overlooked some of interesting literature clusters. However, there always existed a possibility to avoid such mistakes: by performing a thorough bibliometrics study instead of the simple literature overview." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-04T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
+
+<meta itemprop="name" content="Bibliometrix">
+<meta itemprop="description" content="Since the start of my Doctoral studies I’ve always performed the literature exploration “the hard way”. Meaning, that I’ve performed most of my literature searches by hand, attempting to manually locate the key articles in the domain. While I’ve got an in-depth comprehension of the field, it remains possible that I’ve overlooked some of interesting literature clusters. However, there always existed a possibility to avoid such mistakes: by performing a thorough bibliometrics study instead of the simple literature overview."><meta itemprop="datePublished" content="2022-02-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-04T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2172">
+<meta itemprop="keywords" content="Programming,R,Rmarkdown,Bibliometrix,Thesis," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bibliometrix"/>
+<meta name="twitter:description" content="Since the start of my Doctoral studies I’ve always performed the literature exploration “the hard way”. Meaning, that I’ve performed most of my literature searches by hand, attempting to manually locate the key articles in the domain. While I’ve got an in-depth comprehension of the field, it remains possible that I’ve overlooked some of interesting literature clusters. However, there always existed a possibility to avoid such mistakes: by performing a thorough bibliometrics study instead of the simple literature overview."/>
+
+	
+  </head>
+
+  <body class="ma0 courrier bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/bibliometrix-0.png');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Nikita Gusarov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/background/" title="Background page">
+              Background
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/publications/" title="Publications page">
+              Publications
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Bibliometrix</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/&amp;text=Bibliometrix" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/&amp;title=Bibliometrix" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Bibliometrix</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Nikita Gusarov
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-02-04T00:00:00Z">February 4, 2022</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+<script src="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Since the start of my Doctoral studies I’ve always performed the literature exploration “<em>the hard way</em>”.
+Meaning, that I’ve performed most of my literature searches by hand, attempting to manually locate the key articles in the domain.
+While I’ve got an in-depth comprehension of the field, it remains possible that I’ve overlooked some of interesting literature <em>clusters</em>.
+However, there always existed a possibility to avoid such mistakes: by performing a thorough <strong>bibliometrics study</strong> instead of the simple <strong>literature overview</strong>.</p>
+<p>In this post I’ll present one of the known to me bibliometrics tools and solutions: the <code>bibliometrix</code> <em>R</em> package.
+Evidently there exist stand-alone applications for bibliometrics studies, such as <a href="https://www.vosviewer.com/">VOSviewer</a> or inbuilt toolset of <a href="https://www.lens.org/">Lens.org</a> or <a href="https://www.scopus.com/">SCOPUS</a>.
+Nevertheless, I believe that having a tool which may be integrated directly within the workflow (ex: redaction of <code>.Rmd</code> documents) is extremely useful.</p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>First of all we start with configuration of our workspace.
+I adore the functionalities of the <code>tidyverse</code>.
+The <code>bibliometrix</code> is required for demonstration of its capabilities.</p>
+<pre class="r"><code># Package names
+packages = c(&quot;tidyverse&quot;, &quot;bibliometrix&quot;)
+
+# Get installed packages
+installed_packages = packages %in% rownames(installed.packages())
+# Install if not installed
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load packages
+invisible(
+    lapply(packages, library, character.only = TRUE)
+)</code></pre>
+<p>Once the packages installed and loaded, we should
+The <code>bibliometrix</code> package relies on the <code>convert2df()</code> function for data interpretation.
+This function takes as input one of the following:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Clarivate Analytics WoS (in plaintext ‘.txt’, Endnote Desktop ‘.ciw’, or bibtex formats ‘.bib’);</li>
+<li>SCOPUS (exclusively in bibtex format ‘.bib’);</li>
+<li>Digital Science Dimensions (in csv ‘.csv’ or excel ‘.xlsx’ formats);</li>
+<li>Lens.org (in csv ‘.csv’);</li>
+<li>an object of the class pubmedR (package pubmedR) containing a collection obtained from a query performed with pubmedR package;</li>
+<li>an object of the class dimensionsR (package dimensionsR) containing a collection obtained from a query performed with dimensionsR package.</li>
+</ol>
+<p>The other two arguments taken by the function are (1) the declaration of database source and (2) specification of filetype for certain databases.
+The first one is <code>dbsource</code>, which should correspond to the database source as above:</p>
+<ul>
+<li><code>wos</code></li>
+<li><code>scopus</code></li>
+<li><code>dimensions</code></li>
+<li><code>lens</code></li>
+<li><code>isi</code></li>
+<li><code>pubmed</code></li>
+</ul>
+<p>The second, <code>format</code> declares the format of the SCOPUS and Clarivate Analytics WoS export file:</p>
+<ul>
+<li><code>api</code></li>
+<li><code>bibtex</code></li>
+<li><code>plaintext</code></li>
+<li><code>endnote</code></li>
+<li><code>csv</code></li>
+<li><code>excel</code></li>
+</ul>
+<p>The resulting output is a unified database suited for further analysis.
+In other words this function mitigates the differences between all the available bibliography analysis providers.
+The output includes information about:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AU</td>
+<td>Authors</td>
+</tr>
+<tr class="even">
+<td>TI</td>
+<td>Document Title</td>
+</tr>
+<tr class="odd">
+<td>SO</td>
+<td>Publication Name (or Source)</td>
+</tr>
+<tr class="even">
+<td>JI</td>
+<td>ISO Source Abbreviation</td>
+</tr>
+<tr class="odd">
+<td>DT</td>
+<td>Document Type</td>
+</tr>
+<tr class="even">
+<td>DE</td>
+<td>Authors’ Keywords</td>
+</tr>
+<tr class="odd">
+<td>ID</td>
+<td>Keywords associated by SCOPUS or WoS database</td>
+</tr>
+<tr class="even">
+<td>AB</td>
+<td>Abstract</td>
+</tr>
+<tr class="odd">
+<td>C1</td>
+<td>Author Address</td>
+</tr>
+<tr class="even">
+<td>RP</td>
+<td>Reprint Address</td>
+</tr>
+<tr class="odd">
+<td>CR</td>
+<td>Cited References</td>
+</tr>
+<tr class="even">
+<td>TC</td>
+<td>Times Cited</td>
+</tr>
+<tr class="odd">
+<td>PY</td>
+<td>Year</td>
+</tr>
+<tr class="even">
+<td>SC</td>
+<td>Subject Category</td>
+</tr>
+<tr class="odd">
+<td>UT</td>
+<td>Unique Article Identifier</td>
+</tr>
+<tr class="even">
+<td>DB</td>
+<td>Database</td>
+</tr>
+</tbody>
+</table>
+<p>For example, imagine we want to import dataset generated with WoS interface under <code>.bib</code> file format.
+Here we use a simple dataset extracted from <em>Web of Science</em>.
+For its generation we have used the following search pattern applied to <em>all fields</em> for <em>all time</em>:</p>
+<blockquote>
+<p>(“econometrics” OR “Econometrics” OR “econometric” OR “econometrica”) AND (“machine learning” OR “Machine Learning”)</p>
+</blockquote>
+<p>This can be achieved with the command:</p>
+<pre class="r"><code># Convert database
+db = convert2df(
+    &quot;wos.bib&quot;, 
+    dbsource = &quot;wos&quot;,
+    format = &quot;bibtex&quot;
+)</code></pre>
+<p>Unfortunately, the documentation available on CRAN is partially outdated, because the project is still under active development.
+Th ebest source for documentation, features lookup, etc. is the <a href="https://www.bibliometrix.org/index.html">official website of the initiative</a>.</p>
+<blockquote>
+<p>Some observations:
+- “lens” format has some problems with citations retrieval
+- “wos” and “scopus” are the two most developped formats</p>
+</blockquote>
+</div>
+<div id="simple-bibliometric-analysis" class="section level2">
+<h2>Simple bibliometric analysis</h2>
+<p>We may want to filter our results.
+For example, we may decide to exclude from our analysis such productions as: reviews, meeting abstracts, letters, editorial materials and corrections (as well as proceedings).
+Or simply select only the entries containing the <em>article</em> keyword:</p>
+<pre class="r"><code>db = db %&gt;%
+    filter(
+        str_detect(
+            DT, &quot;ARTICLE&quot;
+        )
+    )</code></pre>
+<p>The analysis may then be performed on the resulting database using the inbuilt toolset of the package.
+The resulting object may be synthetysed using the inbuilt traditional <em>R</em> methods like <code>summary()</code> for example.
+One of the problems of the methods’ implementation is the fact that it immediately prints the output.</p>
+<pre class="r"><code># Analyse results
+results = db %&gt;% 
+    biblioAnalysis() %&gt;%
+    summary(
+        k = 10, 
+        pause = F, 
+        width = 75
+    )</code></pre>
+<p>The dataset covers the period from 1992 to 2022 (nowadays), containing only 278 articles (obviously, we have had them filtered) from 175 different sources (journals).
+Observing the number of authors and keywords in the database we can easily imagine the complexity of the analysis task.</p>
+<p>As you can guess, this function performs all the required analysis automatically and provides the descriptive statistics of particular interest.
+Evidently, we can as easy perform the same analysis by hand over the <code>db</code> database (or extract the results from <code>results</code> object), but the package offers quite handy alternative.
+For example, we may want to get the main descriptive statistics, we can run:</p>
+<pre class="r"><code># Output main 
+cat(results$MainInformation)</code></pre>
+<pre><code>## 
+## 
+## MAIN INFORMATION ABOUT DATA
+## 
+##  Timespan                              1992 : 2022 
+##  Sources (Journals, Books, etc)        175 
+##  Documents                             278 
+##  Average years from publication        3.2 
+##  Average citations per documents       16.45 
+##  Average citations per year per doc    2.988 
+##  References                            13361 
+##  
+## DOCUMENT TYPES                     
+##  article                         233 
+##  article; book chapter           8 
+##  article; data paper             2 
+##  article; early access           24 
+##  article; proceedings paper      11 
+##  
+## DOCUMENT CONTENTS
+##  Keywords Plus (ID)                    862 
+##  Author&#39;s Keywords (DE)                1166 
+##  
+## AUTHORS
+##  Authors                               736 
+##  Author Appearances                    847 
+##  Authors of single-authored documents  26 
+##  Authors of multi-authored documents   710 
+##  
+## AUTHORS COLLABORATION
+##  Single-authored documents             26 
+##  Documents per Author                  0.378 
+##  Authors per Document                  2.65 
+##  Co-Authors per Documents              3.05 
+##  Collaboration Index                   2.82 
+## </code></pre>
+<p>Another implmeentation of the standart method is <code>plot()</code> function:</p>
+<pre class="r"><code>plt = db %&gt;% 
+    biblioAnalysis() %&gt;%
+    plot(results, k = 5, plot = FALSE)</code></pre>
+<p>The resulting plot object has the same inconveniences, as it attempts to store several plots inside one object, without supressing corresponding output.
+Here we call one of the plots - number of publications by year:</p>
+<pre class="r"><code>plot(plt$AnnualScientProd)</code></pre>
+<p><img src="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/index_files/figure-html/plot_annual-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We see, that the idea of merging both <em>econometrics</em> and <em>machine learning</em> (ML) is fairly recent.
+The number of publications mentioning both <em>econometrics</em> and <em>ML</em> is extremely low at start of the century, plummeting recently (around 2016 - 2018).
+We may imagine that such tendency is due to the propagation of the <em>ML</em> toolset to the other disciplines.
+It is exactly the period where the <em>ML</em> becomes accessible enough for someone without <em>Computer Science</em> (CS) background to be tested in scientific studies.</p>
+<p>Finally, there exist some auxiliary functions to enhance the basic analysis.
+To extract the most cited papers one can use<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
+<pre class="r"><code># Parse the cited
+db_cite = citations(
+    db, field = &quot;article&quot;, sep = &quot;;&quot;
+)
+
+# Output the results
+cbind(db_cite$Cited[1:10]) %&gt;% knitr::kable()</code></pre>
+<table>
+<colgroup>
+<col width="96%" />
+<col width="3%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">BREIMAN L, 2001, MACH LEARN, V45, P5, DOI 10.1023/A:1010933404324</td>
+<td align="right">42</td>
+</tr>
+<tr class="even">
+<td align="left">TIBSHIRANI R, 1996, J ROY STAT SOC B MET, V58, P267, DOI 10.1111/J.2517-6161.1996.TB02080.X</td>
+<td align="right">37</td>
+</tr>
+<tr class="odd">
+<td align="left">VARIAN HR, 2014, J ECON PERSPECT, V28, P3, DOI 10.1257/JEP.28.2.3</td>
+<td align="right">23</td>
+</tr>
+<tr class="even">
+<td align="left">CORTES C, 1995, MACH LEARN, V20, P273, DOI 10.1007/BF00994018</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="left">MULLAINATHAN S, 2017, J ECON PERSPECT, V31, P87, DOI 10.1257/JEP.31.2.87</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">FRIEDMAN JH, 2001, ANN STAT, V29, P1189, DOI 10.1214/AOS/1013203451</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">ZOU H, 2005, J R STAT SOC B, V67, P301, DOI 10.1111/J.1467-9868.2005.00503.X</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">BELLONI A, 2014, REV ECON STUD, V81, P608, DOI 10.1093/RESTUD/RDT044</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">HASTIE T, 2009, ELEMENTS STAT LEARNI, DOI 10.1007/978-0-387-84858-7., 10.1007/978-0-387-84858-7</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">ATHEY S, 2016, P NATL ACAD SCI USA, V113, P7353, DOI 10.1073/PNAS.1510489113</td>
+<td align="right">16</td>
+</tr>
+</tbody>
+</table>
+<p>Keep in mind that the articles listed here are associated with the number of citations <em>within the dataset</em>.
+Obviously, such works as the article of Breiman L. (2001) is far more cited than this.
+The same applies to the work of Tibshirani (1996), which is quite popular in econometrics field.</p>
+</div>
+<div id="co-citation-networks-analysis" class="section level2">
+<h2>Co-citation networks analysis</h2>
+<p>Speaking about more complex bibliometrics analysis we can mention several representations.</p>
+<p>Firstly, we may trace the <em>co-citation network</em>, which demonstrates relations between cited references nodes.
+We provide the code to get summary descriptives for the generated network as well.</p>
+<pre class="r"><code># We construct network and plot it
+plt_cocit = db %&gt;% 
+    biblioNetwork(
+        analysis = &quot;co-citation&quot;, 
+        network = &quot;references&quot;, 
+        sep = &quot;;&quot;
+    ) %&gt;%
+    networkPlot(
+        n = 30, Title = &quot;Co-Citation Network&quot;, 
+        remove.multiple = FALSE, 
+        remove.isolates = TRUE,
+        type = &quot;auto&quot;, # &quot;fruchterman&quot;, &quot;circle&quot;
+        size.cex = TRUE, size = 20, 
+        labelsize = 1, 
+        edgesize = 10, edges.min = 5
+    )</code></pre>
+<pre class="r"><code># Plot
+plot(plt_cocit$graph)</code></pre>
+<p><img src="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/index_files/figure-html/co-citations-plt-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Secondly, we can observe the <em>journal co-citation network</em>, which is constructed by taking the journals as nodes.</p>
+<pre class="r"><code># We construct network 
+plt_cocit_j = db %&gt;% 
+    metaTagExtraction(
+        &quot;CR_SO&quot;,
+        sep = &quot;;&quot;
+    ) %&gt;% 
+    biblioNetwork(
+        analysis = &quot;co-citation&quot;, 
+        network = &quot;sources&quot;, 
+        sep = &quot;;&quot;
+    ) %&gt;% 
+    networkPlot(
+        n = 20, remove.multiple = FALSE, 
+        Title = &quot;Co-Citation Network&quot;, 
+        type = &quot;auto&quot;, 
+        size.cex = TRUE, size = 15, 
+        labelsize = 1, 
+        edgesize = 10, edges.min = 5
+    )</code></pre>
+<pre class="r"><code># Plot
+plot(plt_cocit_j$graph)</code></pre>
+<p><img src="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/index_files/figure-html/co-citations-j-plt-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Here we distinguish two clusters: (1) one oriented on the econometrics, applied econometrics and statistical journals; and (2) another focusing on the ML methodology and natural sciences (where the ML toolset became more eagerly accepted than in the Economics domain).</p>
+</div>
+<div id="directed-graphs-for-history-tracking" class="section level2">
+<h2>Directed graphs for history tracking</h2>
+<p>With directed graphs we can depict the historical trends in citations and works interdependence, in terms of influence.</p>
+<pre class="r"><code># Here we take upper 25% of citations
+histgraph = db %&gt;% 
+    histNetwork(
+        min.citations = quantile(db$TC, 0.90), 
+        sep = &quot;;&quot;
+    ) %&gt;%
+    histPlot(
+        n = 40,
+        size = 5, 
+        labelsize = 4
+    )</code></pre>
+<pre class="r"><code># Plot
+plot(histgraph$g)</code></pre>
+<p><img src="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/index_files/figure-html/histgraph-plt-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The outputs are sometimes extremely messy and require manual adjustment and tweaks.
+For better readability it is possible to reduce the number of displayed entries, reduce the size of labels, etc.
+Here one will have to be creative to fit such plot in a plain <code>.pdf</code> page.</p>
+</div>
+<div id="keywords-analysis" class="section level2">
+<h2>Keywords analysis</h2>
+<p>Another stage is the keyword analysis, which can provide even more insight into the popular trends present in the given field.
+As we discover the definition on the <code>bibliometrix</code> website:</p>
+<blockquote>
+<p>Co-word networks show the conceptual structure, that uncovers links between concepts through term <em>co-occurrences</em>.
+Conceptual structure is often used to understand the topics covered by scholars (so-called research front) and identify what are the most important and the most recent issues.
+Dividing the whole timespan in different time-slices and comparing the conceptual structures is useful to analyse the evolution of topics over time.</p>
+</blockquote>
+<p>Such type of bibliometric analysis may be performed with different tools.</p>
+<p>The <em>keyword co-occurrences</em> exploration:</p>
+<pre class="r"><code># Analysis
+network = db %&gt;% 
+    biblioNetwork(
+        analysis = &quot;co-occurrences&quot;, 
+        network = &quot;keywords&quot;, sep = &quot;;&quot;
+    ) %&gt;%
+    networkPlot(
+        normalize = &quot;association&quot;, n = 20, 
+        Title = &quot;Keyword Co-occurrences&quot;, 
+        type = &quot;fruchterman&quot;, 
+        size.cex = TRUE, size = 30, 
+        remove.multiple = FALSE, 
+        edgesize = 10, edges.min = 2, 
+        labelsize = 3, label.cex = TRUE, label.n = 30
+    )</code></pre>
+<pre class="r"><code># Analysis
+plot(network$graph)</code></pre>
+<p><img src="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/index_files/figure-html/co-occurences-plt-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Which outlines three main clusters focused on (1) prediction, risks and time series related questions in context of ML; (2) the neural networks and (3) the regression analysis more traditional for econometrics, focused on inference and underlying models.</p>
+<p>Another option is the <em>Correspondence Analysis</em> (CA).
+With it we may extract more information, among which the <em>conceptual structure map</em> and <em>factorial map</em> (ex: of the documents with the highest contributes).</p>
+<pre class="r"><code>plt_ca = conceptualStructure(
+    db, method = &quot;CA&quot;, 
+    field = &quot;ID&quot;, 
+    minDegree = 10, k.max = 8, 
+    stemming = FALSE, labelsize = 8,
+    documents = 10
+)</code></pre>
+<pre class="r"><code># Conceptual structure map
+plot(plt_ca$graph_terms)</code></pre>
+<p><img src="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/index_files/figure-html/ca-concept-plt-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># Factorial map of the documents with the highest contributes
+plot(plt_ca$graph_documents_Contrib)</code></pre>
+<p><img src="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/index_files/figure-html/ca-fact-plt-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Before this data may be analysed it requires some tweaks and adjustments to the clustering algorithm, because otherwise it does not bring enough insight into the data.</p>
+<blockquote>
+<p>At this point it is important to remember, that clustering techniques may not be completely reproducible between executions.
+One should always pay attention when using such automated algorithms for data analysis.</p>
+</blockquote>
+</div>
+<div id="collaboration-networks" class="section level2">
+<h2>Collaboration networks</h2>
+<p>Finally, one may be interested to perform a collaboration network analysis.
+This type of object demonstrates the links between the authors, institutions or countries.
+Here we will demonstrate some of them.</p>
+<p>One is the <em>authors collaboration</em> network:</p>
+<pre class="r"><code># Author network
+auth_mat = db %&gt;% 
+    biblioNetwork(
+        analysis = &quot;collaboration&quot;,  
+        network = &quot;authors&quot;, 
+        sep = &quot;;&quot;,
+        short = TRUE
+    ) %&gt;%
+    networkPlot(
+        n = 20, 
+        Title = &quot;Author collaboration&quot;, 
+        type = &quot;auto&quot;, 
+        remove.isolates = TRUE,
+        size = 10, size.cex = TRUE, 
+        edgesize = 3, labelsize = 1
+    )</code></pre>
+<pre class="r"><code># Author network
+plot(auth_mat$graph)</code></pre>
+<p><img src="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/index_files/figure-html/author-net-plt-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Here we can observe the interactions between authors, which are divided into four groups.</p>
+<p>Alternatively, we can observe the institute interactions, because we have data on the authors affiliations:</p>
+<pre class="r"><code># University network
+uni_mat = db %&gt;% 
+    biblioNetwork(
+        analysis = &quot;collaboration&quot;, 
+        network = &quot;universities&quot;, 
+        sep = &quot;;&quot;
+    ) %&gt;% 
+    networkPlot(
+        n = 30, Title = &quot;University collaboration&quot;, 
+        type = &quot;kamada&quot;, # &quot;fruchterman&quot;, &quot;kamada&quot;, &quot;auto&quot;, &quot;mds&quot;, &quot;circle&quot;, &quot;sphere&quot;, 
+        remove.isolates = TRUE,
+        size = 10, size.cex = TRUE, 
+        edgesize = 3, labelsize = 1,
+        weighted = TRUE,
+        label.n = 15,
+        remove.multiple = FALSE
+    )</code></pre>
+<pre class="r"><code># University network
+plot(uni_mat$graph)</code></pre>
+<p><img src="https://nikitagusarov.github.io/post/2022-02-04-bibliometrix/index_files/figure-html/uni-net-plt-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>
+The correct functioning requires the citation information to be provided, meaning CR field should not be empty.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/programming" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/r" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">R</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/rmarkdown" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Rmarkdown</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/bibliometrix" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Bibliometrix</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/thesis" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Thesis</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/2021-12-27-rstudio-or-vs-code/">RStudio or VS Code</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-31-website-p3/">Building a website (part 3)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-29-website-p2/">Building a website (part 2)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-28-website/">Building a website (part 1)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-03-pass/">`Pass` for password management</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-01-self-hosting/">Self-hosting</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-01-29-onlykey-for-linux/">OnlyKey for Linux login</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-09-03-git-fr/">Guide des outils</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://nikitagusarov.github.io/" >
+    &copy;  Nikita Gusarov 2022 
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
