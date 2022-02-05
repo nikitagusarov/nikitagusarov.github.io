@@ -6,20 +6,20 @@
     <description>Recent content in Tags on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Bibliometrix</title>
-      <link>https://nikitagusarov.github.io/tags/bibliometrix/</link>
-      <pubDate>Fri, 04 Feb 2022 00:00:00 +0000</pubDate>
+      <title>Finance</title>
+      <link>https://nikitagusarov.github.io/tags/finance/</link>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://nikitagusarov.github.io/tags/bibliometrix/</guid>
+      <guid>https://nikitagusarov.github.io/tags/finance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programming</title>
       <link>https://nikitagusarov.github.io/tags/programming/</link>
-      <pubDate>Fri, 04 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/tags/programming/</guid>
       <description></description>
@@ -28,9 +28,27 @@
     <item>
       <title>R</title>
       <link>https://nikitagusarov.github.io/tags/r/</link>
-      <pubDate>Fri, 04 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Time Series</title>
+      <link>https://nikitagusarov.github.io/tags/time-series/</link>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/time-series/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bibliometrix</title>
+      <link>https://nikitagusarov.github.io/tags/bibliometrix/</link>
+      <pubDate>Fri, 04 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/bibliometrix/</guid>
       <description></description>
     </item>
     
