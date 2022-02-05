@@ -36,7 +36,7 @@
 <meta itemprop="name" content="Financial market analysis with R">
 <meta itemprop="description" content="Recently I’ve became obsessed with the idea of getting into stock exchange (for testing purposes and not for actual investment). One of the main reasons is the desire to start putting something aside for long-term perspective, but in short perspective this project gives me quite a lot of things to play with. Among them - the possibility to explore the predictive financial oriented models, neural networks (NN) testing for stock predictions and many more."><meta itemprop="datePublished" content="2022-02-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-02-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1287">
+<meta itemprop="wordCount" content="1677">
 <meta itemprop="keywords" content="Programming,R,Finance,Time Series," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Financial market analysis with R"/>
 <meta name="twitter:description" content="Recently I’ve became obsessed with the idea of getting into stock exchange (for testing purposes and not for actual investment). One of the main reasons is the desire to start putting something aside for long-term perspective, but in short perspective this project gives me quite a lot of things to play with. Among them - the possibility to explore the predictive financial oriented models, neural networks (NN) testing for stock predictions and many more."/>
@@ -243,8 +243,7 @@ The resolution of the “<em>yahoo</em>” domains fails, while “<em>google</e
 <p>The <code>Quandl</code> has absolutely different ideology.
 It provides uniquely the possibility to query the <em>Quandt API</em>, which extremely facilitates the dataset construction.
 Consequently, for simple data import it may be better to stick with the <code>Quandl</code> solution.</p>
-<p>Finally, there exists as well the <a href="https://github.com/business-science/tidyquant"><code>tidyquandt</code></a>, bringing the <code>tidyverse</code> compatibility for both <code>quantmod</code> and <code>Quandl</code> packages.
-This may be extremely useful if you are already familiar with the <code>tidyverse</code> ideology.</p>
+<p>Finally, there exists as well the <a href="https://github.com/business-science/tidyquant"><code>tidyquant</code></a>, bringing the <code>tidyverse</code> compatibility for both <code>quantmod</code> and <code>Quandl</code> packages. <code>This may be extremely useful if you are already familiar with the</code>tidyverse` ideology.</p>
 </div>
 <div id="starting-with-quandl" class="section level2">
 <h2>Starting with <code>Quandl</code></h2>
@@ -540,16 +539,19 @@ fb_mdp_2016 %&gt;%
 </tr>
 </tbody>
 </table>
-<p>Tehe ease of use may be extended even further.
+<p>The ease of use may be extended even further.
 Even though <code>Quandl()</code> can operate over vectors, the resulting <code>data.frame</code> inherits inefficient column names representing a sequence of <code>{database_code}/{dataset_code} {value_name}</code>.
 As you can see, this format requires some additional transformation steps after to become <code>tidy</code>.
 We can equally use the <code>tidyquant</code> for the same purpose, which output directly a <code>tidy</code> data-frame and can take even <code>data.frame</code>s as inputs.</p>
-<pre class="r"><code># Stocks
+<pre class="r"><code># Load tidyquant
+library(tidyquant)
+
+# Stocks
 stocks = c(&quot;WIKI/FB&quot;, &quot;WIKI/AAPL&quot;)
 
 # Querry
 db = stocks %&gt;%
-    tidyquant::tq_get(
+    tq_get(
         get = &quot;quandl&quot;,
         start_date = &quot;2016-01-01&quot;, 
         end_date = &quot;2016-12-31&quot;,
@@ -603,12 +605,92 @@ knitr::kable(db)</code></pre>
 </table>
 <p>Such data can be easily filtered, transformed and explored afterwards.</p>
 </div>
+<div id="searching-for-data" class="section level2">
+<h2>Searching for data</h2>
+<p>The <code>Quandl</code> package offers some particularly interesting functionality for querying the databases index.
+It may be used through a <code>Quandl.search()</code> command or, better, through <code>tidyquant</code>’s <code>quandl_search()</code> wrapper.
+For example, we can search for <em>Apple</em>:</p>
+<pre class="r"><code># Search for Apple
+&quot;Apple&quot; %&gt;% 
+    quandl_search(
+        per_page = 5, 
+        silent = TRUE
+    ) %&gt;% 
+    dplyr::select(
+        c(dataset_code, database_code, name)
+    ) %&gt;%
+    knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">dataset_code</th>
+<th align="left">database_code</th>
+<th align="left">name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">APPL</td>
+<td align="left">OTCB</td>
+<td align="left">Appell Petroleum Corp (APPL) Adjusted Stock Prices</td>
+</tr>
+<tr class="even">
+<td align="left">0482_HYINCOME</td>
+<td align="left">RB1</td>
+<td align="left">Apple — HYIncome</td>
+</tr>
+<tr class="odd">
+<td align="left">0482_VALUES</td>
+<td align="left">RB1</td>
+<td align="left">Apple — Values</td>
+</tr>
+<tr class="even">
+<td align="left">0482_HYBALANCE</td>
+<td align="left">RB1</td>
+<td align="left">Apple — HYBalance</td>
+</tr>
+<tr class="odd">
+<td align="left">0482_FORECAST</td>
+<td align="left">RB1</td>
+<td align="left">Apple — Forecast</td>
+</tr>
+</tbody>
+</table>
+<p>Unfortunately, the default <code>Quandl</code> databases do not contain information about any of the ETF’s.
+The only easily accessible indexes are:</p>
+<pre class="r"><code># Indexes
+tq_index_options()</code></pre>
+<pre><code>## [1] &quot;DOW&quot;       &quot;DOWGLOBAL&quot; &quot;SP400&quot;     &quot;SP500&quot;     &quot;SP600&quot;</code></pre>
+<p>The number of stock exchanges is equally limited and may not be suitable for some users (especially if we speak about EU):</p>
+<pre class="r"><code># Exchanges
+tq_exchange_options()</code></pre>
+<pre><code>## [1] &quot;AMEX&quot;   &quot;NASDAQ&quot; &quot;NYSE&quot;</code></pre>
+<p>As you can see, the toolset offers access to USA based exchanges, but no other <strong>free</strong> options are offered.</p>
+<p>The <code>tq_get()</code> function unites the capabilities of both <code>Quandl</code> and <code>quandmod</code> packages.
+However, the documentation is outdated and some sources are unavailable.
+Among the listed on the <a href="https://cran.r-project.org/web/packages/tidyquant/vignettes/TQ01-core-functions-in-tidyquant.html">package’s vignettes</a> we find:</p>
+<ul>
+<li><a href="https://finance.yahoo.com/">Yahoo Finance</a> - Daily stock data</li>
+<li><a href="https://fred.stlouisfed.org/">FRED</a> - Economic data (<em>US specific mostly</em>)</li>
+<li><a href="https://data.nasdaq.com/">Quandl</a> - Economic, Energy, &amp; Financial Data API</li>
+<li><a href="https://www.tiingo.com/">Tiingo</a> - Financial API with sub-daily stock data and crypto-currency</li>
+<li><a href="https://www.alphavantage.co/">Alpha Vantage</a> - Financial API with sub-daily, ForEx, and crypto-currency data</li>
+<li><a href="https://www.bloomberg.com/">Bloomberg</a> - Financial API (<em>paid account is required</em>)</li>
+</ul>
+<p>Unfortunately, some of the API’s do not perform as intended.
+One example is the Yahoo Finance, which seems to be extremely difficult to reach from behind a custom DNS with filtered <em>adblocking</em>.
+However, lowering your defences will allow you to get your hands on some of the ETF’s data (at least the selection available on <em>Yahoo</em>).</p>
+</div>
 <div id="closing-remarks" class="section level2">
 <h2>Closing remarks</h2>
-<p>One of the main disadvantages of both <code>quandmod</code> and <code>Quandl</code> is the low availability of data.
-Most of the historic datasets are simply unavailable for <strong>free</strong> in the internet via an API.
-Consequently, there is a need to search for alternative tools.</p>
-<p>The first option is to go directly <em>scrapping</em> with native <em>R</em> toolset over the web for data.
+<p>One of the main disadvantages of both <code>quandmod</code> and <code>Quandl</code> (as well as the <code>tidyquant</code>) is the low availability of data.
+Most of the historic datasets, interesting for EU residents, are simply unavailable for <strong>free</strong> in the internet via an API.
+While working with stocks only the available sources may be good enough, inclusion of ETF’s into portfolio makes things more difficult.
+Consequently, there is may be a need to search for alternative tools.</p>
+<p>The first and most plainly obvious solution is to run the <code>tidyquant</code> wit custom DNS resolver disabled.
+This means as well that you’ll have to limit your choices to the most popular listings, which appear on <em>Yahoo</em>.
+For personal side-project this may be the optimal choice.</p>
+<p>The second option is to go directly <em>scrapping</em> with native <em>R</em> toolset over the web for data.
 Among the drawbacks of this solution we have an incredible time-waste on creation of your own <em>wheel</em> to hunt for the data.
 Moreover, there is constant risk that your <em>wheel</em> will break because of the third party decisions (ex: changes in the source website data distribution policy, updates, etc).
 This solution is equally inefficient because most websites provide a limited amount of historical data (ex: 3 or 5 years), which potentially limits the amount of learning to be done over it.</p>
@@ -616,9 +698,9 @@ This solution is equally inefficient because most websites provide a limited amo
 Unfortunately, the prices are extremely discouraging when you aim at small personal project.
 The fees vary between 30-100$$ for entry level options and, as always, the upper limit is non-existent.
 Obviously, this is absolutely unreasonable when you want to run some tests with just a 100€.</p>
-<p>Finally, there exist some alternative solutions (premade scrappers and API interfaces) for other languages
+<p>Finally, there exist some alternative solutions (premade scrappers and other API interfaces) for other languages
 (ex: <code>python</code>, which is extremely popular because of its more permissive licence).
-This may be an interesting path to follow, which we’ll do in near future.</p>
+This may be an interesting path to follow, which we’ll probably do in near future.</p>
 </div>
 <ul class="pa0">
   
