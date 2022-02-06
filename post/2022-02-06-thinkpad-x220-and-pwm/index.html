@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>ThinkPad X220 and PWM | Nikita Gusarov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Continuing the posts&#39; streak, today we are going to see how to eliminate the PWM flickering problem that arises on some of the ThinkPad laptops of early 2010-th. The proposed solution is specific for the laptops equipped with Intel GPU&rsquo;s (Intel i915 only) running Linux.
+This summer I&rsquo;ve acquired a second laptop, an old ThinkPad X220, to have something more portable at hand in complement to my main ThinkPad T430. Today I&rsquo;ve decided to finally patch my X220, because with time the eye strain has become more and more noticeable.">
+    <meta name="generator" content="Hugo 0.87.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="ThinkPad X220 and PWM" />
+<meta property="og:description" content="Continuing the posts&#39; streak, today we are going to see how to eliminate the PWM flickering problem that arises on some of the ThinkPad laptops of early 2010-th. The proposed solution is specific for the laptops equipped with Intel GPU&rsquo;s (Intel i915 only) running Linux.
+This summer I&rsquo;ve acquired a second laptop, an old ThinkPad X220, to have something more portable at hand in complement to my main ThinkPad T430. Today I&rsquo;ve decided to finally patch my X220, because with time the eye strain has become more and more noticeable." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikitagusarov.github.io/post/2022-02-06-thinkpad-x220-and-pwm/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-06T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
+
+<meta itemprop="name" content="ThinkPad X220 and PWM">
+<meta itemprop="description" content="Continuing the posts&#39; streak, today we are going to see how to eliminate the PWM flickering problem that arises on some of the ThinkPad laptops of early 2010-th. The proposed solution is specific for the laptops equipped with Intel GPU&rsquo;s (Intel i915 only) running Linux.
+This summer I&rsquo;ve acquired a second laptop, an old ThinkPad X220, to have something more portable at hand in complement to my main ThinkPad T430. Today I&rsquo;ve decided to finally patch my X220, because with time the eye strain has become more and more noticeable."><meta itemprop="datePublished" content="2022-02-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1151">
+<meta itemprop="keywords" content="Linux,Programming,ThinkPad,PWM," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ThinkPad X220 and PWM"/>
+<meta name="twitter:description" content="Continuing the posts&#39; streak, today we are going to see how to eliminate the PWM flickering problem that arises on some of the ThinkPad laptops of early 2010-th. The proposed solution is specific for the laptops equipped with Intel GPU&rsquo;s (Intel i915 only) running Linux.
+This summer I&rsquo;ve acquired a second laptop, an old ThinkPad X220, to have something more portable at hand in complement to my main ThinkPad T430. Today I&rsquo;ve decided to finally patch my X220, because with time the eye strain has become more and more noticeable."/>
+
+	
+  </head>
+
+  <body class="ma0 courrier bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/x220-pwm-0.jpg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Nikita Gusarov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/background/" title="Background page">
+              Background
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/publications/" title="Publications page">
+              Publications
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">ThinkPad X220 and PWM</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2022-02-06-thinkpad-x220-and-pwm/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2022-02-06-thinkpad-x220-and-pwm/&amp;text=ThinkPad%20X220%20and%20PWM" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2022-02-06-thinkpad-x220-and-pwm/&amp;title=ThinkPad%20X220%20and%20PWM" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">ThinkPad X220 and PWM</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Nikita Gusarov
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-02-06T00:00:00Z">February 6, 2022</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Continuing the posts' streak, today we are going to see how to eliminate the PWM flickering problem that arises on some of the ThinkPad laptops of early 2010-th.
+The proposed solution is specific for the laptops equipped with Intel GPU&rsquo;s (Intel i915 only) running Linux.</p>
+<p>This summer I&rsquo;ve acquired a second laptop, an old ThinkPad X220, to have something more portable at hand in complement to my main ThinkPad T430.
+Today I&rsquo;ve decided to finally patch my X220, because with time the eye strain has become more and more noticeable.
+Both of the machines encounter the same screen flickering issue even after the upgrade of their screens to the IPS versions.
+And even though I already corrected the problem on my T430 about 2 years ago, I&rsquo;ve completely forgot how to do it by now.
+After some search on the Internet, I&rsquo;ve found the solution and this post serves mostly to keep it by hand, just in case.</p>
+<h2 id="the-pwm-and-eye-strain">The PWM and eye strain</h2>
+<p>What is the PWM?
+The PWM is an abbreviation for <em>Pulse Width Modulation</em>, a technique used to control the screen backlight in many laptops.
+A more scientific definition, adopted from R.D. Christ, R.L. WernliSr., &ldquo;<em>The ROV Manual (Second Edition)</em>&rdquo;, 2014 states:</p>
+<blockquote>
+<p>Pulse width modulation (PWM) is a modulation technique that generates variable-width pulses to represent the amplitude of an analog input signal.
+The output switching transistor is on more of the time for a high-amplitude signal and off more of the time for a low-amplitude signal.
+The digital nature (fully on or off) of the PWM circuit is less costly to fabricate than an analog circuit that does not drift over time.</p>
+</blockquote>
+<p>Obviously, this definition is rather specific for other domain - <em>Remotely Operated Vehicles</em> (ROV) design.
+Nevertheless, it quite well explains the general principles behind the PWM.</p>
+<p>Another explanation may be found on the <a href="https://wiki.archlinux.org/title/Backlight#Backlight_PWM_modulation_frequency_.28Intel_i915_only.29">Arch Wiki page</a>.
+This one explains particularly well how exactly PWM misconfiguration impacts the eyestrain.</p>
+<blockquote>
+<p>Laptops with LED backlight are known to have screen flicker sometimes.
+This is because the most efficient way of controlling LED backlight brightness is by turning the LED&rsquo;s on and off very quickly varying the amount of time they are on.
+However, the frequency of the switching, so-called PWM (pulse-width modulation) frequency, may not be high enough for the eye to perceive it as a single brightness and instead see flickering.
+This causes some people to have symptoms such as headaches and eyestrain.</p>
+</blockquote>
+<p>Te simplest way to test the presence of flickering is to observe the screen with white background through a digital camera.
+For this you may use a smartphone, for example.
+Even though it&rsquo;s quite hard to see on the photo (a short video would have been more demonstrative) you can observe the horizontal lines on the image:</p>
+<p><img src="/images/flickering-1.jpg" alt="Flickering on X220 display"></p>
+<p>These are the signs of flickering issues.
+This lines are not easily distinguished by human eye, but they still impact our performance and can lead to severe head aches with time.</p>
+<h2 id="eliminating-the-flickering">Eliminating the flickering</h2>
+<p>The usage of Intel i915 GPU allows to manipulate the PWM frequency in order to eliminate flickering.
+As explained in different guides, the <em>period of the PWM stream</em>^[
+Actually it&rsquo;s <em>the PWM stream in PCH display raw clocks multiplied by 128</em>, to be more precise.
+As described in <a href="https://127001.me/post/eliminate-backlight-flicker-with-i915/">this blogpost</a>.
+] (which is inverse to frequency) is stored in 2 higher bytes of <code>0xC8254</code> register
+(or <code>0x61254</code> for Intel GM45 chipset users).
+Evidently, if we can modify the register values (read and write them), we can eliminate the flickering through frequency adjustment.
+For this we&rsquo;ll need the <code>intel-gpu-tools</code> package, available in most official repositories (at least for Debian and Arch it&rsquo;s available).</p>
+<p>To read the current value from register we should run:</p>
+<pre><code>sudo intel_reg read 0xC8254
+</code></pre><p>Which should produce us something like:</p>
+<pre><code>BLC_PWM_PCH_CTL2 (0x000c8254): 0x06100000 (freq 1552, cycle 0)
+</code></pre><p>Keep in mind, that the value to be altered is kept in the four upper bytes.</p>
+<p>To get the frequency estimates we will equally need the value of <code>0xC6204</code> register.
+This one holds the <em>PCH display raw clocks</em> and the value is <em>PCH frequency in MHz</em>.
+For example, on my X220 the value is:</p>
+<pre><code>PCH_RAWCLK_FREQ (0x000c6204): 0x0000007d (FDL_TP1 timer 0.5us, FDL_TP2 timer 1.5us, freq 125)
+</code></pre><p>Which corresponds to PCH frequency of 125 MHz.
+Resulting PWM frequency in Hz can be calculated by the formula:</p>
+<p>$$
+f_{PWM} =
+( reg_{0xC6204} \times 1 000 000 ) / 128 / reg_{0xC8254 [7..4]}
+$$</p>
+<p>In my default case:</p>
+<p>$$
+f_{PWM} = ( 125 \times 1 000 000 ) / 128 / 1552 = 629,228 Hz
+$$</p>
+<p>From what I&rsquo;ve seen on internet, the values suggested to bypass the flickering vary from 200 to 800 Hz.
+Let&rsquo;s start our tests with 600 Hz:</p>
+<p>$$
+\frac{125 \times 1 000 000}{128} / 600 = 1627
+$$</p>
+<p>In hexadecimal notation we obtain <code>065B</code>, which should be written to the four upper bytes of the <code>0xC8254</code> register.
+Meaning we should run:</p>
+<pre><code>sudo intel_reg write 0xC8254 0x065B0000
+</code></pre><p>And voila, you can see no more flickering strips on the screen!</p>
+<p><img src="/images/flickering-2.jpg" alt="No more flickering on X220 display"></p>
+<h2 id="persistent-solution-to-flickering">Persistent solution to flickering</h2>
+<p>Unfortunately for us the solution described above is not permanent.
+Every time the power is cycled to the GPU or the backlight the value of the <code>0xC8254</code> register will be reset to the default.
+Obviously this is absolutely inconvenient, meaning one will have to repeat the procedure each time the screen is turned off, laptop suspended, and so on.</p>
+<p>A good solution to this is to write a separate script, which will be updating the register value automatically, without user intervention.
+And there even exists a working solution for this!
+So no need to write a custom command from scratch and better use a tested and more reliable version proposed in <code>intelpwm-udev</code> package.
+The project is available on <a href="https://github.com/edio/intelpwm-udev">GitHub</a>.
+This toolset is available in AUR repositories for Arch based distributions.
+If you are using a different Linux flavour, you&rsquo;ll have to install it manually (the developers offer an <a href="https://docs.ansible.com/ansible/latest/index.html">Ansible-playbook</a> installation script).</p>
+<p>Because I run Pop!_OS on both of my machines, I&rsquo;ll have to follow the <em>Ansible</em> path.
+Obviously, we can do everything by hand without usage of a separate automation toolset, but it looks rather interesting and I&rsquo;ll probably be using it later for other projects.
+First of all, we should install <code>ansible</code> if none is present on the system (it is available on most of the systems from the official repositories):</p>
+<pre><code>sudo apt install ansible
+</code></pre><p>Then we should clone the the <code>intelpwm-udev</code> project onto our target machine:</p>
+<pre><code>git clone https://github.com/edio/intelpwm-udev.git &amp;&amp; cd intelpwm-udev
+</code></pre><p>The next step includes the installation itself (mind that the <em>Ansible</em> script should be executed from the project&rsquo;s root folder):</p>
+<pre><code>sudo ansible-playbook install/ansible/install.yaml
+</code></pre><p>Afterwards, it remains to specify the desired frequency in the dedicated configuration file at <code>/etc/intelpwm.conf</code>.
+We reset it to the previously tested 600 Hz:</p>
+<pre><code>FREQ=600
+</code></pre><p>And that&rsquo;s it.
+Afterwards you may test whether the script works by putting your device to sleep or restarting it.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/linux" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Linux</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/programming" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/thinkpad" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ThinkPad</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/pwm" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">PWM</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/2022-02-03-pass/">`Pass` for password management</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-01-self-hosting/">Self-hosting</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-01-29-onlykey-for-linux/">OnlyKey for Linux login</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-05-stocks-with-r/">Financial market analysis with R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-04-bibliometrix/">Bibliometrix</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-12-27-rstudio-or-vs-code/">RStudio or VS Code</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://nikitagusarov.github.io/" >
+    &copy;  Nikita Gusarov 2022 
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

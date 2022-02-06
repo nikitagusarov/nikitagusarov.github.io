@@ -3,7 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nikitagusarov.github.io/categories/</loc>
-    <lastmod>2022-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/linux/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/post/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/programming/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/categories/programming/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/pwm/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/thinkpad/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/post/2022-02-06-thinkpad-x220-and-pwm/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -17,37 +62,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://nikitagusarov.github.io/post/</loc>
-    <lastmod>2022-02-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/tags/programming/</loc>
-    <lastmod>2022-02-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/categories/programming/</loc>
-    <lastmod>2022-02-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://nikitagusarov.github.io/tags/r/</loc>
     <lastmod>2022-02-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://nikitagusarov.github.io/tags/</loc>
-    <lastmod>2022-02-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://nikitagusarov.github.io/tags/time-series/</loc>
-    <lastmod>2022-02-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/</loc>
     <lastmod>2022-02-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -78,11 +98,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://nikitagusarov.github.io/post/2022-02-03-pass/</loc>
-    <lastmod>2022-02-03T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/tags/linux/</loc>
     <lastmod>2022-02-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

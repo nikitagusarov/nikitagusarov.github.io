@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkPad on Nikita Gusarov</title>
+    <link>https://nikitagusarov.github.io/tags/thinkpad/</link>
+    <description>Recent content in ThinkPad on Nikita Gusarov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/thinkpad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ThinkPad X220 and PWM</title>
+      <link>https://nikitagusarov.github.io/post/2022-02-06-thinkpad-x220-and-pwm/</link>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2022-02-06-thinkpad-x220-and-pwm/</guid>
+      <description>Continuing the posts&#39; streak, today we are going to see how to eliminate the PWM flickering problem that arises on some of the ThinkPad laptops of early 2010-th. The proposed solution is specific for the laptops equipped with Intel GPU&amp;rsquo;s (Intel i915 only) running Linux.
+This summer I&amp;rsquo;ve acquired a second laptop, an old ThinkPad X220, to have something more portable at hand in complement to my main ThinkPad T430. Today I&amp;rsquo;ve decided to finally patch my X220, because with time the eye strain has become more and more noticeable.</description>
+    </item>
+    
+  </channel>
+</rss>
