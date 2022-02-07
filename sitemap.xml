@@ -3,7 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nikitagusarov.github.io/categories/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/latex/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/post/2022-02-07-latex-and-r/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/post/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/programming/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/categories/programming/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/r/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/tags/tinytex/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nikitagusarov.github.io/</loc>
+    <lastmod>2022-02-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -12,27 +57,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://nikitagusarov.github.io/post/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/tags/programming/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/categories/programming/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://nikitagusarov.github.io/tags/pwm/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/tags/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -47,22 +72,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://nikitagusarov.github.io/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://nikitagusarov.github.io/tags/finance/</loc>
     <lastmod>2022-02-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://nikitagusarov.github.io/post/2022-02-05-stocks-with-r/</loc>
-    <lastmod>2022-02-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/tags/r/</loc>
     <lastmod>2022-02-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -253,11 +268,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://nikitagusarov.github.io/post/2021-09-03-git-fr/</loc>
-    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://nikitagusarov.github.io/tags/latex/</loc>
     <lastmod>2021-09-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

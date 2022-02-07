@@ -6,22 +6,49 @@
     <description>Recent content in Tags on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linux</title>
-      <link>https://nikitagusarov.github.io/tags/linux/</link>
-      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      <title>LaTeX</title>
+      <link>https://nikitagusarov.github.io/tags/latex/</link>
+      <pubDate>Mon, 07 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://nikitagusarov.github.io/tags/linux/</guid>
+      <guid>https://nikitagusarov.github.io/tags/latex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programming</title>
       <link>https://nikitagusarov.github.io/tags/programming/</link>
-      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://nikitagusarov.github.io/tags/r/</link>
+      <pubDate>Mon, 07 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tinytex</title>
+      <link>https://nikitagusarov.github.io/tags/tinytex/</link>
+      <pubDate>Mon, 07 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/tinytex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://nikitagusarov.github.io/tags/linux/</link>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -49,15 +76,6 @@
       <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/tags/finance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://nikitagusarov.github.io/tags/r/</link>
-      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://nikitagusarov.github.io/tags/r/</guid>
       <description></description>
     </item>
     
@@ -256,15 +274,6 @@
       <pubDate>Fri, 03 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LaTeX</title>
-      <link>https://nikitagusarov.github.io/tags/latex/</link>
-      <pubDate>Fri, 03 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nikitagusarov.github.io/tags/latex/</guid>
       <description></description>
     </item>
     

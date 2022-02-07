@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>LaTeX and R | Nikita Gusarov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Today I&rsquo;ve to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task.">
+    <meta name="generator" content="Hugo 0.87.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="LaTeX and R" />
+<meta property="og:description" content="Today I&rsquo;ve to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikitagusarov.github.io/post/2022-02-07-latex-and-r/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-07T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
+
+<meta itemprop="name" content="LaTeX and R">
+<meta itemprop="description" content="Today I&rsquo;ve to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task."><meta itemprop="datePublished" content="2022-02-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1388">
+<meta itemprop="keywords" content="Programming,R,LaTeX,tinytex," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LaTeX and R"/>
+<meta name="twitter:description" content="Today I&rsquo;ve to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task."/>
+
+	
+  </head>
+
+  <body class="ma0 courrier bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/tinytex-0.png');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Nikita Gusarov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/background/" title="Background page">
+              Background
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/publications/" title="Publications page">
+              Publications
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">LaTeX and R</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2022-02-07-latex-and-r/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2022-02-07-latex-and-r/&amp;text=LaTeX%20and%20R" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2022-02-07-latex-and-r/&amp;title=LaTeX%20and%20R" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">LaTeX and R</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Nikita Gusarov
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-02-07T00:00:00Z">February 7, 2022</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Today I&rsquo;ve to complete one of the course deliverables with some indications about how to compile the <code>.Rmd</code> files.
+The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track.
+This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use <em>R</em> for document compilation, others encounter difficulties with this task.</p>
+<p>The <em>R</em> programming language usage is quite widespread in the disciplines I&rsquo;m teaching (<em>Statistics</em> and <em>Data Analysis</em>).
+Most of the sessions require students to write (or at least execute) the code for demonstration purposes.
+The decision to switch over to <em>R</em> from <em>Excel</em> and spreadsheets was done long before me joining the teaching team, for the reasons of enforcing reproducible science principles right from the start.</p>
+<p>What is more, the <em>R</em> usage allows us to easily edit interactive documents in <code>.Rmd</code> format.
+Preparation of <code>.html</code> webpages, <code>.pdf</code> supports and presentations becomes extremely easy with <code>rmarkdown</code>, facilitating the course preparation part.
+Unfortunately, the <code>rmarkdown</code> suite is somewhat difficult to be configured for <code>.pdf</code> documents production.
+I&rsquo;m going to describe the configuration procedure in this post, these contents will be reused as course materials.</p>
+<h2 id="rmarkdown">RMarkdown</h2>
+<p>Before proceeding further we should understand what features <code>.Rmd</code> format brings us.
+The <code>.Rmd</code> support is introduced into <em>R</em> by the <code>rmarkdown</code> package, which can be installed using the command:</p>
+<pre><code># Installation
+install.packages(&quot;rmarkdown&quot;)
+</code></pre><p>The package&rsquo;s features are described in the <a href="https://rmarkdown.rstudio.com/">project&rsquo;s website</a>:</p>
+<blockquote>
+<p>R Markdown documents are fully reproducible.
+Use a productive notebook interface to weave together narrative text and code to produce elegantly formatted output.
+Use multiple languages including R, Python, and SQL.
+R Markdown supports dozens of static and dynamic output formats including
+HTML, PDF, MS Word, Beamer, HTML5 slides, Tufte-style handouts, books, dashboards, shiny applications, scientific articles, websites, and more.</p>
+</blockquote>
+<p>As we can see, the accent is made on:
+(1) the <em>reproducibility</em>;
+(2) the <em>possibility to combine code and text</em> and
+(3) the <em>wide range of supported output formats</em>.
+All these features make such document superior to most of the alternatives.</p>
+<p>The reproducibility of <code>.Rmd</code> files is greater than of simple <code>.xlsx</code> sheets or a number of instructions in a text file, because there is nearly no place for the human error.
+The usage of <em>pseudo-random number generator</em> in <em>R</em> brings this reproducibility to even higher level, ensuring that even simulation tasks can be perfectly replicated on different systems.</p>
+<p>The combination of <em>code and text</em> in one single document is superior to direct competitors as well.
+One of the alternatives which immediately comes to mind is the <code>.ipynb</code> format of <a href="https://jupyter.org/">Jupyter Notebooks</a>, although it has far more limitations.
+The features are inferior:
+(1) in <code>.ipynb</code> it&rsquo;s impossible to use inline code in default configuration;
+(2) the <em>Jupyter</em> requires additional <em>Python</em> dependencies, which make configuration more difficult and
+(3) the supported default output formats are far more reach with <code>rmarkdown</code>.
+The last one, the <code>markdown</code> format is extremely simple to use, all the text fields in <code>.Rmd</code> files are actually <code>markdown</code> field.
+For more information about <code>markdown</code> syntax one can look at <a href="https://www.markdownguide.org/">Markdown Guide</a>.
+It is important to say, that depending on the desired format of the output document it is equally possible to incorporate blocks of text formatted according to the outputs standards.
+For example, if you expect to produce <code>.html</code> file, you may embed <code>.html</code> code directly into the document (the same applies to <code>.pdf</code> and LaTeX chunks).</p>
+<p>Speaking about the <em>supported formats</em> we see the huge number of available output documents.
+PDF, HTML, MS Word, Shiny applications and many more, none of the alternatives offers so reach export options.
+But for now we&rsquo;ll focus on a single one of them - the <code>.pdf</code>.</p>
+<h2 id="pdf">PDF</h2>
+<p>PDF or the <a href="https://opensource.adobe.com/dc-acrobat-sdk-docs/index.html">Portable Document Format</a> was developed by <a href="https://www.adobe.com">Adobe</a> in 1992 to present text documents in a universal manner.
+This format, based on <a href="https://www.adobe.com/products/postscript.html">PostScript</a> was intended to produce identical output on any system and any hardware configuration.
+As we discover in <a href="https://en.wikipedia.org/wiki/PDF">format&rsquo;s description</a> it has quite a number of features, which explain it&rsquo;s popularity:</p>
+<blockquote>
+<p>&hellip; each PDF file encapsulates a complete description of a fixed-layout flat document, including the text, fonts, vector graphics, raster images and other information needed to display it.
+&hellip; PDF specification also provides for encryption and digital signatures, file attachments, and metadata to enable workflows requiring these features.</p>
+</blockquote>
+<p><em>Adobe</em> made the format available for everyone free of charge, which greatly impacted it&rsquo;s propagation.
+One of the first early solutions for <code>.pdf</code> generation on Linux was <code>groff</code> (<code>GNU troff</code>), which allowed to read plain text mixed with formatting commands and produces formatted output (<code>.pdf</code> or <code>.html</code>).
+Another option was the well known <a href="https://www.latex-project.org/">LaTeX</a> (LaTeX2e, 1994) designed for production of medium-to-large size technical or scientific documents and almost any form of publishing.</p>
+<h2 id="from-rmarkdown-to-pdf">From RMarkdown to PDF</h2>
+<p>Speaking about the conversion of <code>.Rmd</code> files to <code>.pdf</code> the procedure appears to be quite complicated.
+First of all, <em>R</em> has no means to directly compile <code>.Rmd</code> into <code>.pdf</code>.
+To support all of the different output formats <em>R</em> compiles the <code>.Rmd</code> contents into a plain markdown (<code>.md</code>) document.
+Then, using <code>pandoc</code> software the conversion towards <code>.tex</code>, <code>.hmtl</code> or <code>.docx</code> is performed.
+This means, that before anything else we should install the <code>pandoc</code> software.
+Linux users may use their package manager as <code>pandoc</code> is available in most of the repositories, for example:</p>
+<pre><code># Debian based systems
+sudo apt install pandoc
+</code></pre><p>On Windows one will have to install the software from the <a href="https://pandoc.org/">project&rsquo;s website</a>:</p>
+<pre><code>https://github.com/jgm/pandoc/releases/latest
+</code></pre><p>For those who use <a href="https://www.rstudio.com/">RStudio IDE</a>, the <code>pandoc</code> version is installed automatically alongside the IDE itself.
+One can verify it&rsquo;s presence with a command:</p>
+<pre><code># Find pandoc version and location
+rmarkdown::find_pandoc()
+</code></pre><p>What is more, it is important to understand, that <code>pandoc</code> allows only to convert <code>.md</code> to <code>.tex</code> files.
+The next step is to compile from the resulting <code>.tex</code> a final <code>.pdf</code> file.
+Obviously, in order to do so one will need a working <em>LaTeX</em> installation.
+What are the options?
+Either one can install a standalone <em>LaTeX</em> bundle, such as:</p>
+<ul>
+<li><a href="https://miktex.org/">MiKTeX</a>, oriented at Windows users mostly</li>
+<li><a href="https://tug.org/texlive/">TeX Live</a>, one the best maintained <em>LeTeX</em> distributions</li>
+<li><a href="https://www.tug.org/mactex/">MacTeX</a>, <em>MacOS</em> oriented distribution</li>
+</ul>
+<p>Or use a dedicated <em>R</em> oriented <em>LaTeX</em> distribution.
+This one goes under the name of <a href="https://tug.org/TUGboat/Contents/contents40-1.html">TinyTeX</a>, provided by <code>tinytex</code> package.
+For installation one should install <code>tinytex</code> package first, and then run bundled installer:</p>
+<pre><code># Install package
+install.packages(&quot;tinytex&quot;)
+
+# Install LaTeX distribution
+tinytex::install_tinytex()
+</code></pre><p>Then it remains to ensure the runtime is in <code>PATH</code>.
+There are several advantages to this second option, as described in <a href="https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html">documentation</a>:</p>
+<ul>
+<li>TinyTeX is lightweight (compared to other LaTeX distributions), cross-platform, and portable</li>
+<li>If certain LaTeX packages are required but not installed, <code>tinytex</code> will try to automatically install them for you</li>
+</ul>
+<p>The next step is the creation of an <code>.Rmd</code> document itself.
+Such document is divided into two main parts:
+(1) the <code>yaml</code> header, where rendering parameters and session info is declared, and
+(2) the main body of the document, where the text and code blocks are stored.
+An example of <code>yaml</code> specification to produce a <code>.pdf</code> document is:</p>
+<pre><code>---
+title: &quot;Test document&quot;
+output: 
+  pdf_document
+---
+</code></pre><p>Supplementary parameters may be declared in the header and may be divided into two groups:
+(1) those unique for all documents classes, and
+(2) those that are specific for particular document types.
+For example:</p>
+<pre><code>---
+title: &quot;Test document&quot;
+author: &quot;Tester&quot;
+output: 
+  pdf_document:
+    fig_width: 6
+    fig_height: 3
+    keep_tex: false
+---
+</code></pre><p>Then we may add some text in <code>markdown</code> format:</p>
+<pre><code>---
+title: &quot;Test document&quot;
+author: &quot;Tester&quot;
+output: 
+  pdf_document:
+    fig_width: 6
+    fig_height: 3
+    keep_tex: false
+---
+
+# Header 1
+
+Some text of the first paragraph.
+</code></pre><p>And a chunk of <em>R</em> code to be calculated:</p>
+<pre><code>---
+title: &quot;Test document&quot;
+author: &quot;Tester&quot;
+output: 
+  pdf_document:
+    fig_width: 6
+    fig_height: 3
+    keep_tex: false
+---
+
+# Header 1
+
+Some text of the first paragraph.
+
+```{r}`r ''`
+x = 10 + 1
+```
+</code></pre><p>Finally, to compile a document one will have to run the following command in <em>R</em>:</p>
+<pre><code># Render document from R session
+rmarkdown::render(&quot;path/to/document.Rmd&quot;)
+</code></pre><p>It&rsquo;s equally possible to render a document directly from a terminal, without starting a new <em>R</em> session.
+This may be extremely useful, if you are writing a new <code>.Rmd</code>, which does not need testing:</p>
+<pre><code># Render document from command line
+Rscript -e 'rmarkdown::render(&quot;path/to/document.Rmd&quot;)'
+</code></pre><p>Alternatively, you can simply use <code>knit</code> button available in <em>RStudio IDE</em>.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/programming" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/r" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">R</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/latex" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">LaTeX</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/tinytex" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tinytex</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/2022-02-05-stocks-with-r/">Financial market analysis with R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-04-bibliometrix/">Bibliometrix</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-12-27-rstudio-or-vs-code/">RStudio or VS Code</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-06-thinkpad-x220-and-pwm/">ThinkPad X220 and PWM</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-03-pass/">`Pass` for password management</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-01-self-hosting/">Self-hosting</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-01-29-onlykey-for-linux/">OnlyKey for Linux login</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-09-03-git-fr/">Guide des outils</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-31-website-p3/">Building a website (part 3)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-29-website-p2/">Building a website (part 2)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-28-website/">Building a website (part 1)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-27-latex/">LaTeX, publications and `tikz`</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://nikitagusarov.github.io/" >
+    &copy;  Nikita Gusarov 2022 
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
