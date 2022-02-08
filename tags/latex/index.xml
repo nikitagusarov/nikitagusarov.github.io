@@ -13,7 +13,7 @@
       <pubDate>Mon, 07 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/post/2022-02-07-latex-and-r/</guid>
-      <description>Today I&amp;rsquo;ve to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&amp;rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task.</description>
+      <description>Today I&amp;rsquo;ve had to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&amp;rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task.</description>
     </item>
     
     <item>

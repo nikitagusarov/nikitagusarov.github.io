@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>LaTeX and R | Nikita Gusarov</title>
+    <title>Python alongside R | Nikita Gusarov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Today I&rsquo;ve had to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task.">
+    <meta name="description" content="While working on my PhD thesis I’m usually facing the situation when I need to use both R and Python programming languages. R offers me the possibility to render neat scientific supports with rmarkdown package, which bring .Rmd support. Obviously, Python has similar format (pymarkdown and the .Pmd) available, it is not as well developed as the R counterpart. Moreover, I’m far more familiar with R statistical libraries, tidyverse suite and coding practices.">
     <meta name="generator" content="Hugo 0.87.0" />
     
     
@@ -26,20 +26,20 @@
 
     
     
-    <meta property="og:title" content="LaTeX and R" />
-<meta property="og:description" content="Today I&rsquo;ve had to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task." />
+    <meta property="og:title" content="Python alongside R" />
+<meta property="og:description" content="While working on my PhD thesis I’m usually facing the situation when I need to use both R and Python programming languages. R offers me the possibility to render neat scientific supports with rmarkdown package, which bring .Rmd support. Obviously, Python has similar format (pymarkdown and the .Pmd) available, it is not as well developed as the R counterpart. Moreover, I’m far more familiar with R statistical libraries, tidyverse suite and coding practices." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://nikitagusarov.github.io/post/2022-02-07-latex-and-r/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-02-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-07T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
+<meta property="og:url" content="https://nikitagusarov.github.io/post/2022-02-08-python-alongside-r/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-08T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
 
-<meta itemprop="name" content="LaTeX and R">
-<meta itemprop="description" content="Today I&rsquo;ve had to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task."><meta itemprop="datePublished" content="2022-02-07T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1388">
-<meta itemprop="keywords" content="Programming,R,LaTeX,tinytex," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="LaTeX and R"/>
-<meta name="twitter:description" content="Today I&rsquo;ve had to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task."/>
+<meta itemprop="name" content="Python alongside R">
+<meta itemprop="description" content="While working on my PhD thesis I’m usually facing the situation when I need to use both R and Python programming languages. R offers me the possibility to render neat scientific supports with rmarkdown package, which bring .Rmd support. Obviously, Python has similar format (pymarkdown and the .Pmd) available, it is not as well developed as the R counterpart. Moreover, I’m far more familiar with R statistical libraries, tidyverse suite and coding practices."><meta itemprop="datePublished" content="2022-02-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1021">
+<meta itemprop="keywords" content="Programming,Tips,R,Python,reticulate," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python alongside R"/>
+<meta name="twitter:description" content="While working on my PhD thesis I’m usually facing the situation when I need to use both R and Python programming languages. R offers me the possibility to render neat scientific supports with rmarkdown package, which bring .Rmd support. Obviously, Python has similar format (pymarkdown and the .Pmd) available, it is not as well developed as the R counterpart. Moreover, I’m far more familiar with R statistical libraries, tidyverse suite and coding practices."/>
 
 	
   </head>
@@ -52,7 +52,7 @@
 
   
   
-  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/tinytex-0.png');">
+  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/reticulate-0.png');">
     <div class="pb3-m pb6-l bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
@@ -149,7 +149,7 @@
 
       <div class="tc-l pv6 ph3 ph4-ns">
         
-          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">LaTeX and R</h1>
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Python alongside R</h1>
           
         
       </div>
@@ -175,20 +175,20 @@
   <div id="sharing" class="mt3">
 
     
-    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2022-02-07-latex-and-r/" class="facebook no-underline" aria-label="share on Facebook">
+    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2022-02-08-python-alongside-r/" class="facebook no-underline" aria-label="share on Facebook">
       <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
 
     </a>
 
     
     
-    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2022-02-07-latex-and-r/&amp;text=LaTeX%20and%20R" class="twitter no-underline" aria-label="share on Twitter">
+    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2022-02-08-python-alongside-r/&amp;text=Python%20alongside%20R" class="twitter no-underline" aria-label="share on Twitter">
       <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
 
     </a>
 
     
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2022-02-07-latex-and-r/&amp;title=LaTeX%20and%20R" class="linkedin no-underline" aria-label="share on LinkedIn">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2022-02-08-python-alongside-r/&amp;title=Python%20alongside%20R" class="linkedin no-underline" aria-label="share on LinkedIn">
       <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
 </svg>
@@ -197,7 +197,7 @@
   </div>
 
 
-      <h1 class="f1 athelas mt3 mb1">LaTeX and R</h1>
+      <h1 class="f1 athelas mt3 mb1">Python alongside R</h1>
       
       <p class="tracked">
           By <strong>
@@ -208,167 +208,160 @@
       </p>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2022-02-07T00:00:00Z">February 7, 2022</time>
+      <time class="f6 mv4 dib tracked" datetime="2022-02-08T00:00:00Z">February 8, 2022</time>
 
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Today I&rsquo;ve had to complete one of the course deliverables with some indications about how to compile the <code>.Rmd</code> files.
-The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track.
-This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use <em>R</em> for document compilation, others encounter difficulties with this task.</p>
-<p>The <em>R</em> programming language usage is quite widespread in the disciplines I&rsquo;m teaching (<em>Statistics</em> and <em>Data Analysis</em>).
-Most of the sessions require students to write (or at least execute) the code for demonstration purposes.
-The decision to switch over to <em>R</em> from <em>Excel</em> and spreadsheets was done long before me joining the teaching team, for the reasons of enforcing reproducible science principles right from the start.</p>
-<p>What is more, the <em>R</em> usage allows us to easily edit interactive documents in <code>.Rmd</code> format.
-Preparation of <code>.html</code> webpages, <code>.pdf</code> supports and presentations becomes extremely easy with <code>rmarkdown</code>, facilitating the course preparation part.
-Unfortunately, the <code>rmarkdown</code> suite is somewhat difficult to be configured for <code>.pdf</code> documents production.
-I&rsquo;m going to describe the configuration procedure in this post, these contents will be reused as course materials.</p>
-<h2 id="rmarkdown">RMarkdown</h2>
-<p>Before proceeding further we should understand what features <code>.Rmd</code> format brings us.
-The <code>.Rmd</code> support is introduced into <em>R</em> by the <code>rmarkdown</code> package, which can be installed using the command:</p>
-<pre><code># Installation
-install.packages(&quot;rmarkdown&quot;)
-</code></pre><p>The package&rsquo;s features are described in the <a href="https://rmarkdown.rstudio.com/">project&rsquo;s website</a>:</p>
-<blockquote>
-<p>R Markdown documents are fully reproducible.
-Use a productive notebook interface to weave together narrative text and code to produce elegantly formatted output.
-Use multiple languages including R, Python, and SQL.
-R Markdown supports dozens of static and dynamic output formats including
-HTML, PDF, MS Word, Beamer, HTML5 slides, Tufte-style handouts, books, dashboards, shiny applications, scientific articles, websites, and more.</p>
-</blockquote>
-<p>As we can see, the accent is made on:
-(1) the <em>reproducibility</em>;
-(2) the <em>possibility to combine code and text</em> and
-(3) the <em>wide range of supported output formats</em>.
-All these features make such document superior to most of the alternatives.</p>
-<p>The reproducibility of <code>.Rmd</code> files is greater than of simple <code>.xlsx</code> sheets or a number of instructions in a text file, because there is nearly no place for the human error.
-The usage of <em>pseudo-random number generator</em> in <em>R</em> brings this reproducibility to even higher level, ensuring that even simulation tasks can be perfectly replicated on different systems.</p>
-<p>The combination of <em>code and text</em> in one single document is superior to direct competitors as well.
-One of the alternatives which immediately comes to mind is the <code>.ipynb</code> format of <a href="https://jupyter.org/">Jupyter Notebooks</a>, although it has far more limitations.
-The features are inferior:
-(1) in <code>.ipynb</code> it&rsquo;s impossible to use inline code in default configuration;
-(2) the <em>Jupyter</em> requires additional <em>Python</em> dependencies, which make configuration more difficult and
-(3) the supported default output formats are far more reach with <code>rmarkdown</code>.
-The last one, the <code>markdown</code> format is extremely simple to use, all the text fields in <code>.Rmd</code> files are actually <code>markdown</code> field.
-For more information about <code>markdown</code> syntax one can look at <a href="https://www.markdownguide.org/">Markdown Guide</a>.
-It is important to say, that depending on the desired format of the output document it is equally possible to incorporate blocks of text formatted according to the outputs standards.
-For example, if you expect to produce <code>.html</code> file, you may embed <code>.html</code> code directly into the document (the same applies to <code>.pdf</code> and LaTeX chunks).</p>
-<p>Speaking about the <em>supported formats</em> we see the huge number of available output documents.
-PDF, HTML, MS Word, Shiny applications and many more, none of the alternatives offers so reach export options.
-But for now we&rsquo;ll focus on a single one of them - the <code>.pdf</code>.</p>
-<h2 id="pdf">PDF</h2>
-<p>PDF or the <a href="https://opensource.adobe.com/dc-acrobat-sdk-docs/index.html">Portable Document Format</a> was developed by <a href="https://www.adobe.com">Adobe</a> in 1992 to present text documents in a universal manner.
-This format, based on <a href="https://www.adobe.com/products/postscript.html">PostScript</a> was intended to produce identical output on any system and any hardware configuration.
-As we discover in <a href="https://en.wikipedia.org/wiki/PDF">format&rsquo;s description</a> it has quite a number of features, which explain it&rsquo;s popularity:</p>
-<blockquote>
-<p>&hellip; each PDF file encapsulates a complete description of a fixed-layout flat document, including the text, fonts, vector graphics, raster images and other information needed to display it.
-&hellip; PDF specification also provides for encryption and digital signatures, file attachments, and metadata to enable workflows requiring these features.</p>
-</blockquote>
-<p><em>Adobe</em> made the format available for everyone free of charge, which greatly impacted it&rsquo;s propagation.
-One of the first early solutions for <code>.pdf</code> generation on Linux was <code>groff</code> (<code>GNU troff</code>), which allowed to read plain text mixed with formatting commands and produces formatted output (<code>.pdf</code> or <code>.html</code>).
-Another option was the well known <a href="https://www.latex-project.org/">LaTeX</a> (LaTeX2e, 1994) designed for production of medium-to-large size technical or scientific documents and almost any form of publishing.</p>
-<h2 id="from-rmarkdown-to-pdf">From RMarkdown to PDF</h2>
-<p>Speaking about the conversion of <code>.Rmd</code> files to <code>.pdf</code> the procedure appears to be quite complicated.
-First of all, <em>R</em> has no means to directly compile <code>.Rmd</code> into <code>.pdf</code>.
-To support all of the different output formats <em>R</em> compiles the <code>.Rmd</code> contents into a plain markdown (<code>.md</code>) document.
-Then, using <code>pandoc</code> software the conversion towards <code>.tex</code>, <code>.hmtl</code> or <code>.docx</code> is performed.
-This means, that before anything else we should install the <code>pandoc</code> software.
-Linux users may use their package manager as <code>pandoc</code> is available in most of the repositories, for example:</p>
-<pre><code># Debian based systems
-sudo apt install pandoc
-</code></pre><p>On Windows one will have to install the software from the <a href="https://pandoc.org/">project&rsquo;s website</a>:</p>
-<pre><code>https://github.com/jgm/pandoc/releases/latest
-</code></pre><p>For those who use <a href="https://www.rstudio.com/">RStudio IDE</a>, the <code>pandoc</code> version is installed automatically alongside the IDE itself.
-One can verify it&rsquo;s presence with a command:</p>
-<pre><code># Find pandoc version and location
-rmarkdown::find_pandoc()
-</code></pre><p>What is more, it is important to understand, that <code>pandoc</code> allows only to convert <code>.md</code> to <code>.tex</code> files.
-The next step is to compile from the resulting <code>.tex</code> a final <code>.pdf</code> file.
-Obviously, in order to do so one will need a working <em>LaTeX</em> installation.
-What are the options?
-Either one can install a standalone <em>LaTeX</em> bundle, such as:</p>
+    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+<script src="https://nikitagusarov.github.io/post/2022-02-08-python-alongside-r/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>While working on my PhD thesis I’m usually facing the situation when I need to use both <a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> programming languages.
+<em>R</em> offers me the possibility to render neat scientific supports with <a href="https://rmarkdown.rstudio.com/"><code>rmarkdown</code></a> package, which bring <code>.Rmd</code> support.
+Obviously, <em>Python</em> has similar format (<a href="https://python-markdown.github.io/"><code>pymarkdown</code></a> and the <code>.Pmd</code>) available, it is not as well developed as the <em>R</em> counterpart.
+Moreover, I’m far more familiar with <em>R</em> statistical libraries, <a href="https://www.tidyverse.org/"><code>tidyverse</code></a> suite and coding practices.
+However, at the same time I need <em>Python</em> dependencies: the most developed <em>neural network</em> (NN) libraries are written in <em>Python</em> or have their main interface in <em>Python</em>.
+For example, the well known <a href="https://www.tensorflow.org/">TensorFlow</a> has a <em>Python</em> based backend.</p>
+<p>The idea behind this post is to describe the possibilities to combine both <em>R</em> and <em>Python</em> in your workflow.
+There will quite a lot of disjoined materials available on internet in this post, leaving not that much place for my personal contribution.
+But I hope it might be useful for someone, and I expect to convert the results into a guide for the TER’s and other courses I’m giving.</p>
+<div id="configuring-reticulate" class="section level2">
+<h2>Configuring <code>reticulate</code></h2>
+<p>One of the most developed packages for <em>R</em> and <em>Python</em> interactions is the <code>rticulate</code>.
+It offers several possible strategies of interaction between the languages, among which:</p>
 <ul>
-<li><a href="https://miktex.org/">MiKTeX</a>, oriented at Windows users mostly</li>
-<li><a href="https://tug.org/texlive/">TeX Live</a>, one the best maintained <em>LeTeX</em> distributions</li>
-<li><a href="https://www.tug.org/mactex/">MacTeX</a>, <em>MacOS</em> oriented distribution</li>
-</ul>
-<p>Or use a dedicated <em>R</em> oriented <em>LaTeX</em> distribution.
-This one goes under the name of <a href="https://tug.org/TUGboat/Contents/contents40-1.html">TinyTeX</a>, provided by <code>tinytex</code> package.
-For installation one should install <code>tinytex</code> package first, and then run bundled installer:</p>
-<pre><code># Install package
-install.packages(&quot;tinytex&quot;)
-
-# Install LaTeX distribution
-tinytex::install_tinytex()
-</code></pre><p>Then it remains to ensure the runtime is in <code>PATH</code>.
-There are several advantages to this second option, as described in <a href="https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html">documentation</a>:</p>
+<li>Calling <em>Python</em> directly from <em>R</em>
 <ul>
-<li>TinyTeX is lightweight (compared to other LaTeX distributions), cross-platform, and portable</li>
-<li>If certain LaTeX packages are required but not installed, <code>tinytex</code> will try to automatically install them for you</li>
+<li>Sourcing <em>Python</em> scripts</li>
+<li>Including <em>Python</em> chunks in <em>RMarkdown</em></li>
+<li>Using <em>Python</em> directly from within an <em>R</em> session</li>
+</ul></li>
+<li>Translation between <em>R</em> and <em>Python</em> objects</li>
+<li>Interactions between the different versions of <em>Python</em> through virtual environments</li>
 </ul>
-<p>The next step is the creation of an <code>.Rmd</code> document itself.
-Such document is divided into two main parts:
-(1) the <code>yaml</code> header, where rendering parameters and session info is declared, and
-(2) the main body of the document, where the text and code blocks are stored.
-An example of <code>yaml</code> specification to produce a <code>.pdf</code> document is:</p>
-<pre><code>---
-title: &quot;Test document&quot;
-output: 
-  pdf_document
----
-</code></pre><p>Supplementary parameters may be declared in the header and may be divided into two groups:
-(1) those unique for all documents classes, and
-(2) those that are specific for particular document types.
-For example:</p>
-<pre><code>---
-title: &quot;Test document&quot;
-author: &quot;Tester&quot;
-output: 
-  pdf_document:
-    fig_width: 6
-    fig_height: 3
-    keep_tex: false
----
-</code></pre><p>Then we may add some text in <code>markdown</code> format:</p>
-<pre><code>---
-title: &quot;Test document&quot;
-author: &quot;Tester&quot;
-output: 
-  pdf_document:
-    fig_width: 6
-    fig_height: 3
-    keep_tex: false
----
+<p>The <code>reticulate</code> is provided as CRAN package to be installed with <em>R</em>:</p>
+<pre><code># Install reticulate
+install.packages(&quot;reticulate&quot;)</code></pre>
+<p>The package uses the <em>Python</em> version found on your PATH by default.
+So if you already have a working <em>Python</em> installation there is nothing to do.
+However, given the <em>Python</em> language specifics I suggest you use a separate environment to use alongside your <em>R</em> installation.
+One of the good practices is to use a <a href="https://docs.conda.io/en/latest/">Conda</a> virtual environment, or <em>Python</em> <code>virtualenv</code>.
+If you desire to configure a separate <em>Python</em> installation, the <code>reticulate</code> package offers such possibility via <code>miniconda</code> installation.
+This may be achieved with a simple command:</p>
+<pre><code># Install miniconda
+reticulate::install_miniconda()</code></pre>
+<p>The <code>miniconda</code> will be installed in the default, system specific, path.
+To modify it, one can set environmental variable <code>RETICULATE_MINICONDA_PATH</code>.
+After the installation do not forget to verify that <code>conda</code> is in your PATH and activated.</p>
+<p>An existing <em>Python</em> installation can provide similar experience through <code>virtualenv</code> functionality.
+To create a new virtual environment execute:</p>
+<pre class="r"><code># Call reticualte
+library(reticulate)</code></pre>
+<pre><code># Create new virtual environment
+virtualenv_create(&quot;r-environemnt&quot;)
 
-# Header 1
+# Tell reticulate what to use
+use_virtualenv(&quot;r-environment&quot;)</code></pre>
+<p>To ensure the correct detections of the desired default <em>Python</em> installations by <code>reticulate</code> you may want to define <code>RETICULATE_PYTHON</code> environmental variable.
+Finally, you may verify the activated environment’s configuration with:</p>
+<pre class="r"><code># Configuration info
+py_config()</code></pre>
+<pre><code>## python:         /home/nikita/.local/share/r-miniconda/envs/r-reticulate/bin/python
+## libpython:      /home/nikita/.local/share/r-miniconda/envs/r-reticulate/lib/libpython3.7m.so
+## pythonhome:     /home/nikita/.local/share/r-miniconda/envs/r-reticulate:/home/nikita/.local/share/r-miniconda/envs/r-reticulate
+## version:        3.7.10 | packaged by conda-forge | (default, Oct 13 2021, 21:01:18)  [GCC 9.4.0]
+## numpy:          /home/nikita/.local/share/r-miniconda/envs/r-reticulate/lib/python3.7/site-packages/numpy
+## numpy_version:  1.21.2</code></pre>
+<p>Once the <em>Python</em> is setup and <code>reticulate</code> detects the desired environment, we may proceed to the description of usecases.</p>
+</div>
+<div id="interacting-with-python" class="section level2">
+<h2>Interacting with <em>Python</em></h2>
+<p>As you could see, there exist multiple strategies to interact with <em>Python</em> from inside <em>R</em>.
+In order to better illustrate how exactly the interaction between <em>R</em> and <em>Python</em> is performed it’s better to start with <code>REPL</code> path.</p>
+<div id="calling-python-repl-from-within-r" class="section level3">
+<h3>Calling <em>Python</em> <code>REPL</code> from within <em>R</em></h3>
+<p>This first option allows us to switch between <em>R</em> and <em>Python</em> sessions in terminal and access shared objects.
+For those who do not know what <code>REPL</code> is here is a <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">short definition</a>:</p>
+<blockquote>
+<p>A <strong>read–eval–print loop</strong> (REPL), also termed an interactive toplevel or language shell, is a simple interactive computer programming environment that takes single user inputs, executes them, and returns the result to the user …</p>
+</blockquote>
+<p>We can access <em>Python</em> <code>REPL</code> interface directly from <em>R</em> by running:</p>
+<pre><code># Call Python REPL
+repl_python()</code></pre>
+<p>We can then interact with <em>Python</em> session as we would typically do, as if <em>R</em> did not exist.
+What is more, we can reach <em>R</em> objects, created in our <em>R</em> session.
+All such objects are accessible from within <code>r</code> object in <em>Python</em> session.
+To return back into <em>R</em> session we can execute command <code>exit</code> or <code>quit</code>.
+Then, in our <em>R</em> session we would be able to reach previously created <em>Python</em> objects as parts of <code>py</code> object.
+A quick example:</p>
+<div class="figure">
+<img src="/images/reticulate-0.png" alt="" />
+<p class="caption">REPL Python example</p>
+</div>
+<p>Now it becomes more clear how the different interfaces interact through dummy objects <code>py</code> and <code>r</code></p>
+</div>
+<div id="importing-python-modules-into-r" class="section level3">
+<h3>Importing <em>Python</em> modules into <em>R</em></h3>
+<p>Another option, if you do not want to switch between different languages and interpreters is to load (or <code>import</code>) <em>Python</em> modules inside <em>R</em>.
+This can be done via <code>import()</code> function.</p>
+<pre class="r"><code># Import numpy
+os = import(&quot;os&quot;)
 
-Some text of the first paragraph.
-</code></pre><p>And a chunk of <em>R</em> code to be calculated:</p>
-<pre><code>---
-title: &quot;Test document&quot;
-author: &quot;Tester&quot;
-output: 
-  pdf_document:
-    fig_width: 6
-    fig_height: 3
-    keep_tex: false
----
+# List directory contents with Python toolset
+os$listdir(&quot;.&quot;)</code></pre>
+<pre><code>## [1] &quot;script.py&quot;       &quot;index.Rmd&quot;       &quot;index.html&quot;      &quot;index.Rmd.lock~&quot;
+## [5] &quot;index_files&quot;</code></pre>
+<p>As one can see, the <em>Python</em> libraries are imported into <em>R</em> as separate objects with desired functionalities inside.</p>
+</div>
+<div id="sourcing-python-code-from-files" class="section level3">
+<h3>Sourcing <em>Python</em> code from files</h3>
+<p>The same principles may be used with scripts.
+Meaning you can write the desired <em>Python</em> script for importing data or session setup into a standalone file and then source it from within your <em>R</em> session.</p>
+<p>For example, we can create a short script creating a new variable, and save into a file:</p>
+<pre class="r"><code># Write into file
+cat(
+    &quot;import os\nld = os.listdir(&#39;.&#39;)&quot;, 
+    append = FALSE,
+    file = &quot;script.py&quot;
+)</code></pre>
+<p>And then call it from within our <em>R</em> session, and print results:</p>
+<pre class="r"><code># Source Python script
+source_python(&quot;script.py&quot;)
 
-# Header 1
-
-Some text of the first paragraph.
-
-```{r}
-x = 10 + 1
+# Results
+py$ld</code></pre>
+<pre><code>## [1] &quot;script.py&quot;       &quot;index.Rmd&quot;       &quot;index.html&quot;      &quot;index.Rmd.lock~&quot;
+## [5] &quot;index_files&quot;</code></pre>
+</div>
+<div id="python-chunks-inside-.rmd" class="section level3">
+<h3><em>Python</em> chunks inside <code>.Rmd</code></h3>
+<p>The final option is brought to us alongside <code>rmarkdown</code> format functionality.
+In particular, we can simply create entire <em>Python</em> chunks inside <code>.Rmd</code> file.
+It remains only to specify the correct language in chunk’s parameters:</p>
+<pre><code>
+```python
+import os
+os.listdir(&quot;.&quot;)
 ```
-</code></pre><p>Finally, to compile a document one will have to run the following command in <em>R</em>:</p>
-<pre><code># Render document from R session
-rmarkdown::render(&quot;path/to/document.Rmd&quot;)
-</code></pre><p>It&rsquo;s equally possible to render a document directly from a terminal, without starting a new <em>R</em> session.
-This may be extremely useful, if you are writing a new <code>.Rmd</code>, which does not need testing:</p>
-<pre><code># Render document from command line
-Rscript -e 'rmarkdown::render(&quot;path/to/document.Rmd&quot;)'
-</code></pre><p>Alternatively, you can simply use <code>knit</code> button available in <em>RStudio IDE</em>.</p>
+
+```
+## [&#39;script.py&#39;, &#39;index.Rmd&#39;, &#39;index.html&#39;, &#39;index.Rmd.lock~&#39;, &#39;index_files&#39;]
+```</code></pre>
+<p>The general idea behind this method is common to all other methods.
+We can access the objects created within <em>Python</em> chunks in <em>R</em> chunks and vice versa:</p>
+<pre class="python"><code># Import os
+import os
+
+# Check directory contents
+dc = os.listdir(&quot;.&quot;)</code></pre>
+<p>Then we can access the results from within <em>R</em>:</p>
+<pre class="r"><code># Print results
+py$dc</code></pre>
+<pre><code>## [1] &quot;script.py&quot;       &quot;index.Rmd&quot;       &quot;index.html&quot;      &quot;index.Rmd.lock~&quot;
+## [5] &quot;index_files&quot;</code></pre>
+</div>
+</div>
 <ul class="pa0">
   
    <li class="list">
@@ -376,15 +369,19 @@ Rscript -e 'rmarkdown::render(&quot;path/to/document.Rmd&quot;)'
    </li>
   
    <li class="list">
+     <a href="/tags/tips" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Tips</a>
+   </li>
+  
+   <li class="list">
      <a href="/tags/r" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">R</a>
    </li>
   
    <li class="list">
-     <a href="/tags/latex" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">LaTeX</a>
+     <a href="/tags/python" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
    </li>
   
    <li class="list">
-     <a href="/tags/tinytex" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tinytex</a>
+     <a href="/tags/reticulate" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">reticulate</a>
    </li>
   
 </ul>
@@ -403,6 +400,10 @@ Rscript -e 'rmarkdown::render(&quot;path/to/document.Rmd&quot;)'
     <p class="f5 b mb3">Related</p>
     <ul class="pa0 list">
 	   
+	     <li  class="mb2">
+          <a href="/post/2022-02-07-latex-and-r/">LaTeX and R</a>
+        </li>
+	    
 	     <li  class="mb2">
           <a href="/post/2022-02-05-stocks-with-r/">Financial market analysis with R</a>
         </li>
@@ -432,7 +433,7 @@ Rscript -e 'rmarkdown::render(&quot;path/to/document.Rmd&quot;)'
         </li>
 	    
 	     <li  class="mb2">
-          <a href="/post/2021-09-03-git-fr/">Guide des outils</a>
+          <a href="/post/2021-09-26-shortcuts/">Shortcuts in Vim style</a>
         </li>
 	    
 	     <li  class="mb2">
