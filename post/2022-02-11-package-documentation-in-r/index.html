@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Creating packages with R | Nikita Gusarov</title>
+    <title>Package documentation in R | Nikita Gusarov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Some days ago I&rsquo;ve started to revise the code of one particular R package I&rsquo;m using in my thesis work. This is a particular package developed by our team and implemented by one of my friends - Antoine Dubois. The main idea behind the implemented toolset is the simulation of individual behaviour under the most popular behavioural models. The final product should simplify the model pen-testing and performance evaluation tasks for economists and experimentalists.">
+    <meta name="description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantaince procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite.">
     <meta name="generator" content="Hugo 0.87.0" />
     
     
@@ -26,20 +26,20 @@
 
     
     
-    <meta property="og:title" content="Creating packages with R" />
-<meta property="og:description" content="Some days ago I&rsquo;ve started to revise the code of one particular R package I&rsquo;m using in my thesis work. This is a particular package developed by our team and implemented by one of my friends - Antoine Dubois. The main idea behind the implemented toolset is the simulation of individual behaviour under the most popular behavioural models. The final product should simplify the model pen-testing and performance evaluation tasks for economists and experimentalists." />
+    <meta property="og:title" content="Package documentation in R" />
+<meta property="og:description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantaince procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://nikitagusarov.github.io/post/2022-02-09-packages-with-r/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-02-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-09T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
+<meta property="og:url" content="https://nikitagusarov.github.io/post/2022-02-11-package-documentation-in-r/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-11T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
 
-<meta itemprop="name" content="Creating packages with R">
-<meta itemprop="description" content="Some days ago I&rsquo;ve started to revise the code of one particular R package I&rsquo;m using in my thesis work. This is a particular package developed by our team and implemented by one of my friends - Antoine Dubois. The main idea behind the implemented toolset is the simulation of individual behaviour under the most popular behavioural models. The final product should simplify the model pen-testing and performance evaluation tasks for economists and experimentalists."><meta itemprop="datePublished" content="2022-02-09T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="754">
-<meta itemprop="keywords" content="Programming R,Packages,devtools," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Creating packages with R"/>
-<meta name="twitter:description" content="Some days ago I&rsquo;ve started to revise the code of one particular R package I&rsquo;m using in my thesis work. This is a particular package developed by our team and implemented by one of my friends - Antoine Dubois. The main idea behind the implemented toolset is the simulation of individual behaviour under the most popular behavioural models. The final product should simplify the model pen-testing and performance evaluation tasks for economists and experimentalists."/>
+<meta itemprop="name" content="Package documentation in R">
+<meta itemprop="description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantaince procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite."><meta itemprop="datePublished" content="2022-02-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1010">
+<meta itemprop="keywords" content="Programming,R,roxygen2,Documentation," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Package documentation in R"/>
+<meta name="twitter:description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantaince procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite."/>
 
 	
   </head>
@@ -52,7 +52,7 @@
 
   
   
-  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/devtools-0.png');">
+  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/roxygen-0.png');">
     <div class="pb3-m pb6-l bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
@@ -149,7 +149,7 @@
 
       <div class="tc-l pv6 ph3 ph4-ns">
         
-          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Creating packages with R</h1>
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Package documentation in R</h1>
           
         
       </div>
@@ -175,20 +175,20 @@
   <div id="sharing" class="mt3">
 
     
-    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2022-02-09-packages-with-r/" class="facebook no-underline" aria-label="share on Facebook">
+    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2022-02-11-package-documentation-in-r/" class="facebook no-underline" aria-label="share on Facebook">
       <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
 
     </a>
 
     
     
-    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2022-02-09-packages-with-r/&amp;text=Creating%20packages%20with%20R" class="twitter no-underline" aria-label="share on Twitter">
+    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2022-02-11-package-documentation-in-r/&amp;text=Package%20documentation%20in%20R" class="twitter no-underline" aria-label="share on Twitter">
       <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
 
     </a>
 
     
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2022-02-09-packages-with-r/&amp;title=Creating%20packages%20with%20R" class="linkedin no-underline" aria-label="share on LinkedIn">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2022-02-11-package-documentation-in-r/&amp;title=Package%20documentation%20in%20R" class="linkedin no-underline" aria-label="share on LinkedIn">
       <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
 </svg>
@@ -197,7 +197,7 @@
   </div>
 
 
-      <h1 class="f1 athelas mt3 mb1">Creating packages with R</h1>
+      <h1 class="f1 athelas mt3 mb1">Package documentation in R</h1>
       
       <p class="tracked">
           By <strong>
@@ -208,104 +208,181 @@
       </p>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2022-02-09T00:00:00Z">February 9, 2022</time>
+      <time class="f6 mv4 dib tracked" datetime="2022-02-11T00:00:00Z">February 11, 2022</time>
 
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Some days ago I&rsquo;ve started to revise the code of one particular <em>R</em> package I&rsquo;m using in my thesis work.
-This is a particular package developed by our team and implemented by one of my friends - <a href="https://github.com/AntoineDubois/">Antoine Dubois</a>.
-The main idea behind the implemented toolset is the simulation of individual behaviour under the most popular behavioural models.
-The final product should simplify the model pen-testing and performance evaluation tasks for economists and experimentalists.</p>
-<p>All this has lead me to revise the tools that exist in <em>R</em> to work with packages: their creation, management, maintenance, etc.
-And consequently, the contents of today&rsquo;s post will be consecrated to the creation of <em>R</em> packages.
-I believe this little initiative will result in more than one single post, as I&rsquo;ll continue to explore the topic.</p>
-<h2 id="the-toolset">The toolset</h2>
-<p>I already have one post dedicated to <a href="https://git-scm.com/">Git</a> and project management, so I&rsquo;ll avoid focusing on this part of package maintenance here.
-What interests us for now is the <em>R</em> toolset for package creation, which some may already know: <a href="https://devtools.r-lib.org/"><code>devtools</code></a>.
-Maintained by the same team as the famous <code>tidyverse</code>, <code>devtools</code> is another meta-package regrouping all the necessary tools for package creation.
-The current version includes:</p>
-<ul>
-<li><code>roxygen2</code>, for automatic documentation management</li>
-<li><code>remotes</code>, enabling package installation from <em>GitHub</em></li>
-<li><code>pkgbuild</code>, for building binary packages</li>
-<li><code>usethis</code>, for automated package setup and testing</li>
-<li><code>sessioninfo</code>, allowing to gather information about running <em>R</em> session</li>
-<li><code>revdepcheck</code>, for <em>R</em> CMD checks of the dependencies</li>
-</ul>
-<p>It brings quite a lot of utilities for testing and deploying packages as well:</p>
-<ul>
-<li><code>testthat</code>, for writing and running tests</li>
-<li><code>pkgload</code>, to simulate package loading and installation</li>
-<li><code>rcmdcheck</code>, allowing to run <em>R</em> CMD check and reporting results</li>
-</ul>
-<p>As you can see, there is nearly everything one may ever need to deploy a development environment.
-Because the <code>devtools</code> suite is developed and maintained by the same team as the <a href="https://www.rstudio.com/">RStudio IDE</a>^[
-Meaning <a href="https://hadley.nz/">Hadley Wickham</a>, <a href="https://www.jimhester.com/">Jim Hester</a>, <a href="https://github.com/wch">Winston Chang</a> and <a href="https://jennybryan.org/">Jennifer Bryan</a>
-]
-it shines when coupled with this particular IDE.</p>
-<p>Among external tools; I may name:</p>
-<ul>
-<li><code>available</code>, which allows to check the package name validity and availability (it can even generate package names from titles!)</li>
-<li><code>lintr</code>, to analyse the code</li>
-<li><code>styler</code>, to modify the code layout, typesetting and make it more user friendly</li>
-<li><code>goodpractice</code>, which automatically analyses the package and provides advices about syntax, data structures, code complexity, etc.</li>
-<li><code>pkgdown</code>, for easy website setup for your package and distribution simplification</li>
-</ul>
-<p>Finally, there are some good practices to adopt before (and while) package creation.
-Usually it starts with consideration of whether the intended package should even exist and ending with <a href="https://juliasilge.com/blog/beginners-guide-to-travis/">Continuous Integration</a> (CI).
-There exists and <a href="https://juliasilge.com/blog/beginners-guide-to-travis/">extremely good blogpost</a> about the main considerations to make while creating a package.</p>
-<h2 id="r-and-package-creation"><em>R</em> and package creation</h2>
-<p>First we need to install all the required dependencies.
-As said before, <code>devtools</code> is a  meta-package, so it remains to run:</p>
-<pre><code># Install devtools from CRAN
-install.packages(&quot;devtools&quot;)
-</code></pre><p>One of the most interesting functions at this stage is probably the <code>package.skeleton()</code>, which creates a structure for a new package.
-For example:</p>
-<pre><code># Create function
-my_function = function() {cat(&quot;\nHello world!\n&quot;)}
+    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+<script src="https://nikitagusarov.github.io/post/2022-02-11-package-documentation-in-r/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code.
+The next step in package creation is the documentation.
+We have spoken about its existence, but only briefly.
+Now we have some more time to describe the documentation mantaince procedure more in detail.
+For this we are going to use the <a href="https://roxygen2.r-lib.org/"><code>roxygen2</code></a> package, which is included in <code>devtool</code> suite.</p>
+<div id="documentation-within-package" class="section level2">
+<h2>Documentation within package</h2>
+<p>The documentation by convention is stored in the <code>man</code> folder of the package’s root directory.
+By default, one can populate this folder by hand, which means writting and mantaining multiple documentation entries.
+The <code>help</code> files are stored in plain text format inside separate <code>.Rd</code> (<em>R</em> documentation) files.</p>
+<p>Let’s create a simple testing package, like in previous posts and take a look at examples generated by <code>package.skeleton()</code> function.
+We start by loading the <code>devtools</code> meta-package:</p>
+<pre class="r"><code># Load packages
+library(devtools)</code></pre>
+<pre><code>## Le chargement a nécessité le package : usethis</code></pre>
+<p>Then we create our simple function and wrap it into package:</p>
+<pre class="r"><code># Create function
+my_function = function() {
+    cat(&quot;Hello world!&quot;)
+}
 
 # Create package
 package.skeleton(
     name = &quot;mypackage&quot;,
     list = &quot;my_function&quot;,
-    path = &quot;packages&quot;,
+    path = &quot;.&quot;,
     encoding = &quot;UTF-8&quot;
-)
-</code></pre><p>This sequence will create a package architecture under <code>./packages/package_name</code> path, containing <code>my_function()</code> function.
-The function inside package will print <code>Hello world!</code> when called.
-So what includes such &ldquo;<em>package structure</em>&rdquo;?
-Here is a short list of the most indispensable elements:</p>
-<ul>
-<li><code>DESCRIPTION</code> file, which contains basic information about the package (ex: title, authors, etc.)</li>
-<li><code>LICENCE</code> file, containing the licence agreement (ex: GPL-2, GPL-3, MIT, etc.), one may look <a href="https://www.r-project.org/Licenses/">here</a> for examples</li>
-<li><code>NAMESPACE</code></li>
-<li><code>R</code> subdirectory containing <code>.R</code> source files</li>
-<li><code>man</code> directory (even though suggested it may produce some conflicts as described <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Package-subdirectories">here</a>)</li>
-</ul>
-<p>One may want to add some of the following as well:</p>
-<ul>
-<li><code>README</code> (<code>.md</code>) in case the package is hosted on <em>GitHub</em> or similar structure</li>
-<li><code>data</code> directory for data files</li>
-<li><code>src</code> directory for code files that require compilation (<code>C</code>, <code>C++</code>, etc.)</li>
-<li><code>exec</code> directory including scripts for interpreted languages (<code>Python</code>, <code>MatLab</code>, <code>Perl</code>, etc.) and shell commands (alternatively an <code>inst</code> directory may be used for same purposes)</li>
-<li><code>Makevars</code> file, which is a makefile commonly used to set preprocessor options for compiled languages</li>
-</ul>
-<p>And alternative to <code>package.skeleton()</code> is the <code>create()</code> functions, which performs the same steps with exclusion of automated contents preload.
-In this case, the functions may be added by hand.
-As you can see, the package creation is rather simple, but there remains a huge amount of various tips, tricks and supplementary functionalities one may need to create his / her project.</p>
+)</code></pre>
+<p>We then change our working directory for then newly created package’s root location:</p>
+<pre class="r"><code># Move to package location
+setwd(&quot;mypackage&quot;)</code></pre>
+<p>Don’t forget to unlink the already preloaded function from your environment, before working with the package:</p>
+<pre class="r"><code>rm(list = c(&quot;my_function&quot;))</code></pre>
+<p>Now let’s take a look at the contents of the <code>man</code> folder:</p>
+<pre class="r"><code># List files in man
+list.files(&quot;man&quot;)</code></pre>
+<pre><code>## [1] &quot;my_function.Rd&quot;       &quot;mypackage-package.Rd&quot;</code></pre>
+<p>We see two documentation entries: one for our newly created function and another one with general description of our package.
+But how those files are organised from within?
+We can take a peek at their contents:</p>
+<pre class="r"><code># First several lines
+content = readLines(&quot;man/my_function.Rd&quot;)
+
+# Print results
+cat(content[1:5], sep = &quot;\n&quot;)</code></pre>
+<pre><code>## \name{my_function}
+## \alias{my_function}
+## %- Also NEED an &#39;\alias&#39; for EACH other topic documented here.
+## \title{
+## %%  ~~function to do ... ~~</code></pre>
+<p>The contents of package description (the <code>man/mypackage-package.Rd</code>) file look quite similar:</p>
+<div class="figure">
+<img src="/images/roxygen-0.png" alt="" />
+<p class="caption">Package description</p>
+</div>
+<p>As you can notice, the format look a lot like LaTeX.
+In fact <code>.Rd</code> files are a special file format based on LaTeX, which can be processed into a variety of formats, including LaTeX, HTML and plain text.
+One can read more about this format <a href="https://cran.r-project.org/doc/manuals/R-exts.html#Rd-format">on CRAN</a>.
+Unfortunately for us, editing such documents becomes very inconvenient once you have a lot of objects and functionnalities in your package.
+Obviously, it does not pose any difficulty to edit this files by hand in our case, but for larger projects it will become tiresome very fast.
+To mitigate this problem, we can use the <code>roxygen2</code> package.</p>
+<p>But before proceeding with <code>roxygen2</code> usage, we should perform some additional steps.
+The package will never overwrite the existing documentation, which is assumed to be written by user.
+Before <code>roxygen2</code> will be able to write the changes we will need to delete the files created by the <code>package.skeleton()</code> function:</p>
+<pre class="r"><code># Remove existing dovumentation
+file.remove(c(
+    &quot;man/my_function.Rd&quot;,
+    &quot;NAMESPACE&quot;
+))</code></pre>
+</div>
+<div id="using-roxygen2" class="section level2">
+<h2>Using <code>roxygen2</code></h2>
+<p>How does <code>roxygen2</code> (or simply <code>roxygen</code>) work?
+This is a toolset based on <code>oxygen</code> - a simple documentation toolset.
+A nice and synthetic description may be found on the <a href="https://roxygen2.r-lib.org/">project’s website</a>:</p>
+<blockquote>
+<p>describe your functions in comments next to their definitions and <code>roxygen2</code> will process your source code and comments to automatically generate
+<code>.Rd</code> files in <code>man</code>, <code>NAMESPACE</code>, and, if needed, the <code>Collate</code> field in <code>DESCRIPTION</code>.</p>
+</blockquote>
+<p>The package brings us an extremely usefull feature to write our documentation in the same files as our code.
+The comments of a specific format, added to our source <code>.R</code> scripts may be automatically converted into the documentation.
+Such automated conversion helps to preserve consistency between the packages and respect the style of documentation.</p>
+<p>Let’s see how we can add this functionnality to our package.
+Don’t forget that for now the contents of our source file (the <code>R/my_function.R</code>) contain only the bare minimum of code without any comments.
+They look like:</p>
+<pre class="r"><code># Print contents
+cat(
+    content &lt;- readLines(&quot;R/my_function.R&quot;),
+    sep = &quot;\n&quot;
+)</code></pre>
+<pre><code>## my_function &lt;-
+## function() {
+##     cat(&quot;Hello world!&quot;)
+## }</code></pre>
+<p>As one can see: no comments, no documentation.
+At this point we can add some inline documentation following the <code>roxygen2</code> convention.
+To do so, we should use special comment delimiters: <code>#'</code>.
+They will mark which lines should be parced by <code>roxygen2</code>.
+For example, we can write following contents to our file</p>
+<pre class="r"><code>cat(
+    &quot;#&#39; Print &#39;Hello world!&#39;&quot;,
+    &quot;#&#39; &quot;,
+    &quot;#&#39; @param ... No parameters required&quot;,
+    &quot;#&#39; @return Cat &#39;Hello world!&#39; to command line&quot;,
+    &quot;#&#39; @examples&quot;,
+    &quot;#&#39; my_function()&quot;,
+    content,
+    sep = &quot;\n&quot;,
+    file = &quot;R/my_function.R&quot;
+)</code></pre>
+<p>Once we have modified the documentation directly inside our source code file, we should use <code>roxygen2</code> to convert it to a <code>.Rd</code> file.
+For this we may run:</p>
+<pre class="r"><code># Create documentation (roxygen2::)
+roxygen2::roxygenise()</code></pre>
+<p>This function requires an explicit specification of the <code>roxygen2</code> namespace, which may not be that convenient.
+Alternatively one can use the function which is provided by <code>devtools</code>:</p>
+<pre class="r"><code># Create documentation (devtools::)
+document(quiet = TRUE)</code></pre>
+<pre><code>## First time using roxygen2. Upgrading automatically...</code></pre>
+<pre><code>## Updating roxygen version in /home/nikita/Documents/Personal/website_source/content/en/post/2022-02-11-package-documentation-in-r/mypackage/DESCRIPTION</code></pre>
+<pre><code>## ℹ Loading mypackage</code></pre>
+<p>Now we can compare the corresponding <code>.Rd</code> file contents to the ones seen before:</p>
+<pre class="r"><code># Print contents
+cat(readLines(&quot;man/my_function.Rd&quot;), sep = &quot;\n&quot;)</code></pre>
+<pre><code>## % Generated by roxygen2: do not edit by hand
+## % Please edit documentation in R/my_function.R
+## \name{my_function}
+## \alias{my_function}
+## \title{Print &#39;Hello world!&#39;}
+## \usage{
+## my_function()
+## }
+## \arguments{
+## \item{...}{No parameters required}
+## }
+## \value{
+## Cat &#39;Hello world!&#39; to command line
+## }
+## \description{
+## Print &#39;Hello world!&#39;
+## }
+## \examples{
+## my_function()
+## }</code></pre>
+<p>As we can see, the new documentation <code>.Rd</code> entry corresponds to specification provided in our source file.
+Here is an example of how the corresponding entry will be rendered when we call for <code>help()</code> on this function:</p>
+<pre class="r"><code># Help file rendering
+help(my_function)</code></pre>
+<p>Once one becomes familiar with adding documentation to the source files it becomes extremely easy to add and modify the documentation to your <em>R</em> package.</p>
+</div>
 <ul class="pa0">
   
    <li class="list">
-     <a href="/tags/programming-r" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming R</a>
+     <a href="/tags/programming" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
    </li>
   
    <li class="list">
-     <a href="/tags/packages" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Packages</a>
+     <a href="/tags/r" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">R</a>
    </li>
   
    <li class="list">
-     <a href="/tags/devtools" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">devtools</a>
+     <a href="/tags/roxygen2" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">roxygen2</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/documentation" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Documentation</a>
    </li>
   
 </ul>
@@ -319,6 +396,65 @@ As you can see, the package creation is rather simple, but there remains a huge 
 
 
 
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/2022-02-10-tests-in-r/">Tests in  R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-08-python-alongside-r/">Python alongside R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-07-latex-and-r/">LaTeX and R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-05-stocks-with-r/">Financial market analysis with R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-04-bibliometrix/">Bibliometrix</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-12-27-rstudio-or-vs-code/">RStudio or VS Code</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-06-thinkpad-x220-and-pwm/">ThinkPad X220 and PWM</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-03-pass/">`Pass` for password management</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-01-self-hosting/">Self-hosting</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-01-29-onlykey-for-linux/">OnlyKey for Linux login</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-31-website-p3/">Building a website (part 3)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-29-website-p2/">Building a website (part 2)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-28-website/">Building a website (part 1)</a>
+        </li>
+	    
+    </ul>
+</div>
 
 </aside>
 
