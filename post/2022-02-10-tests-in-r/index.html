@@ -6,7 +6,7 @@
     
     <title>Tests in  R | Nikita Gusarov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Following the previous post about the package creation in R we are going to dive into some details about ho to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
+    <meta name="description" content="Following the previous post about the package creation in R we are going to dive into some details about how to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
 What is testthat? Focusing our attention on the devtools meta-package’s contents we encounter rather quickly a great number of tools to test packages.">
     <meta name="generator" content="Hugo 0.87.0" />
     
@@ -28,7 +28,7 @@ What is testthat? Focusing our attention on the devtools meta-package’s conten
     
     
     <meta property="og:title" content="Tests in  R" />
-<meta property="og:description" content="Following the previous post about the package creation in R we are going to dive into some details about ho to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
+<meta property="og:description" content="Following the previous post about the package creation in R we are going to dive into some details about how to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
 What is testthat? Focusing our attention on the devtools meta-package’s contents we encounter rather quickly a great number of tools to test packages." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nikitagusarov.github.io/post/2022-02-10-tests-in-r/" /><meta property="article:section" content="post" />
@@ -36,13 +36,13 @@ What is testthat? Focusing our attention on the devtools meta-package’s conten
 <meta property="article:modified_time" content="2022-02-10T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
 
 <meta itemprop="name" content="Tests in  R">
-<meta itemprop="description" content="Following the previous post about the package creation in R we are going to dive into some details about ho to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
+<meta itemprop="description" content="Following the previous post about the package creation in R we are going to dive into some details about how to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
 What is testthat? Focusing our attention on the devtools meta-package’s contents we encounter rather quickly a great number of tools to test packages."><meta itemprop="datePublished" content="2022-02-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-02-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1359">
+<meta itemprop="wordCount" content="1373">
 <meta itemprop="keywords" content="Programming,R,Tests,devtools," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tests in  R"/>
-<meta name="twitter:description" content="Following the previous post about the package creation in R we are going to dive into some details about ho to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
+<meta name="twitter:description" content="Following the previous post about the package creation in R we are going to dive into some details about how to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
 What is testthat? Focusing our attention on the devtools meta-package’s contents we encounter rather quickly a great number of tools to test packages."/>
 
 	
@@ -221,7 +221,7 @@ What is testthat? Focusing our attention on the devtools meta-package’s conten
 <script src="https://nikitagusarov.github.io/post/2022-02-10-tests-in-r/index_files/header-attrs/header-attrs.js"></script>
 
 
-<p>Following the previous post about the package creation in <em>R</em> we are going to dive into some details about ho to work with packages.
+<p>Following the previous post about the package creation in <em>R</em> we are going to dive into some details about how to work with packages.
 The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result.
 Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.</p>
 <div id="what-is-testthat" class="section level2">
@@ -355,11 +355,13 @@ test()</code></pre>
 <pre><code>## ℹ Testing mypackage</code></pre>
 <pre><code>## ✔ | F W S  OK | Context
 ## 
-⠏ |         0 | my_function                                                  
+⠏ |         0 | my_function                     
 ✔ |         1 | my_function
 ## 
-## ══ Results ══════════════════════════════════════════════════════════════════
-## [ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ]</code></pre>
+## ══ Results ═════════════════════════════════════
+## [ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ]
+## 
+## 🐝 Your tests are the bees knees 🐝</code></pre>
 <p>As we can see, the tests are passed without errors.
 Which means that <code>my_function()</code> output exactly corresponds to the desired <code>"Hello world!"</code> statement.
 But were we to modify the test for checking whether the output is <code>"Big white cat"</code>:</p>
@@ -382,9 +384,9 @@ test()</code></pre>
 <pre><code>## ℹ Testing mypackage</code></pre>
 <pre><code>## ✔ | F W S  OK | Context
 ## 
-⠏ |         0 | my_function                                                  
+⠏ |         0 | my_function                     
 ✖ | 1       0 | my_function
-## ─────────────────────────────────────────────────────────────────────────────
+## ────────────────────────────────────────────────
 ## Failure (test-my_function.R:2:4): output_hello_world
 ## `my_function\(\)` does not match &quot;Big white cat&quot;.
 ## Actual value: &quot;Hello world!&quot;
@@ -393,10 +395,12 @@ test()</code></pre>
 ##       at test-my_function.R:2:3
 ##  2. testthat::expect_match(...)
 ##  3. testthat:::expect_match_(...)
-## ─────────────────────────────────────────────────────────────────────────────
+## ────────────────────────────────────────────────
 ## 
-## ══ Results ══════════════════════════════════════════════════════════════════
-## [ FAIL 1 | WARN 0 | SKIP 0 | PASS 0 ]</code></pre>
+## ══ Results ═════════════════════════════════════
+## [ FAIL 1 | WARN 0 | SKIP 0 | PASS 0 ]
+## 
+## Keep trying!</code></pre>
 <p>One failed test would be detected, because the values do not match.</p>
 <p>Once you become familiar with the test procedures setup, you may proceed with more complex tasks.
 For example, it may be interesting to configure a <em>Continuous Integration</em> (CI) workflow to run all the test externally on a dedicated server.</p>

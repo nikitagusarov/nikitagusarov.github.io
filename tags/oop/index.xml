@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OOP on Nikita Gusarov</title>
+    <link>https://nikitagusarov.github.io/tags/oop/</link>
+    <description>Recent content in OOP on Nikita Gusarov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OOP in R</title>
+      <link>https://nikitagusarov.github.io/post/2022-02-12-oop-in-r/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2022-02-12-oop-in-r/</guid>
+      <description>In previous publications we have seen how to create a package with R: (1) the project’s structure generation, (2) the unit tests and their automation and (3) the documentation management. Now its time to dive deeper into programming with R. Today we are going to explore how one can use Object Oriented Programming (OOP) paradigm in R.
+There exist multiple object types and programming conventions, each with a particular idea behind it.</description>
+    </item>
+    
+  </channel>
+</rss>

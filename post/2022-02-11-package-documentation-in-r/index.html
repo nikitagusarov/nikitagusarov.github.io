@@ -6,7 +6,7 @@
     
     <title>Package documentation in R | Nikita Gusarov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantaince procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite.">
+    <meta name="description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantainace procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite.">
     <meta name="generator" content="Hugo 0.87.0" />
     
     
@@ -27,19 +27,19 @@
     
     
     <meta property="og:title" content="Package documentation in R" />
-<meta property="og:description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantaince procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite." />
+<meta property="og:description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantainace procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nikitagusarov.github.io/post/2022-02-11-package-documentation-in-r/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-02-11T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-02-11T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
 
 <meta itemprop="name" content="Package documentation in R">
-<meta itemprop="description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantaince procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite."><meta itemprop="datePublished" content="2022-02-11T00:00:00+00:00" />
+<meta itemprop="description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantainace procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite."><meta itemprop="datePublished" content="2022-02-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-02-11T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1010">
 <meta itemprop="keywords" content="Programming,R,roxygen2,Documentation," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Package documentation in R"/>
-<meta name="twitter:description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantaince procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite."/>
+<meta name="twitter:description" content="Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantainace procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite."/>
 
 	
   </head>
@@ -220,12 +220,12 @@
 <p>Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code.
 The next step in package creation is the documentation.
 We have spoken about its existence, but only briefly.
-Now we have some more time to describe the documentation mantaince procedure more in detail.
+Now we have some more time to describe the documentation mantainace procedure more in detail.
 For this we are going to use the <a href="https://roxygen2.r-lib.org/"><code>roxygen2</code></a> package, which is included in <code>devtool</code> suite.</p>
 <div id="documentation-within-package" class="section level2">
 <h2>Documentation within package</h2>
 <p>The documentation by convention is stored in the <code>man</code> folder of the package’s root directory.
-By default, one can populate this folder by hand, which means writting and mantaining multiple documentation entries.
+By default, one can populate this folder by hand, which means writing and maintaining multiple documentation entries.
 The <code>help</code> files are stored in plain text format inside separate <code>.Rd</code> (<em>R</em> documentation) files.</p>
 <p>Let’s create a simple testing package, like in previous posts and take a look at examples generated by <code>package.skeleton()</code> function.
 We start by loading the <code>devtools</code> meta-package:</p>
@@ -275,7 +275,7 @@ cat(content[1:5], sep = &quot;\n&quot;)</code></pre>
 <p>As you can notice, the format look a lot like LaTeX.
 In fact <code>.Rd</code> files are a special file format based on LaTeX, which can be processed into a variety of formats, including LaTeX, HTML and plain text.
 One can read more about this format <a href="https://cran.r-project.org/doc/manuals/R-exts.html#Rd-format">on CRAN</a>.
-Unfortunately for us, editing such documents becomes very inconvenient once you have a lot of objects and functionnalities in your package.
+Unfortunately for us, editing such documents becomes very inconvenient once you have a lot of objects and functionalities in your package.
 Obviously, it does not pose any difficulty to edit this files by hand in our case, but for larger projects it will become tiresome very fast.
 To mitigate this problem, we can use the <code>roxygen2</code> package.</p>
 <p>But before proceeding with <code>roxygen2</code> usage, we should perform some additional steps.
@@ -296,10 +296,10 @@ A nice and synthetic description may be found on the <a href="https://roxygen2.r
 <p>describe your functions in comments next to their definitions and <code>roxygen2</code> will process your source code and comments to automatically generate
 <code>.Rd</code> files in <code>man</code>, <code>NAMESPACE</code>, and, if needed, the <code>Collate</code> field in <code>DESCRIPTION</code>.</p>
 </blockquote>
-<p>The package brings us an extremely usefull feature to write our documentation in the same files as our code.
+<p>The package brings us an extremely useful feature to write our documentation in the same files as our code.
 The comments of a specific format, added to our source <code>.R</code> scripts may be automatically converted into the documentation.
 Such automated conversion helps to preserve consistency between the packages and respect the style of documentation.</p>
-<p>Let’s see how we can add this functionnality to our package.
+<p>Let’s see how we can add this functionality to our package.
 Don’t forget that for now the contents of our source file (the <code>R/my_function.R</code>) contain only the bare minimum of code without any comments.
 They look like:</p>
 <pre class="r"><code># Print contents
@@ -314,7 +314,7 @@ cat(
 <p>As one can see: no comments, no documentation.
 At this point we can add some inline documentation following the <code>roxygen2</code> convention.
 To do so, we should use special comment delimiters: <code>#'</code>.
-They will mark which lines should be parced by <code>roxygen2</code>.
+They will mark which lines should be parsed by <code>roxygen2</code>.
 For example, we can write following contents to our file</p>
 <pre class="r"><code>cat(
     &quot;#&#39; Print &#39;Hello world!&#39;&quot;,

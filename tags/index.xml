@@ -6,20 +6,29 @@
     <description>Recent content in Tags on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Documentation</title>
-      <link>https://nikitagusarov.github.io/tags/documentation/</link>
-      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      <title>Objects</title>
+      <link>https://nikitagusarov.github.io/tags/objects/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://nikitagusarov.github.io/tags/documentation/</guid>
+      <guid>https://nikitagusarov.github.io/tags/objects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OOP</title>
+      <link>https://nikitagusarov.github.io/tags/oop/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/oop/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programming</title>
       <link>https://nikitagusarov.github.io/tags/programming/</link>
-      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/tags/programming/</guid>
       <description></description>
@@ -28,9 +37,18 @@
     <item>
       <title>R</title>
       <link>https://nikitagusarov.github.io/tags/r/</link>
-      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://nikitagusarov.github.io/tags/documentation/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/documentation/</guid>
       <description></description>
     </item>
     

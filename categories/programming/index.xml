@@ -6,14 +6,24 @@
     <description>Recent content in Programming on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OOP in R</title>
+      <link>https://nikitagusarov.github.io/post/2022-02-12-oop-in-r/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2022-02-12-oop-in-r/</guid>
+      <description>In previous publications we have seen how to create a package with R: (1) the project’s structure generation, (2) the unit tests and their automation and (3) the documentation management. Now its time to dive deeper into programming with R. Today we are going to explore how one can use Object Oriented Programming (OOP) paradigm in R.
+There exist multiple object types and programming conventions, each with a particular idea behind it.</description>
+    </item>
+    
     <item>
       <title>Package documentation in R</title>
       <link>https://nikitagusarov.github.io/post/2022-02-11-package-documentation-in-r/</link>
       <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/post/2022-02-11-package-documentation-in-r/</guid>
-      <description>Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantaince procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite.</description>
+      <description>Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantainace procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite.</description>
     </item>
     
     <item>
@@ -22,7 +32,7 @@
       <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/post/2022-02-10-tests-in-r/</guid>
-      <description>Following the previous post about the package creation in R we are going to dive into some details about ho to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
+      <description>Following the previous post about the package creation in R we are going to dive into some details about how to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
 What is testthat? Focusing our attention on the devtools meta-package’s contents we encounter rather quickly a great number of tools to test packages.</description>
     </item>
     
