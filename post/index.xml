@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pinephone daily driving</title>
+      <link>https://nikitagusarov.github.io/post/2022-02-13-pinephone-daily-driving/</link>
+      <pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2022-02-13-pinephone-daily-driving/</guid>
+      <description>I&amp;rsquo;ve decided to break my streak of posts about R programming language, to write something more personal. This autumn, I&amp;rsquo;ve got a Pinephone for my birthday to tinker with and which had some software issues present at that time. About the same time I&amp;rsquo;ve deGoogled another old home to use with Lineage OS. So it was only in December that I managed to switch over to using my Pinephone for some time.</description>
+    </item>
+    
     <item>
       <title>OOP in R</title>
       <link>https://nikitagusarov.github.io/post/2022-02-12-oop-in-r/</link>
