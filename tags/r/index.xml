@@ -6,7 +6,17 @@
     <description>Recent content in R on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Metaprogramming in R</title>
+      <link>https://nikitagusarov.github.io/post/2022-02-14-metaprogramming-in-r/</link>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2022-02-14-metaprogramming-in-r/</guid>
+      <description>While reworking the DCE Simulation package for my Thesis, I’ve discovered one more interesting topic to speak about. We have already seen how to create a package, write documentation and implement OOP in R. Now it comes the time of Metaprogramming. But don’t be afraid of this unfamiliar term, we are going to see that the concepts behind it are fairly simple.
+Most of the materials presented are adopted from this mazing book about advanced R.</description>
+    </item>
+    
     <item>
       <title>OOP in R</title>
       <link>https://nikitagusarov.github.io/post/2022-02-12-oop-in-r/</link>

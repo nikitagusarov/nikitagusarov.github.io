@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Metaprogramming in R | Nikita Gusarov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="While reworking the DCE Simulation package for my Thesis, I’ve discovered one more interesting topic to speak about. We have already seen how to create a package, write documentation and implement OOP in R. Now it comes the time of Metaprogramming. But don’t be afraid of this unfamiliar term, we are going to see that the concepts behind it are fairly simple.
+Most of the materials presented are adopted from this mazing book about advanced R.">
+    <meta name="generator" content="Hugo 0.87.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Metaprogramming in R" />
+<meta property="og:description" content="While reworking the DCE Simulation package for my Thesis, I’ve discovered one more interesting topic to speak about. We have already seen how to create a package, write documentation and implement OOP in R. Now it comes the time of Metaprogramming. But don’t be afraid of this unfamiliar term, we are going to see that the concepts behind it are fairly simple.
+Most of the materials presented are adopted from this mazing book about advanced R." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikitagusarov.github.io/post/2022-02-14-metaprogramming-in-r/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-14T00:00:00+00:00" /><meta property="og:site_name" content="Nikita Gusarov" />
+
+<meta itemprop="name" content="Metaprogramming in R">
+<meta itemprop="description" content="While reworking the DCE Simulation package for my Thesis, I’ve discovered one more interesting topic to speak about. We have already seen how to create a package, write documentation and implement OOP in R. Now it comes the time of Metaprogramming. But don’t be afraid of this unfamiliar term, we are going to see that the concepts behind it are fairly simple.
+Most of the materials presented are adopted from this mazing book about advanced R."><meta itemprop="datePublished" content="2022-02-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1262">
+<meta itemprop="keywords" content="Programming,R,Metaprogramming,devtools," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Metaprogramming in R"/>
+<meta name="twitter:description" content="While reworking the DCE Simulation package for my Thesis, I’ve discovered one more interesting topic to speak about. We have already seen how to create a package, write documentation and implement OOP in R. Now it comes the time of Metaprogramming. But don’t be afraid of this unfamiliar term, we are going to see that the concepts behind it are fairly simple.
+Most of the materials presented are adopted from this mazing book about advanced R."/>
+
+	
+  </head>
+
+  <body class="ma0 courrier bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://nikitagusarov.github.io/images/metapr-0.png');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Nikita Gusarov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/background/" title="Background page">
+              Background
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/publications/" title="Publications page">
+              Publications
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Metaprogramming in R</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://nikitagusarov.github.io/post/2022-02-14-metaprogramming-in-r/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://nikitagusarov.github.io/post/2022-02-14-metaprogramming-in-r/&amp;text=Metaprogramming%20in%20R" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://nikitagusarov.github.io/post/2022-02-14-metaprogramming-in-r/&amp;title=Metaprogramming%20in%20R" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Metaprogramming in R</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Nikita Gusarov
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-02-14T00:00:00Z">February 14, 2022</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy courrier bg-near-white f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+<script src="https://nikitagusarov.github.io/post/2022-02-14-metaprogramming-in-r/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>While reworking the <em>DCE Simulation</em> package for my Thesis, I’ve discovered one more interesting topic to speak about.
+We have already seen how to create a package, write documentation and implement OOP in <em>R</em>.
+Now it comes the time of <em>Metaprogramming</em>.
+But don’t be afraid of this unfamiliar term, we are going to see that the concepts behind it are fairly simple.</p>
+<p>Most of the materials presented are adopted from <a href="https://adv-r.hadley.nz/meta-big-picture.html">this mazing book</a> about advanced <em>R</em>.
+My task here is mostly the vulgarisation of the material.</p>
+<div id="metaprogramming" class="section level2">
+<h2>Metaprogramming</h2>
+<p>What is <em>metaprogramming</em> exactly?
+Because in this post we attempt to make things as accessible as possible, let’s take a definition <a href="https://en.wikipedia.org/wiki/Metaprogramming">from here</a>:</p>
+<blockquote>
+<p><strong>Metaprogramming</strong> is a programming technique in which computer programs have the ability to <em>treat other programs as their data</em>.
+It means that a program can be designed to read, generate, analyse or transform other programs, and even modify itself while running.</p>
+</blockquote>
+<p>At this point you probably ask yourself why ever we may need this functionality?
+The answer is quite simple: we develop an OOP based simulation package.
+It means that such paradigm allow us to flexibly create objects (ex: artificial individuals) using <em>metaprogramming</em>.
+This way we no longer need generating our “<em>robots</em>” with some sort of wrapping functions and directly assigning the characteristics within our population.
+Instead we would be able to create flexible classes of individuals described by the <em>data generation procedures</em> instead of the <em>characteristics</em> alone.</p>
+<blockquote>
+<p>Generic programming invokes a metaprogramming facility within a language by allowing one to write code without the concern of specifying data types since they can be supplied as parameters when used.</p>
+</blockquote>
+<p>This is exactly the feature we need for our simulation package’s user interface.</p>
+</div>
+<div id="what-do-we-need" class="section level2">
+<h2>What do we need?</h2>
+<p>The main dependency for our exercise today is the <a href="https://rlang.r-lib.org/"><code>rlang</code></a> package.
+Generally, it adds two frameworks to the base <em>R</em>:</p>
+<ul>
+<li><code>tidy eval</code>, a <em>data-masking</em> framework, which is heavily used by <code>tidyverse</code> suite</li>
+<li><code>rlang errors</code>, a toolset for error signalling and reflection</li>
+</ul>
+<p>Obviously, it’s the first feature that we need the most.
+If you already have <code>tidyverse</code> installed on your machine then it means that you already have <code>rlang</code>.
+We should only attach it to our active environment:</p>
+<pre class="r"><code># Load dependecies
+library(rlang)</code></pre>
+</div>
+<div id="working-with-rlang" class="section level2">
+<h2>Working with <code>rlang</code></h2>
+<p>There exist several key concepts to keep in mind, when attempting to use <em>metaprogramming</em> in <em>R</em>.</p>
+<div id="defusion" class="section level3">
+<h3>Defusion</h3>
+<p>The first concept we should explore is the <em>defused expression</em>.
+As it’s described on the <a href="">official package’s website</a>:</p>
+<blockquote>
+<p>(The) <strong>defused expressions</strong> can be thought of as blueprints or recipes for computing values.</p>
+</blockquote>
+<p>Let’s take as an example some blatantly simple expression:</p>
+<pre class="r"><code># Let&#39;s create some data
+x = c(1, 3, 5)
+
+# Expression
+mean(x)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>As expected, <em>R</em> will calculate the result and display it for us.
+Now we store the same sequence as an <em>expression</em>:</p>
+<pre class="r"><code># Store our expression
+meanx = expr(mean(x)); meanx</code></pre>
+<pre><code>## mean(x)</code></pre>
+<p>What has just happened is that <em>R</em> stored the entire expression in the memory without executing it.
+It means that from now on we can call this expression by addressing the object it was stored in:</p>
+<pre class="r"><code># Calculate mean of x
+eval(meanx)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code># Recreate x and rerun calculations
+x = c(2, 4, 6); eval(meanx)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>As you can notice, reevaluating the expression after data recreation affects the result.
+For now it may look similar to writing a custom function to run over the data, but in fact the scope of usability differs a lot between two.
+In particular, you can see some advantages of the <em>defused expressions</em> by using them to wrap the argument within function.</p>
+<p>At this pint we should understand how <code>enexpr()</code> function works.
+It is required to convert arguments passed to a function into <code>expr()</code> object, to interpret the user input as an expression.<br />
+For example, let’s create a function which simulates 100 observation of given law and then calculates the mean (yes, it’s quite useless as function, but it’s good for exercise):</p>
+<pre class="r"><code># Fuction creation
+mean_rand = function(law = rnorm(n, mean = 0, sd = 1)) {
+    # Number of observatoins
+    n = 100
+    # Generate vector
+    x = eval(enexpr(law))
+    # Calculate mean
+    mean(x)
+}
+
+# Run function with default args
+mean_rand()</code></pre>
+<pre><code>## [1] -0.1504798</code></pre>
+<p>An interesting feature to add to the above example is the possibility to avoid specifying the <code>n</code> argument.
+This is possible, because we can modify our saved expressions as any other <em>R</em> object.
+Meaning we can run:</p>
+<pre class="r"><code># Fuction creation
+mean_rand = function(law = rnorm(mean = 0, sd = 1)) {
+    # Number of observatoins
+    n = 100
+    # Add n declaration ot law
+    law = enexpr(law); law$n = n
+    # Generate vector
+    x = eval(law)
+    # Calculate mean
+    mean(x)
+}
+
+# Run function for exponential law with &#39;rate = 2&#39;
+mean_rand(rexp(rate = 2))</code></pre>
+<pre><code>## [1] 0.5072285</code></pre>
+<p>This particular feature allow to make your functions more <em>user friendly</em>.
+It’s equally possible to modify the expressions arguments by position using <code>[[</code> syntax.</p>
+</div>
+<div id="data-masking-injection-and-embracing" class="section level3">
+<h3>Data-masking (<em>injection</em> and <em>embracing</em>)</h3>
+<p>At this point it is important to speak about the <em>data-masking</em> functionality introduced by <code>rlang</code> package.
+As stated by <a href="https://rlang.r-lib.org/reference/topic-data-mask.html">package’s authors</a>:</p>
+<blockquote>
+<p><strong>Data-masking</strong> is a distinctive feature of R whereby programming is performed directly on a data set, with columns defined as normal objects.</p>
+</blockquote>
+<p>Let’s use the default <code>mtcars</code> dataset for illustration.
+First we use the standard programming style, typically used for simple data analysis:</p>
+<pre class="r"><code># The default style (unmasked programming)
+var(mtcars$mpg + mtcars$qsec)</code></pre>
+<pre><code>## [1] 48.53557</code></pre>
+<p>Now let’s see the approach with <em>data-masking</em>:</p>
+<pre class="r"><code># Data masking
+with(
+    mtcars,
+    var(mpg + qsec)
+)</code></pre>
+<pre><code>## [1] 48.53557</code></pre>
+<p>At first it seems as rather uncomfortable way to work (the function <code>with()</code> exists in <code>base</code> <em>R</em> since 2001).
+But it becomes more convenient once you start sing special operators <code>{{}}</code> (<em>embracing operator</em>) and <code>!!</code> (<em>injection operator</em>).
+What do these operators do exactly?</p>
+<ul>
+<li><strong>Injection</strong> (or <em>quasiquotation</em>, <code>!!</code>) allows you to modify parts of a program.
+Technically it’s a wrapper around <em>defused code</em> specifically designed for usage with <code>data.frame</code> objects.</li>
+<li><strong>Embracing</strong> (<code>{{}}</code>) is a further extension of the <em>injection</em>.
+In fact it combines both <code>enquo()</code> function with <em>injection</em> operator (<code>!!</code>).</li>
+</ul>
+<p>Because it’s the first time you see the <code>enquo()</code> function
+(or <code>enquos()</code>, which is a vectorised version of the former),
+it’s time to precise that it serves for <em>code defusal</em>.
+What is the difference with <code>expr()</code> and <code>eval()</code> one may ask.
+The <code>expr()</code> function creates an object of type <code>call</code>, which can be then evaluated using <code>eval()</code>.
+The <code>enquo()</code>, creates a special object of type <code>quosure</code>.
+In short, as described in <a href="https://rlang.r-lib.org/reference/topic-quosure.html">the documentation</a>:</p>
+<blockquote>
+<p>A <strong>quosure</strong> is a special type of defused expression that keeps track of the original context the expression was written in.</p>
+</blockquote>
+<p>Let’s see how <em>injection</em> and <em>embracing</em> work before proceeding with <code>quosure</code> class description.
+The first option is to create a <code>quosure</code> and the inject it into our code:</p>
+<pre class="r"><code># Injection inside function
+col_mean = function(data, arg) {
+    # Convert argument to quosure
+    arg = enquo(arg)
+    # Get mean
+    x = dplyr::select(data, !!arg)[,1]; mean(x)
+}
+
+# Test on mtcars
+col_mean(mtcars, mpg)</code></pre>
+<pre><code>## [1] 20.09062</code></pre>
+<p>To simplify the procedure, we can directly inject the argument using <em>embracing</em>:</p>
+<pre class="r"><code># Injection inside function
+col_mean = function(data, arg) {
+    # Get mean
+    x = dplyr::select(data, {{ arg }})[,1]; mean(x)
+}
+
+# Test on mtcars
+col_mean(mtcars, mpg)</code></pre>
+<pre><code>## [1] 20.09062</code></pre>
+<p>As mentioned before, there are some differences between <code>expression</code> and <code>quosure</code> objects.
+The <code>quosure</code> class contains both the information about the <em>expression</em> to be executed and the <em>environment</em> reserved for this expression.
+The later adds some more complexity and features to our code, because <em>environment</em> indicates where all the private functions of your package are defined.</p>
+</div>
+</div>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/programming" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/r" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">R</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/metaprogramming" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Metaprogramming</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/devtools" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">devtools</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/2022-02-10-tests-in-r/">Tests in  R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-12-oop-in-r/">OOP in R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-11-package-documentation-in-r/">Package documentation in R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-08-python-alongside-r/">Python alongside R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-07-latex-and-r/">LaTeX and R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-05-stocks-with-r/">Financial market analysis with R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-04-bibliometrix/">Bibliometrix</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-12-27-rstudio-or-vs-code/">RStudio or VS Code</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-09-packages-with-r/">Creating packages with R</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-06-thinkpad-x220-and-pwm/">ThinkPad X220 and PWM</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-03-pass/">`Pass` for password management</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-02-01-self-hosting/">Self-hosting</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2022-01-29-onlykey-for-linux/">OnlyKey for Linux login</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-31-website-p3/">Building a website (part 3)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/2021-08-29-website-p2/">Building a website (part 2)</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://nikitagusarov.github.io/" >
+    &copy;  Nikita Gusarov 2022 
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://fr.linkedin.com/in/nikita-gusarov-264a25175" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/nikitagusarov" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://gitlab.com/nikitagusarov" target="_blank" class="link-transition gitlab link dib z-999 pt3 pt0-l mr1" title="Gitlab link" rel="noopener" aria-label="follow on Gitlab——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M29.782 199.732L256 493.714 8.074 309.699c-6.856-5.142-9.712-13.996-7.141-21.993l28.849-87.974zm75.405-174.806c-3.142-8.854-15.709-8.854-18.851 0L29.782 199.732h131.961L105.187 24.926zm56.556 174.806L256 493.714l94.257-293.982H161.743zm349.324 87.974l-28.849-87.974L256 493.714l247.926-184.015c6.855-5.142 9.711-13.996 7.141-21.993zm-85.404-262.78c-3.142-8.854-15.709-8.854-18.851 0l-56.555 174.806h131.961L425.663 24.926z"></path></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

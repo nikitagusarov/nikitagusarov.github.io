@@ -6,7 +6,43 @@
     <description>Recent content in Tags on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>devtools</title>
+      <link>https://nikitagusarov.github.io/tags/devtools/</link>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/devtools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Metaprogramming</title>
+      <link>https://nikitagusarov.github.io/tags/metaprogramming/</link>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/metaprogramming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://nikitagusarov.github.io/tags/programming/</link>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://nikitagusarov.github.io/tags/r/</link>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Experience</title>
       <link>https://nikitagusarov.github.io/tags/experience/</link>
@@ -62,24 +98,6 @@
     </item>
     
     <item>
-      <title>Programming</title>
-      <link>https://nikitagusarov.github.io/tags/programming/</link>
-      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://nikitagusarov.github.io/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://nikitagusarov.github.io/tags/r/</link>
-      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://nikitagusarov.github.io/tags/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Documentation</title>
       <link>https://nikitagusarov.github.io/tags/documentation/</link>
       <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
@@ -94,15 +112,6 @@
       <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/tags/roxygen2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>devtools</title>
-      <link>https://nikitagusarov.github.io/tags/devtools/</link>
-      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://nikitagusarov.github.io/tags/devtools/</guid>
       <description></description>
     </item>
     
