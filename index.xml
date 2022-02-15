@@ -6,7 +6,18 @@
     <description>Recent content in Welcome! on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OOP and Metaprogramming examples (R)</title>
+      <link>https://nikitagusarov.github.io/post/2022-02-15-oop-and-metaprogramming-examples-r/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2022-02-15-oop-and-metaprogramming-examples-r/</guid>
+      <description>Today there&amp;rsquo;ll be no big theoretical posts about the advanced R. However, as I don&amp;rsquo;t want to drop my new habit to write a post per day, I&amp;rsquo;ll publish at least something.
+Here I&amp;rsquo;ll gather some useful tricks I&amp;rsquo;ve discovered while rebuilding the simulation package.
+A short introduction to my current work From my previous posts you probably already know that now I&amp;rsquo;m revising the custom simulation package, which is used in my thesis.</description>
+    </item>
+    
     <item>
       <title>Metaprogramming in R</title>
       <link>https://nikitagusarov.github.io/post/2022-02-14-metaprogramming-in-r/</link>
