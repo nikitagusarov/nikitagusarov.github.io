@@ -41,7 +41,17 @@
 <meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content="In this section you are welcome to find all my posts"/>
 
-	
+	<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+});
+</script>
+
+<script async type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
 
   <body class="ma0 courrier bg-near-white">
@@ -173,6 +183,27 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        February 10, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-10-tests-in-r/" class="link black dim">
+        Tests in  R
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Following the previous post about the package creation in R we are going to dive into some details about how to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
+What is testthat? Focusing our attention on the devtools meta-package’s contents we encounter rather quickly a great number of tools to test packages.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         February 9, 2022
       </div>
     
@@ -203,26 +234,6 @@
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       While working on my PhD thesis I’m usually facing the situation when I need to use both R and Python programming languages. R offers me the possibility to render neat scientific supports with rmarkdown package, which bring .Rmd support. Obviously, Python has similar format (pymarkdown and the .Pmd) available, it is not as well developed as the R counterpart. Moreover, I’m far more familiar with R statistical libraries, tidyverse suite and coding practices.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        February 7, 2022
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/2022-02-07-latex-and-r/" class="link black dim">
-        LaTeX and R
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Today I&rsquo;ve had to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task.
     </div>
   </div>
 
