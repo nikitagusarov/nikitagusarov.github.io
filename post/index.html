@@ -76,8 +76,20 @@ MathJax.Hub.Config({
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/about/" title="About page">
-              About
+            <a class="hover-white no-underline white-90" href="/activity" title="activity page">
+              activity
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact" title="contact page">
+              contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about" title="about page">
+              about
             </a>
           </li>
           
@@ -94,26 +106,8 @@ MathJax.Hub.Config({
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/development/" title="Development page">
-              Development
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
-              Posts
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/publications/" title="Publications page">
-              Publications
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/talks/" title="Talks page">
-              Talks
+            <a class="hover-white no-underline white-90" href="/" title="home page">
+              home
             </a>
           </li>
           
@@ -253,6 +247,129 @@ A short introduction to my current work From my previous posts you probably alre
 
         </div>
       
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 14, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-14-metaprogramming-in-r/" class="link black dim">
+        Metaprogramming in R
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      While reworking the DCE Simulation package for my Thesis, I’ve discovered one more interesting topic to speak about. We have already seen how to create a package, write documentation and implement OOP in R. Now it comes the time of Metaprogramming. But don’t be afraid of this unfamiliar term, we are going to see that the concepts behind it are fairly simple.
+Most of the materials presented are adopted from this mazing book about advanced R.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 13, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-13-pinephone-daily-driving/" class="link black dim">
+        Pinephone daily driving
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I&rsquo;ve decided to break my streak of posts about R programming language, to write something more personal. This autumn, I&rsquo;ve got a Pinephone for my birthday to tinker with and which had some software issues present at that time. About the same time I&rsquo;ve deGoogled another old home to use with Lineage OS. So it was only in December that I managed to switch over to using my Pinephone for some time.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 12, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-12-oop-in-r/" class="link black dim">
+        OOP in R
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      In previous publications we have seen how to create a package with R: (1) the project’s structure generation, (2) the unit tests and their automation and (3) the documentation management. Now its time to dive deeper into programming with R. Today we are going to explore how one can use Object Oriented Programming (OOP) paradigm in R.
+There exist multiple object types and programming conventions, each with a particular idea behind it.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 11, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-11-package-documentation-in-r/" class="link black dim">
+        Package documentation in R
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Previously we have seen how to create a package: how to structure your code, what files to include and how to test your code. The next step in package creation is the documentation. We have spoken about its existence, but only briefly. Now we have some more time to describe the documentation mantainace procedure more in detail. For this we are going to use the roxygen2 package, which is included in devtool suite.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 10, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-10-tests-in-r/" class="link black dim">
+        Tests in  R
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Following the previous post about the package creation in R we are going to dive into some details about how to work with packages. The first thing of interest for us is the possibility to perform tests on the package’s contents in order to control the result. Such possibility greatly facilitates the workflow while creating a package and ensures its functionality.
+What is testthat? Focusing our attention on the devtools meta-package’s contents we encounter rather quickly a great number of tools to test packages.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 9, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-09-packages-with-r/" class="link black dim">
+        Creating packages with R
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Some days ago I&rsquo;ve started to revise the code of one particular R package I&rsquo;m using in my thesis work. This is a particular package developed by our team and implemented by one of my friends - Antoine Dubois. The main idea behind the implemented toolset is the simulation of individual behaviour under the most popular behavioural models. The final product should simplify the model pen-testing and performance evaluation tasks for economists and experimentalists.
+    </div>
+  </div>
+
+        </div>
+      
     </aside>
     
     <ul class="pagination pagination-default">
@@ -275,13 +392,10 @@ A short introduction to my current work From my previous posts you probably alre
         <a href="/post/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
       </li>
       <li class="page-item">
-        <a href="/post/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
-      </li>
-      <li class="page-item">
         <a href="/post/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/post/page/10/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/post/page/4/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
   </article>

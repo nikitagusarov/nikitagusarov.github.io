@@ -76,8 +76,20 @@ MathJax.Hub.Config({
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/about/" title="About page">
-              About
+            <a class="hover-white no-underline white-90" href="/activity" title="activity page">
+              activity
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact" title="contact page">
+              contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about" title="about page">
+              about
             </a>
           </li>
           
@@ -94,26 +106,8 @@ MathJax.Hub.Config({
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/development/" title="Development page">
-              Development
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
-              Posts
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/publications/" title="Publications page">
-              Publications
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/talks/" title="Talks page">
-              Talks
+            <a class="hover-white no-underline white-90" href="/" title="home page">
+              home
             </a>
           </li>
           
@@ -195,17 +189,16 @@ MathJax.Hub.Config({
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
-        February 14, 2022
+        February 8, 2022
       </div>
     
     <h1 class="f3 near-black">
-      <a href="/post/2022-02-14-metaprogramming-in-r/" class="link black dim">
-        Metaprogramming in R
+      <a href="/post/2022-02-08-python-alongside-r/" class="link black dim">
+        Python alongside R
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      While reworking the DCE Simulation package for my Thesis, I’ve discovered one more interesting topic to speak about. We have already seen how to create a package, write documentation and implement OOP in R. Now it comes the time of Metaprogramming. But don’t be afraid of this unfamiliar term, we are going to see that the concepts behind it are fairly simple.
-Most of the materials presented are adopted from this mazing book about advanced R.
+      While working on my PhD thesis I’m usually facing the situation when I need to use both R and Python programming languages. R offers me the possibility to render neat scientific supports with rmarkdown package, which bring .Rmd support. Obviously, Python has similar format (pymarkdown and the .Pmd) available, it is not as well developed as the R counterpart. Moreover, I’m far more familiar with R statistical libraries, tidyverse suite and coding practices.
     </div>
   </div>
 
@@ -216,16 +209,16 @@ Most of the materials presented are adopted from this mazing book about advanced
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
-        February 13, 2022
+        February 7, 2022
       </div>
     
     <h1 class="f3 near-black">
-      <a href="/post/2022-02-13-pinephone-daily-driving/" class="link black dim">
-        Pinephone daily driving
+      <a href="/post/2022-02-07-latex-and-r/" class="link black dim">
+        LaTeX and R
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      I&rsquo;ve decided to break my streak of posts about R programming language, to write something more personal. This autumn, I&rsquo;ve got a Pinephone for my birthday to tinker with and which had some software issues present at that time. About the same time I&rsquo;ve deGoogled another old home to use with Lineage OS. So it was only in December that I managed to switch over to using my Pinephone for some time.
+      Today I&rsquo;ve had to complete one of the course deliverables with some indications about how to compile the .Rmd files. The courses I&rsquo;m giving (partially) at Grenoble INP Génie Industriel (GI) are mostly oriented for the first and second year students on the engineering track. This means that the level of heterogeneity in the knowledge across the groups is extreme and while some of them are more than capable to use R for document compilation, others encounter difficulties with this task.
     </div>
   </div>
 
@@ -236,17 +229,138 @@ Most of the materials presented are adopted from this mazing book about advanced
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
-        February 12, 2022
+        February 6, 2022
       </div>
     
     <h1 class="f3 near-black">
-      <a href="/post/2022-02-12-oop-in-r/" class="link black dim">
-        OOP in R
+      <a href="/post/2022-02-06-thinkpad-x220-and-pwm/" class="link black dim">
+        ThinkPad X220 and PWM
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      In previous publications we have seen how to create a package with R: (1) the project’s structure generation, (2) the unit tests and their automation and (3) the documentation management. Now its time to dive deeper into programming with R. Today we are going to explore how one can use Object Oriented Programming (OOP) paradigm in R.
-There exist multiple object types and programming conventions, each with a particular idea behind it.
+      Continuing the posts' streak, today we are going to see how to eliminate the PWM flickering problem that arises on some of the ThinkPad laptops of early 2010-th. The proposed solution is specific for the laptops equipped with Intel GPU&rsquo;s (Intel i915 only) running Linux.
+This summer I&rsquo;ve acquired a second laptop, an old ThinkPad X220, to have something more portable at hand in complement to my main ThinkPad T430. Today I&rsquo;ve decided to finally patch my X220, because with time the eye strain has become more and more noticeable.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 5, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-05-stocks-with-r/" class="link black dim">
+        Financial market analysis with R
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Recently I’ve became obsessed with the idea of getting into stock exchange (for testing purposes and not for actual investment). One of the main reasons is the desire to start putting something aside for long-term perspective, but in short perspective this project gives me quite a lot of things to play with. Among them - the possibility to explore the predictive financial oriented models, neural networks (NN) testing for stock predictions and many more.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 4, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-04-bibliometrix/" class="link black dim">
+        Bibliometrix
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Since the start of my Doctoral studies I’ve always performed the literature exploration “the hard way”. Meaning, that I’ve performed most of my literature searches by hand, attempting to manually locate the key articles in the domain. While I’ve got an in-depth comprehension of the field, it remains possible that I’ve overlooked some of interesting literature clusters. However, there always existed a possibility to avoid such mistakes: by performing a thorough bibliometrics study instead of the simple literature overview.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 3, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-03-pass/" class="link black dim">
+        `Pass` for password management
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Some days ago I&rsquo;ve descried my new password management model, where I&rsquo;ve mentioned a tool named pass. By the end of the year 2021 I&rsquo;ve been using this tool for some time for my passwords management, while in 2022 it became more of a fallback measure for my backups and secure password storage. Today I&rsquo;ll discuss some of the features of this tool, as well as my personal setup and use-case.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 1, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-02-01-self-hosting/" class="link black dim">
+        Self-hosting
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Today we are going to speak about the self-hosting. Since the start of January I&rsquo;ve spent some time on configuration of my home server for my personal applications. The idea behind this transition was to put some more distance between myself and my dependence on the external services, where I&rsquo;ve no means to control my personal data. The last year, I&rsquo;ve already performed the transition from using the Google Drive and Dropbox to the usage of more private NextCloud solutions (offered by my university,as well as a privacy respecting server in Zurich).
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        January 29, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2022-01-29-onlykey-for-linux/" class="link black dim">
+        OnlyKey for Linux login
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      After receiving a hardware authentication token for the New Year, I&rsquo;ve spent quite a lot of time on the configuration. Even though I&rsquo;d already modified my security model by the end of 2021, I needed to reconsider it once again. Now my password management framework comprises three elements:
+ Hardware security token (OnlyKey) for most sensitive credentials and 2FA (two facto authentication like OTP, FIDO2 / U2F) Self-hosted cloud storage (Vaultwarden) for less sensitive credential Encrypted password database (Pass-Tomb) on a USB  Each of these elements requires a separate post, but for now I&rsquo;ll focus only on the first part.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        December 27, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/2021-12-27-blog-revival/" class="link black dim">
+        Blog revival
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      After some difficult time without much ideas about how to write, and what to write about, I&rsquo;ve decided to review this blog. Many things have happened since I&rsquo;ve last time update this page: new Machine Learning courses, participation in the AIMS2 program preparation, first time teaching of the M2 Econometrics course and many more. In this post I&rsquo;ll attempt to describe some of my new ideas concerning this blog&rsquo;s past and future.
     </div>
   </div>
 
@@ -274,13 +388,10 @@ There exist multiple object types and programming conventions, each with a parti
         <a href="/post/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
       </li>
       <li class="page-item">
-        <a href="/post/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
-      </li>
-      <li class="page-item">
         <a href="/post/page/3/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/post/page/10/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/post/page/4/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
   </article>
