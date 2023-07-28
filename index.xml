@@ -6,7 +6,16 @@
     <description>Recent content in Welcome! on Nikita Gusarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nikitagusarov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An unexpected return to blogging</title>
+      <link>https://nikitagusarov.github.io/post/2023-07-28-an-unexpected-return-to-blogging/</link>
+      <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/post/2023-07-28-an-unexpected-return-to-blogging/</guid>
+      <description>The third year of my PhD is arriving at it&amp;rsquo;s end and now all my forces are focused on the final manuscript writing, alongside with several side projects (done in collaboration with other PhD students). My experience of updating the blog on everyday basis at the start of February 2022 was more distracting from the work than I though, although it helped to keep the writing-oriented state of mind. This time, in order to boost my writing productivity I&amp;rsquo;ll attempt to return here more often with work related and personal updates.</description>
+    </item>
+    
     <item>
       <title>Coreboot update</title>
       <link>https://nikitagusarov.github.io/post/2022-03-18-coreboot-update/</link>
@@ -284,7 +293,8 @@ First of all, we should start with distinguishing two main steps in website prod
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/background/</guid>
-      <description> table th:first-of-type { width: 25%; } table th:nth-of-type(2) { width: 75%; }   Professional experience  2020 - now Grenoble Applied Economics Lab (GAEL), G-SCOP Laboratory, University Grenoble Alpes (UGA), Grenoble INP Exploration of Discrete choice Models performance metrics 2020 GAEL, Grenoble Informatics Laboratory (LIG), Multidisciplinary Institute in Artificial Intelligence (MIAI), PLATFORM, UGA Consumer Choice and Preference Modelling with Discrete Choice Models 2019 GAEL, RESMOB IDEX, UGA Identification of network effects with Discrete Choice Models for individual decision making 2018 Analytics Centre of Russian Federation Government   Teaching  2021 - 2022 UGA, Faculté d&amp;rsquo;Economie et de Gestion (FEG)  Econometrics 3, Discrete Choice Analysis (DCA)   2021 - 2022 Grenoble INP, Génie Industriel (GI)  Analyse des Données pour les métiers du Génie Industriel (2A)    Travaux d&amp;rsquo;Étude et de Recherche (TER, 2A)    Statistics (1A)   2021 - 2022 Grenoble INP, Génie Industriel (GI)  Travaux d&amp;rsquo;Étude et de Recherche (TER, 2A)    Statistics (1A)     Studies  2020 - now PhD in Economics at UGA, EDSE, CDD provided by UGA 2018 - 2020 Master in Economics at UGA, FEG, IDEX scholarship 2016 - 2018 Licence in Economics at UGA, FEG, IDEX scholarship 2014 - 2018 Bachelor in Economics at Russian Foreign Trade Academy (RFTA), Russian Federation state scholarship before - 2014 School 179 of Moscow Institute of Open Education, Natural Science profile   Languages  French (C1) DALF C1 (2018), DELF B2 (2018) English (C1) CAE C1 (2015), LCCI C1 (2016) Russian Native speaker Italian (B2) Universita per Stragnieri di Perugia certificate C1 (2017) Spanish (B1) No official grading certificate Latin (A2) No official grading certificate   Informatics  Data Science and Everyday Use R, Python, Julia Econometrics and Data Analysis SAS, Stata, Gretl, Analyzer Data Management SQL Web HTML, CSS Other Sphinx, LaTeX, Markdown, Git  </description>
+      <description>table th:first-of-type { width: 25%; } table th:nth-of-type(2) { width: 75%; }  This page offers only a short overview of my professional background and interests. For a more detailed information please see my CV:
+ Classic version (EN) Academic version (FR)   Centers of interest  Individual Behaviour Modelling and Consumer Choice Analysis Discrete Choice Modelling (DCM) and Classification Preference Studies Econometrics Machine Learning (ML) Workflow Managment and Automation R programming   Professional experience  2020 - now Grenoble Applied Economics Lab (GAEL), Grenoble Optimisation and Operations Research Lab (G-SCOP), University Grenoble Alpes (UGA), Grenoble INP Exploration of Discrete choice Models performance metrics Data analysis procedures performance comparison framework creation Model performance assessment and model selection Discrete choice modelling and classification for mode choice analysis and general consumer behavour exploartion 2022 - 2023 Data Intelligence Laboratory (LID), Polytechnic de Montréal Unstructured interviews on data analysis procedures in scientific community and industries Web-scrapping and automated data colelction 2020 GAEL, Grenoble Informatics Laboratory (LIG), Multidisciplinary Institute in Artificial Intelligence (MIAI), GDR MADICS: Platform, UGA Consumer Choice and Preference Modelling with Discrete Choice Models Classification methods for individual choice analysis Machine Learning for economics and interpretable cosumer behaviour analysis 2019 GAEL, RESMOB IDEX, UGA Identification of network effects with Discrete Choice Models for individual decision making Network and spatial classification and choice models 2018 Analytics Centre of Russian Federation Government Industry trends macroeconomic analysis Exchange rates macroeconomic trends predictions   Teaching  2023 - 2024 Grenoble INP, Industrial Engineering  Data analysis for Industrial Engineering (2A)    Data engineering and automated learning    Smart Analytics    Informatics and Programming with Python (1A)    Mathematics and Probabilities (1A)    Statistics (1A)   2023 Grenoble INP, Ensimag  AI Summer School, Discrete Choice Modelling for Consumer Choice Analysis   2021 - 2022 Univ.</description>
     </item>
     
     <item>
@@ -293,8 +303,17 @@ First of all, we should start with distinguishing two main steps in website prod
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/contact/</guid>
-      <description>To contact me you may find me in Matrix and VKontakte. Or you may just use the contact form below:
-Your Name Email Address An email address is required.  Message   </description>
+      <description>To contact me you may find me in Matrix and Telegram. Or you can always reach me by mail ngusarov.research@gmail.com.
+Your Name Email Address An email address is required.  Message   -- </description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://nikitagusarov.github.io/development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/development/</guid>
+      <description> Pandoc templates  : &amp;ldquo;Univ. Grenoble Alpes beamer pandoc template.&amp;rdquo;, Template, GNU GPLv3 &amp;ldquo;Univ. Grenoble Alpes internal report pandoc template.&amp;rdquo;, Template, GNU GPLv3 &amp;ldquo;Univ. Grenoble Alpes thesis Quarto based pandoc template.&amp;rdquo;, Template, GNU GPLv3 &amp;ldquo;Grenoble INP, G-SCOP pandoc template.&amp;rdquo;, Template, GNU GPLv3 derived from the work of P. Lemaire and E. Foussard   Software  : &amp;ldquo;Web of Science automated scrapper: wosexport&amp;rdquo;, R package, Apache v2 (VIP) &amp;ldquo;Discrete Choice Experiment Simulator: dcesimulatr&amp;rdquo;, R package, Apache v2 &amp;ldquo;Performance Metrics for Discrete Choice Analysis: performancer&amp;rdquo;, R package, Apache v2  </description>
     </item>
     
     <item>
@@ -303,7 +322,16 @@ Your Name Email Address An email address is required.  Message   </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://nikitagusarov.github.io/publications/</guid>
-      <description> Working papers and Conference proceedings  2020 Nikita Gusarov &amp;amp; Amirreza Talebijamalabad &amp;amp; Iragaël Joly, 2020. &amp;ldquo;Exploration of model performances in the presence of heterogeneous preferences and random effects utilities awareness,&amp;rdquo; Working Papers hal-03019739, HAL.   Thesis &amp;amp; Memoires  2020 Nikita Gusarov, &amp;ldquo;Performance comparison of the discrete choice models of consumer choice&amp;rdquo;, M2 Thesis, FEG, UGA 2019 Nikita Gusarov, &amp;ldquo;Analyse de la participation au marché du travail et des déterminants du salaire : Application d’un modèle de sélection endogène et essais d’utilisation des techniques en grande dimension&amp;rdquo;, M1 Memoire (in french), FEG, UGA 2018 Nikita Gusarov, &amp;ldquo;Построение модели прогнозирования валютных курсов с целью оценки их влияния на внешнюю торговлю России со странами ЕС&amp;rdquo;, Bachelor Y4 Thesis (in russian), Faculty of International Trade, RFTA   Other works  2020 Nikita Gusarov, Tom Viellescazes, &amp;ldquo;Etude des facteurs associés à l’usage fréquent des transports en commun urbain&amp;rdquo; 2019 Arnaud Blanc, Nikita Gusarov and Sasha Picon &amp;ldquo;Etude des effets des pesticides sur le marché des vins de table&amp;rdquo;  </description>
+      <description>Working papers and Conference proceedings  2023 Maria Victoria Hernandez Marquina, Nikita Gusarov, Iragaël Joly, Marie-Anne Le Dain and Peggy Zwolinski, 2023. &amp;ldquo;Managerial preferences in strategic partner selection in Circular Supply Chain (CSC).&amp;rdquo; Working Paper, Ongoing research Nikita Gusarov, 2023. &amp;ldquo;Sample size and balance impacts in commute choice analysis: Willingness to pay elicitation task.&amp;rdquo; Working Paper, WCTRS-Y 2023, Unattended for VISA reasons Nikita Gusarov, Iragaël Joly and Pierre Lemaire, 2023.</description>
+    </item>
+    
+    <item>
+      <title>Talks</title>
+      <link>https://nikitagusarov.github.io/talks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikitagusarov.github.io/talks/</guid>
+      <description> R in Grenoble  2023 Nikita Gusarov, 9 March 2023, &amp;ldquo;Literate programming with rmarkdown.&amp;rdquo;, Presentation, R in Grenoble sessions (updated version available), also available on GitHub 2020 Nikita Gusarov, 17 December 2020, &amp;ldquo;Alternatives to RStudio.&amp;rdquo;, Presentation, R in Grenoble sessions, also available on GitHub  </description>
     </item>
     
   </channel>
